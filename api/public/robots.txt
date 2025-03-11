@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /api/public/
+Allow: /api/public/pages/
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /assets/images/
+Allow: /assets/favicon/
+
+Disallow: /api/private/
+Disallow: /api/admin/
+Disallow: /temp/
+Disallow: /backup/
+
+Sitemap: https://lesnoy-dvorik.ru/sitemap.xml
+
+Host: lesnoy-dvorik.ru 

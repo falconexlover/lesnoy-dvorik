@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Ошибка сервера | Лесной дворик</title>
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#217148">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#217148">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        .error-page {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #217148;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .error-home-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #217148;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .error-home-link:hover {
+            background-color: #185636;
+        }
+        
+        .error-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            max-height: 250px;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" alt="Лесной дворик">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/api/public/pages/sauna.html">Сауна</a></li>
+                        <li><a href="/api/public/pages/banquet.html">Банкетный зал</a></li>
+                        <li><a href="/#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="error-page">
+            <div class="error-code">500</div>
+            <h1 class="error-title">Внутренняя ошибка сервера</h1>
+            <p class="error-message">
+                Извините, но на сервере произошла ошибка при обработке вашего запроса.
+                Мы уже работаем над её устранением. Пожалуйста, попробуйте обновить страницу или вернитесь позже.
+            </p>
+            <img src="/assets/images/500-image.png" alt="Ошибка сервера" class="error-image">
+            <a href="/" class="error-home-link">Вернуться на главную</a>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/assets/images/logo.png" alt="Лесной дворик">
+                </div>
+                <div class="footer-info">
+                    <p>г. Жуковский, ул. Лесная, д. 1</p>
+                    <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                    <p>Email: <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Лесной дворик. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="/js/page-scripts.js"></script>
+    <script src="/js/analytics.js"></script>
+</body>
+</html> 

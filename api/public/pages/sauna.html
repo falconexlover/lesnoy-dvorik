@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сауна "Лесной дворик" - Отдых и релаксация</title>
+    <meta name="description" content="Русская баня и финская сауна в гостинице 'Лесной дворик'. Отдых и релаксация в атмосфере комфорта и уюта.">
+    <meta name="keywords" content="сауна, русская баня, финская сауна, Жуковский, Лесной дворик, пар, веники, отдых">
+    
+    <!-- Дополнительные мета-теги для улучшения SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Лесной дворик">
+    <meta name="geo.region" content="RU-MOS">
+    <meta name="geo.placename" content="Жуковский">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#217148">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#217148">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lesnoy-dvorik.ru/api/public/pages/sauna.html">
+    <meta property="og:title" content="Сауна и Баня 'Лесной дворик'">
+    <meta property="og:description" content="Русская баня и финская сауна в санатории-профилактории 'Лесной дворик'. Отдых с пользой для тела и души.">
+    <meta property="og:image" content="https://lesnoy-dvorik.ru/assets/images/sauna-main.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lesnoy-dvorik.ru/api/public/pages/sauna.html">
+    <meta property="twitter:title" content="Сауна и Баня 'Лесной дворик'">
+    <meta property="twitter:description" content="Русская баня и финская сауна в санатории-профилактории 'Лесной дворик'. Отдых с пользой для тела и души.">
+    <meta property="twitter:image" content="https://lesnoy-dvorik.ru/assets/images/sauna-main.jpg">
+    
+    <!-- Schema.org микроразметка в формате JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Сауна и Баня 'Лесной дворик'",
+      "description": "Русская баня и финская сауна в санатории-профилактории 'Лесной дворик'. Отдых и релаксация в атмосфере комфорта и уюта.",
+      "url": "https://lesnoy-dvorik.ru/api/public/pages/sauna.html",
+      "image": "https://lesnoy-dvorik.ru/assets/images/sauna-main.jpg",
+      "telephone": "+74957554433",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Лесная, 125",
+        "addressLocality": "Жуковский",
+        "postalCode": "140180",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "55.5952",
+        "longitude": "38.1209"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "02:00"
+        }
+      ],
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Финская сауна",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Русская баня",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Бассейн",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Комната отдыха",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Чайная церемония",
+          "value": true
+        }
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Финская сауна (будни)",
+          "description": "Аренда финской сауны в будние дни",
+          "price": "1500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2023-01-01"
+        },
+        {
+          "@type": "Offer",
+          "name": "Финская сауна (выходные)",
+          "description": "Аренда финской сауны в выходные дни",
+          "price": "2000",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2023-01-01"
+        },
+        {
+          "@type": "Offer",
+          "name": "Русская баня (будни)",
+          "description": "Аренда русской бани в будние дни",
+          "price": "2000",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2023-01-01"
+        },
+        {
+          "@type": "Offer",
+          "name": "Русская баня (выходные)",
+          "description": "Аренда русской бани в выходные дни",
+          "price": "2500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2023-01-01"
+        }
+      ],
+      "isPartOf": {
+        "@type": "Hotel",
+        "name": "Санаторий-профилакторий 'Лесной дворик'",
+        "url": "https://lesnoy-dvorik.ru"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sauna-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Дополнительные стили для улучшения адаптивности для мобильных устройств -->
+    <style>
+        /* Улучшение адаптивности для мобильных устройств */
+        @media (max-width: 480px) {
+            .sauna-banner {
+                height: 300px;
+            }
+            
+            .sauna-banner h1 {
+                font-size: 28px;
+            }
+            
+            .sauna-banner p {
+                font-size: 16px;
+            }
+            
+            .sauna-intro-content {
+                flex-direction: column;
+            }
+            
+            .sauna-intro-text, .sauna-intro-image {
+                width: 100%;
+            }
+            
+            .sauna-intro-image {
+                margin-top: 20px;
+                height: 200px;
+            }
+            
+            .sauna-card {
+                flex-direction: column;
+            }
+            
+            .sauna-image {
+                width: 100%;
+                height: 200px;
+            }
+            
+            .sauna-content {
+                width: 100%;
+                padding: 20px;
+            }
+            
+            .sauna-features {
+                flex-wrap: wrap;
+            }
+            
+            .sauna-feature {
+                width: 50%;
+                margin-bottom: 10px;
+            }
+            
+            .price-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .rules-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Улучшение для изображений на всех устройствах */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Оптимизация для планшетов */
+        @media (max-width: 768px) and (min-width: 481px) {
+            .sauna-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sauna-intro-text, .sauna-intro-image {
+                width: 100%;
+            }
+            
+            .sauna-intro-content {
+                flex-direction: column;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .rules-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Улучшение доступности сайта для мобильных устройств */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/api/public/index.html">
+                    <img src="/assets/images/logo.png" alt="Лесной дворик">
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="/api/public/index.html#booking">Забронировать</a></li>
+                    <li><a href="/api/public/index.html#about">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="/api/public/pages/hotel.html">Гостиница</a>
+                        <div class="dropdown-content">
+                            <a href="/api/public/pages/hotel.html#econom">Эконом</a>
+                            <a href="/api/public/pages/hotel.html#standard">Стандарт</a>
+                            <a href="/api/public/pages/hotel.html#family">Семейные</a>
+                            <a href="/api/public/pages/hotel.html#comfort">Комфорт</a>
+                            <a href="/api/public/pages/hotel.html#lux">Люкс</a>
+                        </div>
+                    </li>
+                    <li><a href="/api/public/pages/sauna.html" class="active">Сауна</a></li>
+                    <li><a href="/api/public/pages/banquet.html">Банкетный зал</a></li>
+                    <li><a href="/api/public/pages/seminar.html">Зал для семинаров</a></li>
+                    <li><a href="/api/public/pages/gallery.html">Фотогалерея</a></li>
+                    <li><a href="/api/public/index.html#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="booking-button">
+                <a href="/api/public/index.html#booking" class="btn btn-primary">Забронировать</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="sauna-banner">
+        <div class="sauna-banner-content">
+            <h1>Сауна и Баня</h1>
+            <p>Отдых с пользой для тела и души в атмосфере уюта и расслабления</p>
+        </div>
+    </div>
+
+    <section class="sauna-intro">
+        <div class="container">
+            <h2>Отдых в сауне "Лесной дворик"</h2>
+            <div class="sauna-intro-content animate-on-scroll">
+                <div class="sauna-intro-text">
+                    <p>Наша сауна — это прекрасное место для отдыха и релаксации. Здесь вы можете восстановить силы после напряженного дня, провести время с друзьями или устроить романтический вечер.</p>
+                    <p>Мы предлагаем два вида парных: классическую финскую сауну с сухим паром и традиционную русскую баню с влажным паром и вениками. Каждый найдет то, что подходит именно ему.</p>
+                    <p>К вашим услугам комфортные комнаты отдыха, бассейн с подогревом и все необходимое для полноценного отдыха.</p>
+                </div>
+                <div class="sauna-intro-image">
+                    <img src="/assets/images/sauna-main.jpg" alt="Сауна Лесной дворик">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sauna-types">
+        <div class="container">
+            <h2>Наши парные</h2>
+            <div class="sauna-grid">
+                <div class="sauna-card animate-on-scroll">
+                    <div class="sauna-image">
+                        <img src="/assets/images/finnish-sauna.jpg" alt="Финская сауна">
+                    </div>
+                    <div class="sauna-content">
+                        <h3>Финская сауна</h3>
+                        <p>Классическая сауна с сухим паром и высокой температурой. Идеально подходит для глубокого прогрева и очищения организма.</p>
+                        <div class="sauna-features">
+                            <div class="sauna-feature">
+                                <i class="fas fa-temperature-high"></i>
+                                <span>до 100°C</span>
+                            </div>
+                            <div class="sauna-feature">
+                                <i class="fas fa-tint"></i>
+                                <span>Сухой пар</span>
+                            </div>
+                            <div class="sauna-feature">
+                                <i class="fas fa-users"></i>
+                                <span>до 8 человек</span>
+                            </div>
+                        </div>
+                        <div class="sauna-price">
+                            <p>от 1500 ₽/час</p>
+                            <span>Минимальный заказ: 2 часа</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sauna-card animate-on-scroll">
+                    <div class="sauna-image">
+                        <img src="/assets/images/russian-banya.jpg" alt="Русская баня">
+                    </div>
+                    <div class="sauna-content">
+                        <h3>Русская баня</h3>
+                        <p>Традиционная русская баня с влажным паром, вениками и чаем из самовара. Аутентичный опыт русской банной культуры.</p>
+                        <div class="sauna-features">
+                            <div class="sauna-feature">
+                                <i class="fas fa-temperature-high"></i>
+                                <span>до 80°C</span>
+                            </div>
+                            <div class="sauna-feature">
+                                <i class="fas fa-tint"></i>
+                                <span>Влажный пар</span>
+                            </div>
+                            <div class="sauna-feature">
+                                <i class="fas fa-users"></i>
+                                <span>до 6 человек</span>
+                            </div>
+                        </div>
+                        <div class="sauna-price">
+                            <p>от 2000 ₽/час</p>
+                            <span>Минимальный заказ: 2 часа</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sauna-prices">
+        <div class="container">
+            <h2>Стоимость посещения сауны</h2>
+            <p class="section-description">Мы предлагаем гибкую систему цен на посещение нашей сауны. Цены зависят от времени суток, дня недели и количества гостей.</p>
+            
+            <div class="price-table-wrapper animate-on-scroll">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Время посещения</th>
+                            <th>Будние дни (Пн-Чт)</th>
+                            <th>Выходные дни (Пт-Вс)</th>
+                            <th>Праздничные дни</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>08:00 - 14:00</td>
+                            <td>1500 ₽/час</td>
+                            <td>2000 ₽/час</td>
+                            <td>2500 ₽/час</td>
+                        </tr>
+                        <tr>
+                            <td>14:00 - 20:00</td>
+                            <td>2000 ₽/час</td>
+                            <td>2500 ₽/час</td>
+                            <td>3000 ₽/час</td>
+                        </tr>
+                        <tr>
+                            <td>20:00 - 02:00</td>
+                            <td>2500 ₽/час</td>
+                            <td>3000 ₽/час</td>
+                            <td>3500 ₽/час</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="additional-services animate-on-scroll">
+                <h3>Дополнительные услуги</h3>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="service-name">Веники (дубовый / березовый)</div>
+                        <div class="service-price">300 ₽ / шт.</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-hat-wizard"></i></div>
+                        <div class="service-name">Банные принадлежности (шапка, полотенце, тапочки)</div>
+                        <div class="service-price">400 ₽ / комплект</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-glass-cheers"></i></div>
+                        <div class="service-name">Чайная церемония (чай, мед, варенье)</div>
+                        <div class="service-price">800 ₽</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><i class="fas fa-user-ninja"></i></div>
+                        <div class="service-name">Услуги банщика (60 минут)</div>
+                        <div class="service-price">2500 ₽</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="price-notes">
+                <p><i class="fas fa-info-circle"></i> В стоимость входит посещение сауны до 6 человек.</p>
+                <p><i class="fas fa-info-circle"></i> Каждый дополнительный человек - 500 ₽.</p>
+                <p><i class="fas fa-info-circle"></i> Минимальное время бронирования - 2 часа.</p>
+                <p><i class="fas fa-info-circle"></i> При бронировании от 4 часов - скидка 10%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sauna-rules">
+        <div class="container">
+            <h2>Правила посещения сауны</h2>
+            <div class="rules-container animate-on-scroll">
+                <div class="rules-list">
+                    <div class="rule-item">
+                        <div class="rule-icon"><i class="fas fa-clock"></i></div>
+                        <div class="rule-content">
+                            <h4>Время посещения</h4>
+                            <p>Сауна работает ежедневно с 8:00 до 02:00. Рекомендуется бронировать заранее.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon"><i class="fas fa-users"></i></div>
+                        <div class="rule-content">
+                            <h4>Количество посетителей</h4>
+                            <p>Максимальное количество гостей в зоне сауны - 10 человек.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon"><i class="fas fa-shower"></i></div>
+                        <div class="rule-content">
+                            <h4>Гигиена</h4>
+                            <p>Обязательно принять душ перед посещением сауны и после бассейна.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon"><i class="fas fa-ban"></i></div>
+                        <div class="rule-content">
+                            <h4>Ограничения</h4>
+                            <p>Запрещено посещение сауны в нетрезвом состоянии, принесение своих напитков и еды.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div class="rule-content">
+                            <h4>Здоровье</h4>
+                            <p>Не рекомендуется посещение сауны при проблемах с сердечно-сосудистой системой, во время беременности и при острых заболеваниях.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-icon"><i class="fas fa-credit-card"></i></div>
+                        <div class="rule-content">
+                            <h4>Оплата</h4>
+                            <p>Оплата производится перед посещением. Возможна оплата наличными или картой.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <h2>Правила посещения и бронирования</h2>
+            <div class="booking-rules animate-on-scroll">
+                <h3>Важная информация для посетителей</h3>
+                <ul class="rules-list">
+                    <li>Бронирование осуществляется не менее чем за 24 часа до посещения</li>
+                    <li>Минимальное время аренды сауны или бани - 2 часа</li>
+                    <li>При себе необходимо иметь сменную обувь, полотенце и купальные принадлежности</li>
+                    <li>Дополнительные услуги (массаж, веники, напитки) оплачиваются отдельно</li>
+                    <li>Запрещается распитие спиртных напитков в чрезмерных количествах</li>
+                    <li>Запрещается курение в помещениях сауны и бани</li>
+                    <li>При нарушении правил администрация оставляет за собой право прервать сеанс без возврата денег</li>
+                </ul>
+            </div>
+            
+            <div class="booking-container animate-on-scroll">
+                <h3>Забронировать сауну</h3>
+                <p>Для бронирования сауны или бани свяжитесь с нами по телефону или заполните форму бронирования на главной странице сайта.</p>
+                <div class="contact-info">
+                    <p>Наш телефон для бронирования:</p>
+                    <a href="tel:+74957554433" class="contact-phone">+7 (495) 755-44-33</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/assets/images/logo-light.png" alt="Лесной дворик">
+                    <p>Санаторий-профилакторий "Лесной дворик" — атмосфера советской романтики в современном формате</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="/api/public/index.html#about">О нас</a></li>
+                        <li><a href="/api/public/pages/hotel.html">Гостиница</a></li>
+                        <li><a href="/api/public/pages/sauna.html">Сауна</a></li>
+                        <li><a href="/api/public/pages/banquet.html">Банкетный зал</a></li>
+                        <li><a href="/api/public/pages/special.html">Спецпредложения</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contacts">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Жуковский, ул. Лесная, 125</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+74957554433">+7 (495) 755-44-33</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Санаторий-профилакторий "Лесной дворик". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/page-scripts.js"></script>
+    <script src="/js/analytics.js"></script>
+</body>
+</html> 

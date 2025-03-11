@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зал для семинаров - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Зал для семинаров и конференций в гостинице 'Лесной дворик'. Комфортное пространство для проведения деловых мероприятий, тренингов и презентаций.">
+    <meta name="keywords" content="семинар, конференция, деловые мероприятия, тренинг, презентация, Жуковский, Лесной дворик">
+    
+    <!-- Дополнительные мета-теги для улучшения SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Лесной дворик">
+    <meta name="geo.region" content="RU-MOS">
+    <meta name="geo.placename" content="Жуковский">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#217148">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#217148">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lesnoy-dvorik.ru/api/public/pages/seminar.html">
+    <meta property="og:title" content="Зал для семинаров 'Лесной дворик'">
+    <meta property="og:description" content="Зал для семинаров и конференций в гостинице 'Лесной дворик'. Комфортное пространство для проведения деловых мероприятий.">
+    <meta property="og:image" content="https://lesnoy-dvorik.ru/assets/images/seminar-main.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lesnoy-dvorik.ru/api/public/pages/seminar.html">
+    <meta property="twitter:title" content="Зал для семинаров 'Лесной дворик'">
+    <meta property="twitter:description" content="Зал для семинаров и конференций в гостинице 'Лесной дворик'. Комфортное пространство для проведения деловых мероприятий.">
+    <meta property="twitter:image" content="https://lesnoy-dvorik.ru/assets/images/seminar-main.jpg">
+    
+    <!-- Schema.org микроразметка в формате JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ConferenceHall",
+      "name": "Зал для семинаров 'Лесной дворик'",
+      "description": "Зал для семинаров и конференций в гостинице 'Лесной дворик'. Комфортное пространство для проведения деловых мероприятий, тренингов и презентаций.",
+      "url": "https://lesnoy-dvorik.ru/api/public/pages/seminar.html",
+      "image": "https://lesnoy-dvorik.ru/assets/images/seminar-main.jpg",
+      "telephone": "+74957554433",
+      "email": "info@lesnoy-dvorik.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Лесная, 125",
+        "addressLocality": "Жуковский",
+        "postalCode": "140180",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "55.5952",
+        "longitude": "38.1209"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "22:00"
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Высокоскоростной Wi-Fi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Современное оборудование",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Кейтеринг",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Различные варианты рассадки",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Парковка",
+          "value": true
+        }
+      ],
+      "maximumAttendeeCapacity": 80,
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Почасовая аренда",
+          "description": "Аренда конференц-зала с оборудованием",
+          "price": "3000",
+          "priceCurrency": "RUB",
+          "priceValidUntil": "2024-12-31",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Полдня (4 часа)",
+          "description": "Аренда конференц-зала на 4 часа с кофе-брейком",
+          "price": "10000",
+          "priceCurrency": "RUB",
+          "priceValidUntil": "2024-12-31",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Полный день (8 часов)",
+          "description": "Аренда конференц-зала на 8 часов с двумя кофе-брейками",
+          "price": "18000",
+          "priceCurrency": "RUB",
+          "priceValidUntil": "2024-12-31",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Бизнес-пакет",
+          "description": "Аренда конференц-зала на полный день с кофе-брейками и бизнес-ланчем",
+          "price": "25000",
+          "priceCurrency": "RUB",
+          "priceValidUntil": "2024-12-31",
+          "availability": "https://schema.org/InStock"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+74957554433",
+        "contactType": "reservations"
+      },
+      "isPartOf": {
+        "@type": "Hotel",
+        "name": "Санаторий-профилакторий 'Лесной дворик'",
+        "url": "https://lesnoy-dvorik.ru"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/seminar-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .page-banner {
+            height: 400px;
+            background-image: url('/assets/images/seminar-main.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .page-banner-content {
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+        
+        .page-banner h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-banner p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .seminar-info {
+            padding: 60px 0;
+        }
+        
+        .seminar-card {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+        
+        .seminar-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .facility-item {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-item:hover {
+            background-color: #e8f4ee;
+        }
+        
+        .facility-icon {
+            font-size: 40px;
+            color: #5a8f7b;
+            margin-bottom: 20px;
+        }
+        
+        .facility-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .facility-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-table th, .pricing-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .pricing-table th {
+            background-color: #5a8f7b;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .pricing-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Дополнительные стили для улучшения адаптивности для мобильных устройств */
+        @media (max-width: 480px) {
+            .page-banner {
+                height: 300px;
+            }
+            
+            .page-banner h1 {
+                font-size: 28px;
+            }
+            
+            .page-banner p {
+                font-size: 16px;
+            }
+            
+            .facility-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .facility-item {
+                padding: 20px;
+            }
+            
+            .facility-icon {
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .facility-title {
+                font-size: 18px;
+            }
+            
+            .pricing-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .pricing-table {
+                min-width: 500px; /* Обеспечивает ширину таблицы на маленьких экранах */
+            }
+            
+            .seating-layout {
+                flex-direction: column;
+            }
+            
+            .seating-layout-image, 
+            .seating-layout-info {
+                width: 100%;
+            }
+            
+            .seating-layout-image {
+                height: 200px;
+                margin-bottom: 15px;
+            }
+            
+            .booking-container {
+                padding: 20px;
+            }
+        }
+        
+        /* Улучшение для изображений на всех устройствах */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Оптимизация для планшетов */
+        @media (max-width: 768px) and (min-width: 481px) {
+            .facility-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .seating-layouts {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .seating-layout {
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Улучшение доступности и читаемости */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Улучшение для кнопок на мобильных устройствах */
+        .btn {
+            min-width: 120px;
+            display: inline-block;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        
+        /* Добавление мобильной навигации */
+        .mobile-nav-selector {
+            display: none;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-nav-selector select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 480px) {
+            .mobile-nav-selector {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/api/public/index.html">
+                    <img src="/assets/images/logo.png" alt="Лесной дворик">
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="/api/public/index.html#booking">Забронировать</a></li>
+                    <li><a href="/api/public/index.html#about">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="/api/public/pages/hotel.html">Гостиница</a>
+                        <div class="dropdown-content">
+                            <a href="/api/public/pages/hotel.html#econom">Эконом</a>
+                            <a href="/api/public/pages/hotel.html#standard">Стандарт</a>
+                            <a href="/api/public/pages/hotel.html#family">Семейные</a>
+                            <a href="/api/public/pages/hotel.html#comfort">Комфорт</a>
+                            <a href="/api/public/pages/hotel.html#lux">Люкс</a>
+                        </div>
+                    </li>
+                    <li><a href="/api/public/pages/sauna.html">Сауна</a></li>
+                    <li><a href="/api/public/pages/banquet.html">Банкетный зал</a></li>
+                    <li><a href="/api/public/pages/seminar.html" class="active">Зал для семинаров</a></li>
+                    <li><a href="/api/public/pages/gallery.html">Фотогалерея</a></li>
+                    <li><a href="/api/public/index.html#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="booking-button">
+                <a href="/api/public/index.html#booking" class="btn btn-primary">Забронировать</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <div class="page-banner-content">
+            <h1>Зал для семинаров и конференций</h1>
+            <p>Идеальное пространство для ваших деловых мероприятий</p>
+        </div>
+    </div>
+
+    <section class="seminar-info">
+        <div class="container">
+            <h2>О нашем конференц-зале</h2>
+            <p class="section-description">Мы предлагаем современное пространство для проведения различных деловых мероприятий: от небольших встреч до масштабных конференций. Наш конференц-зал оснащен всем необходимым оборудованием и предлагает комфортные условия для продуктивной работы.</p>
+            
+            <div class="seminar-card animate-on-scroll">
+                <div class="container">
+                    <h3>Преимущества нашего конференц-зала</h3>
+                    <p>Конференц-зал "Лесной дворик" — это сочетание удобства, функциональности и приятной атмосферы, располагающей к продуктивной работе. Мы позаботились о том, чтобы вы и ваши гости чувствовали себя комфортно и могли сосредоточиться на важных вопросах.</p>
+                    
+                    <div class="facility-grid">
+                        <div class="facility-item animate-on-scroll">
+                            <div class="facility-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <h4 class="facility-title">Высокоскоростной Wi-Fi</h4>
+                            <p class="facility-description">Бесперебойный доступ в интернет для всех участников мероприятия</p>
+                        </div>
+                        
+                        <div class="facility-item animate-on-scroll">
+                            <div class="facility-icon">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <h4 class="facility-title">Современное оборудование</h4>
+                            <p class="facility-description">Проектор, экран, аудиосистема, микрофоны и система видеоконференций</p>
+                        </div>
+                        
+                        <div class="facility-item animate-on-scroll">
+                            <div class="facility-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4 class="facility-title">Кейтеринг</h4>
+                            <p class="facility-description">Возможность организации кофе-брейков, бизнес-ланчей и фуршетов</p>
+                        </div>
+                        
+                        <div class="facility-item animate-on-scroll">
+                            <div class="facility-icon">
+                                <i class="fas fa-chair"></i>
+                            </div>
+                            <h4 class="facility-title">Различные варианты рассадки</h4>
+                            <p class="facility-description">Театральная, классная, круглый стол, U-образная и другие варианты</p>
+                        </div>
+                        
+                        <div class="facility-item animate-on-scroll">
+                            <div class="facility-icon">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <h4 class="facility-title">Парковка</h4>
+                            <p class="facility-description">Бесплатная парковка для участников мероприятия</p>
+                        </div>
+                        
+                        <div class="facility-item animate-on-scroll">
+                            <div class="facility-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4 class="facility-title">Администратор</h4>
+                            <p class="facility-description">Персональный администратор для решения всех вопросов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Вместимость и планировка</h3>
+            <p>Наш зал подходит для мероприятий различного формата и масштаба:</p>
+            
+            <div class="pricing-table-wrapper animate-on-scroll">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Формат рассадки</th>
+                            <th>Максимальная вместимость</th>
+                            <th>Рекомендуемое количество</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Театральная</td>
+                            <td>80 человек</td>
+                            <td>60-70 человек</td>
+                        </tr>
+                        <tr>
+                            <td>Классная</td>
+                            <td>50 человек</td>
+                            <td>40-45 человек</td>
+                        </tr>
+                        <tr>
+                            <td>Круглый стол</td>
+                            <td>35 человек</td>
+                            <td>25-30 человек</td>
+                        </tr>
+                        <tr>
+                            <td>U-образная</td>
+                            <td>30 человек</td>
+                            <td>20-25 человек</td>
+                        </tr>
+                        <tr>
+                            <td>Банкетная</td>
+                            <td>60 человек</td>
+                            <td>50 человек</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Тарифы на аренду конференц-зала</h3>
+            <div class="pricing-table-wrapper animate-on-scroll">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Вариант аренды</th>
+                            <th>Стоимость</th>
+                            <th>Включено</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Почасовая аренда</td>
+                            <td>3 000 ₽/час</td>
+                            <td>Оборудование, Wi-Fi, вода</td>
+                        </tr>
+                        <tr>
+                            <td>Полдня (4 часа)</td>
+                            <td>10 000 ₽</td>
+                            <td>Оборудование, Wi-Fi, вода, кофе-брейк</td>
+                        </tr>
+                        <tr>
+                            <td>Полный день (8 часов)</td>
+                            <td>18 000 ₽</td>
+                            <td>Оборудование, Wi-Fi, вода, 2 кофе-брейка</td>
+                        </tr>
+                        <tr>
+                            <td>Бизнес-пакет (полный день)</td>
+                            <td>25 000 ₽</td>
+                            <td>Оборудование, Wi-Fi, вода, 2 кофе-брейка, бизнес-ланч</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="seating-section animate-on-scroll">
+                <h3>Варианты рассадки</h3>
+                <p>Наш конференц-зал может быть организован в различных конфигурациях в зависимости от типа вашего мероприятия:</p>
+                
+                <div class="seating-layouts">
+                    <div class="seating-layout">
+                        <div class="seating-layout-image">
+                            <img src="/assets/images/seating-theatre.jpg" alt="Театральная рассадка">
+                        </div>
+                        <div class="seating-layout-info">
+                            <h4>Театральная рассадка</h4>
+                            <p>Идеально для презентаций, лекций и семинаров. Стулья расставляются рядами, все участники обращены к спикеру.</p>
+                            <ul>
+                                <li>Максимальная вместимость: 80 человек</li>
+                                <li>Оптимальное количество: 60-70 человек</li>
+                                <li>Преимущества: максимальная вместимость, хороший обзор для всех участников</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="seating-layout">
+                        <div class="seating-layout-image">
+                            <img src="/assets/images/seating-classroom.jpg" alt="Классная рассадка">
+                        </div>
+                        <div class="seating-layout-info">
+                            <h4>Классная рассадка</h4>
+                            <p>Подходит для тренингов и мастер-классов. Участники сидят за столами, обращенными к спикеру.</p>
+                            <ul>
+                                <li>Максимальная вместимость: 50 человек</li>
+                                <li>Оптимальное количество: 40-45 человек</li>
+                                <li>Преимущества: наличие рабочей поверхности для участников, удобство для записей</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="seating-layout">
+                        <div class="seating-layout-image">
+                            <img src="/assets/images/seating-roundtable.jpg" alt="Круглый стол">
+                        </div>
+                        <div class="seating-layout-info">
+                            <h4>Круглый стол</h4>
+                            <p>Оптимально для дискуссий, переговоров и мозговых штурмов. Участники размещаются вокруг круглого или овального стола.</p>
+                            <ul>
+                                <li>Максимальная вместимость: 35 человек</li>
+                                <li>Оптимальное количество: 25-30 человек</li>
+                                <li>Преимущества: равноправие всех участников, поощрение обсуждения</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="seating-layout">
+                        <div class="seating-layout-image">
+                            <img src="/assets/images/seating-ushape.jpg" alt="U-образная рассадка">
+                        </div>
+                        <div class="seating-layout-info">
+                            <h4>U-образная рассадка</h4>
+                            <p>Подходит для тренингов и семинаров с активным участием. Столы расставлены в форме буквы U.</p>
+                            <ul>
+                                <li>Максимальная вместимость: 30 человек</li>
+                                <li>Оптимальное количество: 20-25 человек</li>
+                                <li>Преимущества: хороший зрительный контакт между участниками, удобство для презентаций</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="seating-layout">
+                        <div class="seating-layout-image">
+                            <img src="/assets/images/seating-banquet.jpg" alt="Банкетная рассадка">
+                        </div>
+                        <div class="seating-layout-info">
+                            <h4>Банкетная рассадка</h4>
+                            <p>Используется для деловых обедов и ужинов. Круглые столы на 6-10 человек каждый.</p>
+                            <ul>
+                                <li>Максимальная вместимость: 60 человек</li>
+                                <li>Оптимальное количество: 50 человек</li>
+                                <li>Преимущества: способствует неформальному общению, подходит для комбинированных мероприятий</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="seating-note">
+                    <p><i class="fas fa-info-circle"></i> Мы можем предложить комбинированные варианты рассадки или разработать индивидуальную схему под ваше мероприятие.</p>
+                </div>
+            </div>
+            
+            <div class="booking-container animate-on-scroll">
+                <h3>Забронировать зал для семинаров</h3>
+                <p>Для бронирования зала и уточнения деталей свяжитесь с нашим менеджером по телефону или заполните форму на сайте.</p>
+                <div class="contact-info">
+                    <p>Телефон для бронирования:</p>
+                    <a href="tel:+74957554433" class="contact-phone">+7 (495) 755-44-33</a>
+                </div>
+                <a href="/api/public/index.html#booking" class="btn btn-primary">Оставить заявку</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/assets/images/logo-light.png" alt="Лесной дворик">
+                    <p>Санаторий-профилакторий "Лесной дворик" — атмосфера советской романтики в современном формате</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="/api/public/index.html#about">О нас</a></li>
+                        <li><a href="/api/public/pages/hotel.html">Гостиница</a></li>
+                        <li><a href="/api/public/pages/sauna.html">Сауна</a></li>
+                        <li><a href="/api/public/pages/banquet.html">Банкетный зал</a></li>
+                        <li><a href="/api/public/pages/seminar.html">Зал для семинаров</a></li>
+                        <li><a href="/api/public/pages/gallery.html">Фотогалерея</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contacts">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Жуковский, ул. Лесная, 125</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+74957554433">+7 (495) 755-44-33</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Санаторий-профилакторий "Лесной дворик". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/page-scripts.js"></script>
+    <script src="/js/analytics.js"></script>
+</body>
+</html> 
