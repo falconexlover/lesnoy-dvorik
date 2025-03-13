@@ -1,45 +1,22 @@
 {
-  "name": "lesnoy-dvorik-hotel",
+  "name": "lesnoy-dvorik",
   "version": "1.0.0",
-  "description": "Гостиница 'Лесной дворик' - Веб-сайт",
-  "main": "public/index.html",
+  "description": "Сайт гостиницы Лесной дворик",
+  "main": "index.js",
   "scripts": {
-    "start": "vercel dev",
-    "build": "node scripts/build-assets.js && pwsh -File scripts/hotel.ps1 build",
-    "deploy": "pwsh -File scripts/hotel.ps1 deploy",
-    "dev": "pwsh -File scripts/hotel.ps1 dev",
-    "init-db": "php scripts/init-db.php",
-    "clean": "pwsh -File scripts/hotel.ps1 clean",
-    "optimize-images": "node scripts/optimize-images.js",
-    "lint": "eslint src/js/**/*.js",
-    "sync-dist": "bash scripts/sync-dist.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-    "node": ">=16.x"
-  },
-  "dependencies": {
-    "vercel-php": "^0.6.0"
-  },
-  "devDependencies": {
-    "clean-css": "^5.3.2",
-    "glob": "^8.1.0",
-    "sharp": "^0.32.1",
-    "terser": "^5.19.2",
-    "vercel": "^28.0.0",
-    "eslint": "^8.42.0"
-  },
-  "author": "Lesnoy Dvorik Team",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/username/lesnoy-dvorik.git"
+    "build:css": "tailwindcss -i ./src/css/tailwind-input.css -o ./src/css/tailwind-output.css --minify",
+    "watch:css": "tailwindcss -i ./src/css/tailwind-input.css -o ./src/css/tailwind-output.css --watch"
   },
   "keywords": [
     "hotel",
-    "booking",
-    "accommodation",
-    "лесной-дворик",
-    "гостиница"
-  ]
-} 
+    "guesthouse",
+    "accommodation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.14"
+  }
+}
