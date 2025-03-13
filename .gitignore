@@ -1,1 +1,63 @@
- 
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Среды разработки
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# Зависимости и сборки
+/node_modules/
+/vendor/
+/dist/
+/build/
+/api/
+
+# Файлы окружения
+.env
+.env.*
+!.env.example
+
+# Логи и временные файлы
+/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.tmp/
+
+# Кэш
+.cache/
+.npm/
+.eslintcache
+.sass-cache/
+
+# Чувствительные данные
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+*.crt
+*.csr
+*.der
+*.priv
+
+# Специфичные для проекта файлы и директории
+/src/includes/db_config_local.php
+/src/debug.php
+
+# Символические ссылки
+/vercel.json
+/package.json
+/package-lock.json
+
+# Автоматически генерируемые файлы
+.vercel 

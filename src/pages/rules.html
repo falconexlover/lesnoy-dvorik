@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила проживания - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Правила проживания в гостинице 'Лесной дворик'. Информация о заселении, выселении, оплате и других важных аспектах пребывания.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/header-fix.css">
+    <style>
+        /* Стили для страницы правил проживания */
+        .rules-section {
+            padding: 80px 0;
+        }
+        
+        .rules-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .rules-intro {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .rules-intro p {
+            color: var(--text-light);
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .rules-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .rules-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .rules-card h2 i {
+            margin-right: 15px;
+            font-size: 28px;
+        }
+        
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .rules-list li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary-color);
+        }
+        
+        .rules-note {
+            background-color: var(--primary-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .rules-note p {
+            color: var(--primary-dark);
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .rules-warning {
+            background-color: #FFF3E0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .rules-warning h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .rules-warning h3 i {
+            margin-right: 10px;
+        }
+        
+        .rules-warning p {
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .rules-contact {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: var(--background-light);
+            border-radius: 8px;
+        }
+        
+        .rules-contact h3 {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .rules-contact p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .rules-contact .btn {
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .rules-intro p {
+                font-size: 16px;
+            }
+            
+            .rules-card {
+                padding: 20px;
+            }
+            
+            .rules-card h2 {
+                font-size: 20px;
+            }
+            
+            .rules-list li {
+                font-size: 15px;
+            }
+            
+            .rules-contact .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Хедер будет заменен скриптом -->
+    </header>
+
+    <main>
+        <section class="page-banner">
+            <div class="container">
+                <h1>Правила проживания</h1>
+                <p>Информация для комфортного пребывания в нашей гостинице</p>
+            </div>
+        </section>
+
+        <section class="rules-section">
+            <div class="container">
+                <div class="rules-container">
+                    <div class="rules-intro">
+                        <p>Уважаемые гости! Для обеспечения комфортного и безопасного пребывания в гостинице "Лесной дворик", просим вас ознакомиться с правилами проживания и внутреннего распорядка.</p>
+                        <p>Соблюдение этих правил поможет нам сделать ваш отдых приятным и беззаботным.</p>
+                    </div>
+                    
+                    <div class="rules-card">
+                        <h2><i class="fas fa-clock"></i> Порядок заселения и выселения</h2>
+                        <ul class="rules-list">
+                            <li>Время заезда (check-in) — с 14:00 часов.</li>
+                            <li>Время выезда (check-out) — до 12:00 часов.</li>
+                            <li>Ранний заезд (с 06:00 до 14:00) и поздний выезд (с 12:00 до 18:00) возможны при наличии свободных номеров и оплачиваются дополнительно в размере 50% от стоимости суток проживания.</li>
+                            <li>При заселении необходимо предъявить документ, удостоверяющий личность (паспорт).</li>
+                            <li>Размещение детей до 7 лет без предоставления отдельного места — бесплатно.</li>
+                            <li>Продление проживания возможно только при отсутствии брони на данный номер.</li>
+                        </ul>
+                        
+                        <div class="rules-note">
+                            <p>При заселении вам будет выдан электронный ключ от номера. В случае утери ключа взимается штраф в размере 500 рублей.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rules-card">
+                        <h2><i class="fas fa-credit-card"></i> Оплата и бронирование</h2>
+                        <ul class="rules-list">
+                            <li>Оплата проживания производится при заселении в полном объеме.</li>
+                            <li>Мы принимаем оплату наличными, банковскими картами Visa, MasterCard, МИР.</li>
+                            <li>Для гарантированного бронирования требуется предоплата в размере стоимости первых суток проживания.</li>
+                            <li>Отмена бронирования без штрафа возможна не позднее, чем за 24 часа до даты заезда.</li>
+                            <li>В случае незаезда или поздней отмены бронирования (менее чем за 24 часа) взимается плата в размере стоимости первых суток проживания.</li>
+                            <li>Возврат неиспользованных денежных средств в случае досрочного выезда производится при условии предупреждения администрации не менее чем за 24 часа до выезда.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rules-card">
+                        <h2><i class="fas fa-bed"></i> Правила проживания</h2>
+                        <ul class="rules-list">
+                            <li>Соблюдайте тишину с 23:00 до 07:00 часов.</li>
+                            <li>Бережно относитесь к имуществу гостиницы. В случае повреждения или утраты имущества гость возмещает ущерб в соответствии с рыночной стоимостью.</li>
+                            <li>Запрещается курение в номерах и общественных помещениях гостиницы. Курение разрешено только в специально отведенных местах.</li>
+                            <li>Запрещается использование в номерах электроприборов, не входящих в комплектацию номера, за исключением зарядных устройств и электробритв.</li>
+                            <li>Посещение гостей, не проживающих в гостинице, возможно с 08:00 до 23:00 часов при условии регистрации на ресепшн.</li>
+                            <li>Размещение с домашними животными возможно только в специально отведенных номерах и по предварительному согласованию с администрацией.</li>
+                        </ul>
+                        
+                        <div class="rules-warning">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Внимание!</h3>
+                            <p>Нарушение правил проживания и пожарной безопасности может привести к досрочному выселению без возмещения стоимости проживания.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rules-card">
+                        <h2><i class="fas fa-utensils"></i> Питание и дополнительные услуги</h2>
+                        <ul class="rules-list">
+                            <li>Завтрак включен в стоимость проживания и сервируется в ресторане с 07:00 до 10:00 часов.</li>
+                            <li>Обед подается с 12:00 до 15:00, ужин — с 18:00 до 21:00 (оплачиваются дополнительно).</li>
+                            <li>Заказ еды в номер возможен с 07:00 до 22:00 часов.</li>
+                            <li>Услуги прачечной предоставляются с 09:00 до 17:00 часов, срок исполнения — 24 часа.</li>
+                            <li>Бронирование сауны и банкетного зала производится заранее на ресепшн.</li>
+                            <li>Wi-Fi предоставляется бесплатно на всей территории гостиницы.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rules-card">
+                        <h2><i class="fas fa-shield-alt"></i> Безопасность</h2>
+                        <ul class="rules-list">
+                            <li>Гостиница не несет ответственности за сохранность ценных вещей, оставленных в номере. Для хранения ценностей используйте сейф в номере или на ресепшн.</li>
+                            <li>При выходе из номера закрывайте окна, выключайте свет и электроприборы.</li>
+                            <li>В случае обнаружения возгорания или задымления немедленно сообщите администратору.</li>
+                            <li>Ознакомьтесь с планом эвакуации и расположением аварийных выходов.</li>
+                            <li>В экстренных случаях обращайтесь к администратору (круглосуточно).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rules-contact">
+                        <h3>Остались вопросы?</h3>
+                        <p>Если у вас возникли вопросы по правилам проживания или вам требуется дополнительная информация, пожалуйста, обратитесь к администратору гостиницы или свяжитесь с нами:</p>
+                        <a href="tel:+74951234567" class="btn btn-outline"><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</a>
+                        <a href="mailto:info@lesnoy-dvorik.ru" class="btn btn-outline"><i class="fas fa-envelope"></i> info@lesnoy-dvorik.ru</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <img src="../assets/images/logo.png" alt="Лесной дворик" width="150" height="50">
+                        </div>
+                        <p>Уютная гостиница в окружении природы для идеального отдыха от городской суеты.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Мы ВКонтакте"><i class="fab fa-vk"></i></a>
+                            <a href="#" aria-label="Мы в Telegram"><i class="fab fa-telegram"></i></a>
+                            <a href="#" aria-label="Мы в WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" aria-label="Мы в Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Навигация</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html">Главная</a></li>
+                            <li><a href="../index.html#about">О нас</a></li>
+                            <li><a href="hotel.html">Гостиница</a></li>
+                            <li><a href="sauna.html">Сауна</a></li>
+                            <li><a href="banquet.html">Конференц-зал</a></li>
+                            <li><a href="special.html">Спецпредложения</a></li>
+                            <li><a href="reviews.html">Отзывы</a></li>
+                            <li><a href="info.html">Полезная информация</a></li>
+                            <li><a href="contacts.html">Контакты</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                            <li><a href="rules.html">Правила проживания</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Контакты</h3>
+                        <ul class="footer-contacts">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Россия, Московская область, г. Звенигород, ул. Лесная, д. 10</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Подписка</h3>
+                        <p>Подпишитесь на нашу рассылку, чтобы получать новости и специальные предложения</p>
+                        <form class="footer-subscribe" action="../php/subscribe.php" method="post">
+                            <input type="email" name="email" placeholder="Ваш email" required>
+                            <button type="submit" aria-label="Подписаться"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="privacy.html">Политика конфиденциальности</a></li>
+                    <li><a href="rules.html">Правила проживания</a></li>
+                    <li><a href="#">Карта сайта</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/apply-header.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/debug.js"></script>
+</body>
+</html> 

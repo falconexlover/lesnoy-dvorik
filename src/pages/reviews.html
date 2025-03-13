@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Отзывы гостей о санатории-профилактории 'Лесной дворик'. Узнайте мнения наших посетителей и оставьте свой отзыв о проживании.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #217148; /* Зеленый цвет */
+        }
+        
+        .reviews-section {
+            padding: 80px 0;
+        }
+        
+        .reviews-container {
+            margin-top: 40px;
+        }
+        
+        .review-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .review-info {
+            flex: 1;
+        }
+        
+        .review-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .review-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .review-rating {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .review-rating i {
+            color: var(--accent-color);
+            margin-right: 3px;
+        }
+        
+        .review-text {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .review-category {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .review-form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .review-form-title {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .star-rating {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .star-rating input {
+            display: none;
+        }
+        
+        .star-rating label {
+            cursor: pointer;
+            font-size: 30px;
+            color: #ddd;
+            padding: 5px;
+        }
+        
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: var(--accent-color);
+        }
+        
+        .review-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            background-color: var(--background-light);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .filter-btn:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: var(--background-light);
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .review-avatar {
+                margin-bottom: 15px;
+            }
+            
+            .review-filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Лесной дворик" width="150" height="50">
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="../index.html#about">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="hotel.html">Гостиница</a>
+                        <div class="dropdown-content">
+                            <a href="hotel.html#econom">Эконом</a>
+                            <a href="hotel.html#standard">Стандарт</a>
+                            <a href="hotel.html#family">Семейные</a>
+                            <a href="hotel.html#comfort">Комфорт</a>
+                            <a href="hotel.html#lux">Люкс</a>
+                        </div>
+                    </li>
+                    <li><a href="sauna.html">Сауна</a></li>
+                    <li><a href="banquet.html">Конференц-зал</a></li>
+                    <li><a href="special.html">Спецпредложения</a></li>
+                    <li><a href="reviews.html" class="active">Отзывы</a></li>
+                    <li><a href="info.html">Полезная информация</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                </ul>
+            </nav>
+            <div class="booking-button">
+                <a href="booking.html" class="btn btn-primary" style="font-weight: bold; box-shadow: 0 4px 8px rgba(33, 113, 72, 0.3); transform: scale(1.05);">Забронировать</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Отзывы</h1>
+            <p>Мнения наших гостей о санатории-профилактории "Лесной дворик"</p>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы наших гостей</h2>
+                <p>Узнайте, что говорят о нас посетители</p>
+            </div>
+            
+            <div class="review-filters">
+                <button class="filter-btn active" data-filter="all">Все отзывы</button>
+                <button class="filter-btn" data-filter="hotel">Гостиница</button>
+                <button class="filter-btn" data-filter="sauna">Сауна</button>
+                <button class="filter-btn" data-filter="restaurant">Ресторан</button>
+                <button class="filter-btn" data-filter="banquet">Банкетный зал</button>
+                <button class="filter-btn" data-filter="5">5 звезд</button>
+                <button class="filter-btn" data-filter="4">4 звезды</button>
+                <button class="filter-btn" data-filter="3">3 звезды и ниже</button>
+            </div>
+            
+            <div class="reviews-container">
+                <!-- Отзыв 1 -->
+                <div class="review-card animate-on-scroll" data-category="hotel" data-rating="5">
+                    <div class="review-header">
+                        <div class="review-avatar">АК</div>
+                        <div class="review-info">
+                            <div class="review-name">Анна К.</div>
+                            <div class="review-date">15 мая 2023</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        <p>Отличное место для отдыха! Мы с семьей провели здесь выходные и остались очень довольны. Номер чистый и уютный, персонал вежливый и внимательный. Особенно понравился завтрак - разнообразный и вкусный. Обязательно вернемся еще!</p>
+                    </div>
+                    <div class="review-categories">
+                        <span class="review-category">Гостиница</span>
+                        <span class="review-category">Семейный отдых</span>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 2 -->
+                <div class="review-card animate-on-scroll" data-category="sauna" data-rating="5">
+                    <div class="review-header">
+                        <div class="review-avatar">МС</div>
+                        <div class="review-info">
+                            <div class="review-name">Михаил С.</div>
+                            <div class="review-date">3 апреля 2023</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        <p>Сауна просто отличная! Две парилки - финская и русская, купель с прохладной водой, комната отдыха с удобными лежаками. Всё чисто и аккуратно. Персонал предоставил всё необходимое. Отдыхали компанией друзей, все остались довольны. Рекомендую!</p>
+                    </div>
+                    <div class="review-categories">
+                        <span class="review-category">Сауна</span>
+                        <span class="review-category">Отдых с друзьями</span>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 3 -->
+                <div class="review-card animate-on-scroll" data-category="restaurant" data-rating="4">
+                    <div class="review-header">
+                        <div class="review-avatar">ЕВ</div>
+                        <div class="review-info">
+                            <div class="review-name">Елена В.</div>
+                            <div class="review-date">20 марта 2023</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        <p>Ресторан порадовал разнообразием блюд и качеством обслуживания. Особенно понравились блюда русской кухни - всё очень вкусно и порции большие. Единственный минус - немного долго ждали заказ, но это компенсировалось качеством блюд.</p>
+                    </div>
+                    <div class="review-categories">
+                        <span class="review-category">Ресторан</span>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 4 -->
+                <div class="review-card animate-on-scroll" data-category="banquet" data-rating="5">
+                    <div class="review-header">
+                        <div class="review-avatar">ОП</div>
+                        <div class="review-info">
+                            <div class="review-name">Ольга П.</div>
+                            <div class="review-date">15 февраля 2023</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        <p>Проводили юбилей в банкетном зале "Лесного дворика". Всё прошло на высшем уровне! Зал красиво оформлен, обслуживание отличное, еда вкусная. Гости были в восторге. Отдельное спасибо менеджеру Ирине за помощь в организации мероприятия.</p>
+                    </div>
+                    <div class="review-categories">
+                        <span class="review-category">Банкетный зал</span>
+                        <span class="review-category">Юбилей</span>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 5 -->
+                <div class="review-card animate-on-scroll" data-category="hotel" data-rating="3">
+                    <div class="review-header">
+                        <div class="review-avatar">ДМ</div>
+                        <div class="review-info">
+                            <div class="review-name">Дмитрий М.</div>
+                            <div class="review-date">10 января 2023</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        <p>Номер был чистым, но мебель немного устаревшая. Wi-Fi работал с перебоями. Персонал вежливый и отзывчивый. Завтрак хороший. В целом, неплохо для своей ценовой категории, но есть куда стремиться.</p>
+                    </div>
+                    <div class="review-categories">
+                        <span class="review-category">Гостиница</span>
+                        <span class="review-category">Деловая поездка</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="pagination-btn active">1</a>
+                <a href="#" class="pagination-btn">2</a>
+                <a href="#" class="pagination-btn">3</a>
+                <a href="#" class="pagination-btn"><i class="fas fa-chevron-right"></i></a>
+            </div>
+            
+            <div class="review-form-container">
+                <h3 class="review-form-title">Оставьте свой отзыв</h3>
+                <form id="review-form" action="../php/reviews.php" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Оценка *</label>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5" title="5 звезд"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="4 звезды"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="3 звезды"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="2 звезды"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="1 звезда"><i class="fas fa-star"></i></label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Категория *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="hotel">Гостиница</option>
+                            <option value="sauna">Сауна</option>
+                            <option value="restaurant">Ресторан</option>
+                            <option value="banquet">Банкетный зал</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="review-text">Ваш отзыв *</label>
+                        <textarea id="review-text" name="review_text" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Я согласен с <a href="privacy.html">политикой конфиденциальности</a> *</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                    </div>
+                    
+                    <p class="form-note">* Отзыв будет опубликован после проверки модератором</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img data-src="../assets/images/logo-white.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 50' %3E%3Crect width='150' height='50' fill='%23333'/%3E%3C/svg%3E" alt="Лесной дворик" width="150" height="50" class="lazy-image">
+                    <p>Уютный отдых в окружении природы</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="../index.html#about">О нас</a></li>
+                        <li><a href="hotel.html">Гостиница</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Банкетный зал</a></li>
+                        <li><a href="special.html">Спецпредложения</a></li>
+                        <li><a href="booking.html">Бронирование</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a href="info.html">Полезная информация</a></li>
+                        <li><a href="../index.html#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="hotel.html">Проживание</a></li>
+                        <li><a href="restaurant.html">Ресторан</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Банкеты</a></li>
+                        <li><a href="seminar.html">Конференции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Московская область, г. Жуковский, ул. Нижегородская, д. 4</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+74984831941">8 (498) 483-19-41</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                    <p><i class="fab fa-vk"></i> <a href="https://vk.com/lesnoy_dvorik">lesnoy_dvorik</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены. <a href="privacy.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Фильтрация отзывов
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const reviewCards = document.querySelectorAll('.review-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Активный класс для кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Фильтрация отзывов
+                    reviewCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else if (filter === '5' && card.getAttribute('data-rating') === '5') {
+                            card.style.display = 'block';
+                        } else if (filter === '4' && card.getAttribute('data-rating') === '4') {
+                            card.style.display = 'block';
+                        } else if (filter === '3' && parseInt(card.getAttribute('data-rating')) <= 3) {
+                            card.style.display = 'block';
+                        } else if (card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Звездный рейтинг в форме
+            const starLabels = document.querySelectorAll('.star-rating label');
+            
+            starLabels.forEach(label => {
+                label.addEventListener('click', function() {
+                    const ratingValue = this.previousElementSibling.value;
+                    
+                    starLabels.forEach(lbl => {
+                        if (lbl.previousElementSibling.value <= ratingValue) {
+                            lbl.querySelector('i').className = 'fas fa-star';
+                        } else {
+                            lbl.querySelector('i').className = 'far fa-star';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

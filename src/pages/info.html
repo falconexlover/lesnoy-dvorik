@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезная информация - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Полезная информация для гостей санатория-профилактория 'Лесной дворик'. Правила проживания, часто задаваемые вопросы, как добраться и другая важная информация.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #217148; /* Зеленый цвет */
+        }
+        
+        .info-section {
+            padding: 80px 0;
+        }
+        
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-card h3 i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .info-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .info-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .info-card ul li:before {
+            content: "\f054";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+        
+        .info-card p {
+            margin-bottom: 15px;
+        }
+        
+        .info-card a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .faq-answer {
+            color: var(--text-light);
+        }
+        
+        .transport-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+        
+        .transport-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .transport-content {
+            flex: 1;
+        }
+        
+        .transport-content h4 {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Лесной дворик" width="150" height="50">
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="../index.html#about">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="hotel.html">Гостиница</a>
+                        <div class="dropdown-content">
+                            <a href="hotel.html#econom">Эконом</a>
+                            <a href="hotel.html#standard">Стандарт</a>
+                            <a href="hotel.html#family">Семейные</a>
+                            <a href="hotel.html#comfort">Комфорт</a>
+                            <a href="hotel.html#lux">Люкс</a>
+                        </div>
+                    </li>
+                    <li><a href="sauna.html">Сауна</a></li>
+                    <li><a href="banquet.html">Конференц-зал</a></li>
+                    <li><a href="special.html">Спецпредложения</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="info.html" class="active">Полезная информация</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                </ul>
+            </nav>
+            <div class="booking-button">
+                <a href="booking.html" class="btn btn-primary" style="font-weight: bold; box-shadow: 0 4px 8px rgba(33, 113, 72, 0.3); transform: scale(1.05);">Забронировать</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Полезная информация</h1>
+            <p>Всё, что нужно знать о проживании в санатории-профилактории "Лесной дворик"</p>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Полезная информация</h2>
+                <p>Информация, которая поможет сделать ваше пребывание комфортным</p>
+            </div>
+            
+            <div class="info-container">
+                <div class="info-card animate-on-scroll">
+                    <h3><i class="fas fa-bed"></i> Правила проживания</h3>
+                    <p>Ознакомьтесь с основными правилами проживания в нашей гостинице:</p>
+                    <ul>
+                        <li>Заезд с 14:00, выезд до 12:00</li>
+                        <li>Ранний заезд и поздний выезд возможны за дополнительную плату</li>
+                        <li>Размещение с домашними животными не допускается</li>
+                        <li>Курение разрешено только в специально отведенных местах</li>
+                        <li>Тихий час с 23:00 до 07:00</li>
+                    </ul>
+                    <p><a href="rules.html">Подробные правила проживания →</a></p>
+                </div>
+                
+                <div class="info-card animate-on-scroll">
+                    <h3><i class="fas fa-route"></i> Как добраться</h3>
+                    <div class="transport-item">
+                        <div class="transport-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="transport-content">
+                            <h4>На автомобиле</h4>
+                            <p>По Новорязанскому шоссе до г. Жуковский, далее следуйте указателям до ул. Нижегородская, д. 4.</p>
+                        </div>
+                    </div>
+                    <div class="transport-item">
+                        <div class="transport-icon">
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div class="transport-content">
+                            <h4>На электричке</h4>
+                            <p>От Казанского вокзала до станции МЦД "Отдых", далее пешком 15 минут или на автобусе №2 до остановки "Санаторий".</p>
+                        </div>
+                    </div>
+                    <div class="transport-item">
+                        <div class="transport-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <div class="transport-content">
+                            <h4>На автобусе</h4>
+                            <p>От метро "Котельники" автобус №441 до г. Жуковский, далее автобус №2 до остановки "Санаторий".</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card animate-on-scroll">
+                    <h3><i class="fas fa-question-circle"></i> Часто задаваемые вопросы</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">Есть ли в номерах Wi-Fi?</div>
+                        <div class="faq-answer">Да, бесплатный Wi-Fi доступен на всей территории гостиницы.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Можно ли заказать завтрак в номер?</div>
+                        <div class="faq-answer">Да, услуга доставки завтрака в номер доступна за дополнительную плату.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Есть ли парковка?</div>
+                        <div class="faq-answer">Да, на территории гостиницы есть бесплатная парковка для гостей.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Можно ли продлить проживание?</div>
+                        <div class="faq-answer">Да, при наличии свободных номеров. Обратитесь на ресепшн заранее.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Какие способы оплаты принимаются?</div>
+                        <div class="faq-answer">Наличные, банковские карты, безналичный расчет.</div>
+                    </div>
+                </div>
+                
+                <div class="info-card animate-on-scroll">
+                    <h3><i class="fas fa-utensils"></i> Питание</h3>
+                    <p>В нашей гостинице работает ресторан с разнообразным меню русской и европейской кухни.</p>
+                    <ul>
+                        <li>Завтрак: 07:00 - 10:00</li>
+                        <li>Обед: 12:00 - 15:00</li>
+                        <li>Ужин: 18:00 - 21:00</li>
+                    </ul>
+                    <p>Завтрак включен в стоимость проживания. Возможен заказ комплексных обедов и ужинов.</p>
+                    <p><a href="restaurant.html">Подробнее о ресторане →</a></p>
+                </div>
+                
+                <div class="info-card animate-on-scroll">
+                    <h3><i class="fas fa-map-marked-alt"></i> Что посмотреть рядом</h3>
+                    <ul>
+                        <li>Центральный парк культуры и отдыха (2 км)</li>
+                        <li>Музей авиации (3 км)</li>
+                        <li>Набережная реки Москвы (4 км)</li>
+                        <li>Торговый центр "Авиатор" (2.5 км)</li>
+                        <li>Лесопарковая зона "Цаговский лес" (1 км)</li>
+                    </ul>
+                    <p>На ресепшн вы можете получить карту города и рекомендации по интересным местам.</p>
+                </div>
+                
+                <div class="info-card animate-on-scroll">
+                    <h3><i class="fas fa-phone-alt"></i> Важные телефоны</h3>
+                    <p><strong>Гостиница:</strong> <a href="tel:+74984831941">8 (498) 483-19-41</a>, <a href="tel:+79151201744">8 (915) 120-17-44</a></p>
+                    <p><strong>Сауна:</strong> <a href="tel:+79151201744">8 (915) 120-17-44</a></p>
+                    <p><strong>Конференц-зал:</strong> <a href="tel:+79169266514">8 (916) 926-65-14</a></p>
+                    <p><strong>Ресепшн (круглосуточно):</strong> <a href="tel:+74984831941">8 (498) 483-19-41</a></p>
+                    <p><strong>Экстренные службы:</strong></p>
+                    <ul>
+                        <li>Единый номер экстренных служб: 112</li>
+                        <li>Полиция: 102</li>
+                        <li>Скорая помощь: 103</li>
+                        <li>Пожарная служба: 101</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img data-src="../assets/images/logo-white.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 50' %3E%3Crect width='150' height='50' fill='%23333'/%3E%3C/svg%3E" alt="Лесной дворик" width="150" height="50" class="lazy-image">
+                    <p>Уютный отдых в окружении природы</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="../index.html#about">О нас</a></li>
+                        <li><a href="hotel.html">Гостиница</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Конференц-зал</a></li>
+                        <li><a href="special.html">Спецпредложения</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a href="info.html">Полезная информация</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="hotel.html">Проживание</a></li>
+                        <li><a href="restaurant.html">Ресторан</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Банкеты</a></li>
+                        <li><a href="seminar.html">Конференции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Московская область, г. Жуковский, ул. Нижегородская, д. 4</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+74984831941">8 (498) 483-19-41</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                    <p><i class="fab fa-vk"></i> <a href="https://vk.com/lesnoy_dvorik">lesnoy_dvorik</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены. <a href="privacy.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

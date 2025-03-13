@@ -1,0 +1,338 @@
+/**
+ * Единый стандарт типографики для сайта "Лесной дворик"
+ * Обеспечивает согласованность текстовых элементов на всех страницах
+ */
+
+/* Импорт шрифтов (можно удалить, если шрифты уже подключены в головном документе) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* 
+ * Основные переменные типографики
+ * Многие уже определены в style.css, но мы создадим расширенную версию
+ */
+:root {
+    /* Семейства шрифтов */
+    --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-secondary: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    
+    /* Базовые размеры шрифтов */
+    --font-size-base: 16px;         /* Базовый размер текста */
+    --font-size-xs: 0.75rem;        /* 12px при базовом 16px */
+    --font-size-sm: 0.875rem;       /* 14px при базовом 16px */
+    --font-size-md: 1rem;           /* 16px при базовом 16px */
+    --font-size-lg: 1.125rem;       /* 18px при базовом 16px */
+    --font-size-xl: 1.25rem;        /* 20px при базовом 16px */
+    --font-size-2xl: 1.5rem;        /* 24px при базовом 16px */
+    --font-size-3xl: 1.875rem;      /* 30px при базовом 16px */
+    --font-size-4xl: 2.25rem;       /* 36px при базовом 16px */
+    --font-size-5xl: 3rem;          /* 48px при базовом 16px */
+    
+    /* Размеры заголовков */
+    --h1-font-size: var(--font-size-4xl);
+    --h2-font-size: var(--font-size-3xl);
+    --h3-font-size: var(--font-size-2xl);
+    --h4-font-size: var(--font-size-xl);
+    --h5-font-size: var(--font-size-lg);
+    --h6-font-size: var(--font-size-md);
+    
+    /* Веса шрифтов */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Высота строки (интерлиньяж) */
+    --line-height-tight: 1.2;      /* Для заголовков */
+    --line-height-normal: 1.5;     /* Для основного текста */
+    --line-height-relaxed: 1.75;   /* Для больших блоков текста */
+    
+    /* Межбуквенное расстояние */
+    --letter-spacing-tight: -0.025em;  /* Для заголовков */
+    --letter-spacing-normal: 0;        /* Стандартное */
+    --letter-spacing-wide: 0.025em;    /* Для кнопок и акцентов */
+    --letter-spacing-wider: 0.05em;    /* Для маленького текста и заглавных букв */
+    
+    /* Отступы между абзацами */
+    --paragraph-spacing: 1.5rem;
+}
+
+/* Базовые стили текста */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    line-height: var(--line-height-tight);
+    margin-top: 0;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+    margin-bottom: 1.5rem;
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1.25rem;
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: var(--h4-font-size);
+    margin-bottom: 0.75rem;
+}
+
+h5 {
+    font-size: var(--h5-font-size);
+    margin-bottom: 0.5rem;
+}
+
+h6 {
+    font-size: var(--h6-font-size);
+    margin-bottom: 0.5rem;
+}
+
+/* Параграфы и списки */
+p {
+    margin-top: 0;
+    margin-bottom: var(--paragraph-spacing);
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: var(--paragraph-spacing);
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Ссылки */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover, a:focus {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Выделение текста */
+strong, b {
+    font-weight: var(--font-weight-bold);
+}
+
+em, i {
+    font-style: italic;
+}
+
+mark {
+    background-color: var(--accent-light);
+    padding: 0.125em 0.25em;
+    border-radius: 2px;
+}
+
+small {
+    font-size: var(--font-size-sm);
+}
+
+/* Цитаты */
+blockquote {
+    margin: 0 0 var(--paragraph-spacing);
+    padding: 1rem 1.5rem;
+    border-left: 4px solid var(--primary-light);
+    background-color: var(--background-light);
+    font-style: italic;
+    color: var(--text-light);
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Код */
+code, pre {
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+    background-color: var(--background-light);
+    border-radius: 3px;
+}
+
+code {
+    padding: 0.2em 0.4em;
+}
+
+pre {
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: var(--paragraph-spacing);
+    white-space: pre-wrap;
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+}
+
+/* Вспомогательные классы для текста */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-md { font-size: var(--font-size-md); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+
+.text-light { font-weight: var(--font-weight-light); }
+.text-regular { font-weight: var(--font-weight-regular); }
+.text-medium { font-weight: var(--font-weight-medium); }
+.text-semibold { font-weight: var(--font-weight-semibold); }
+.text-bold { font-weight: var(--font-weight-bold); }
+
+.text-primary { color: var(--primary-color); }
+.text-accent { color: var(--accent-color); }
+.text-dark { color: var(--text-color); }
+.text-light { color: var(--text-light); }
+.text-white { color: white; }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.text-uppercase { 
+    text-transform: uppercase; 
+    letter-spacing: var(--letter-spacing-wider);
+}
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.text-nowrap { white-space: nowrap; }
+.text-break { word-break: break-word; }
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Специальные компоненты */
+.lead {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.section-title h2 {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}
+
+.section-title h2:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: var(--font-size-lg);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+/* Адаптивная типографика */
+@media (max-width: 992px) {
+    :root {
+        --h1-font-size: 2rem;        /* 32px */
+        --h2-font-size: 1.75rem;     /* 28px */
+        --paragraph-spacing: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 15px;
+        --h1-font-size: 1.75rem;     /* 28px */
+        --h2-font-size: 1.5rem;      /* 24px */
+        --h3-font-size: 1.25rem;     /* 20px */
+        --paragraph-spacing: 1rem;
+    }
+    
+    .section-title {
+        margin-bottom: 2rem;
+    }
+    
+    .section-subtitle {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --font-size-base: 14px;
+        --h1-font-size: 1.5rem;      /* 24px */
+        --h2-font-size: 1.25rem;     /* 20px */
+        --h3-font-size: 1.125rem;    /* 18px */
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Режим для людей с нарушениями зрения (увеличенный текст) */
+@media screen and (prefers-reduced-motion: reduce) {
+    html {
+        font-size: 110%;
+    }
+}
+
+/* Режим высокой контрастности */
+@media screen and (prefers-contrast: high) {
+    :root {
+        --text-color: #000000;
+        --text-light: #333333;
+        --background-color: #ffffff;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+} 

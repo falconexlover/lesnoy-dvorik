@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демонстрация типографики - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Демонстрация единого стандарта типографики для сайта 'Лесной дворик'">
+    <!-- Основные стили подключатся через header-autoload.js -->
+    <style>
+        .typography-demo {
+            max-width: 1200px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+        
+        .demo-section {
+            margin-bottom: 60px;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: var(--background-color);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .demo-section h2 {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .color-block {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-block span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+        }
+        
+        .text-sample {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Хедер будет заменен скриптом -->
+    </header>
+
+    <main class="typography-demo">
+        <div class="section-title">
+            <h1>Демонстрация единого стандарта типографики</h1>
+            <p class="section-subtitle">На этой странице представлены все элементы типографики сайта гостиницы "Лесной дворик"</p>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Основные заголовки</h2>
+            <p>На нашем сайте используется 6 уровней заголовков, основанных на переменных размеров шрифтов.</p>
+            
+            <div class="text-sample">
+                <h1>Заголовок H1 (--h1-font-size)</h1>
+                <p>Основной заголовок страницы, используется только один раз на странице.</p>
+            </div>
+            
+            <div class="text-sample">
+                <h2>Заголовок H2 (--h2-font-size)</h2>
+                <p>Заголовок секции, разделяет основные смысловые блоки контента.</p>
+            </div>
+            
+            <div class="text-sample">
+                <h3>Заголовок H3 (--h3-font-size)</h3>
+                <p>Подзаголовок секции, используется для групп связанного контента внутри секции.</p>
+            </div>
+            
+            <div class="text-sample">
+                <h4>Заголовок H4 (--h4-font-size)</h4>
+                <p>Заголовок подсекции, используется для более детального разделения контента.</p>
+            </div>
+            
+            <div class="text-sample">
+                <h5>Заголовок H5 (--h5-font-size)</h5>
+                <p>Используется для выделения небольших разделов или групп элементов.</p>
+            </div>
+            
+            <div class="text-sample">
+                <h6>Заголовок H6 (--h6-font-size)</h6>
+                <p>Наименьший заголовок, используется редко, только для особых случаев.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Текстовые элементы</h2>
+            <p>Основные текстовые элементы сайта, используемые для контента.</p>
+            
+            <div class="text-sample">
+                <p class="lead">Вводный абзац (Lead). Используется в начале секции для привлечения внимания и введения в тему. Имеет больший размер шрифта и более свободное расстояние между строками.</p>
+            </div>
+            
+            <div class="text-sample">
+                <p>Обычный параграф текста. Основной текстовый элемент для содержимого сайта. Используется шрифт Roboto с базовым размером 16px и нормальным межстрочным интервалом.</p>
+                <p>При использовании нескольких параграфов они разделяются отступом, определенным в переменной --paragraph-spacing. Это обеспечивает согласованные интервалы между блоками текста.</p>
+            </div>
+            
+            <div class="text-sample">
+                <p><strong>Полужирный текст</strong> используется для <b>выделения важных частей</b> в предложении.</p>
+                <p><em>Курсив</em> используется для <i>выделения терминов</i> или для создания акцента.</p>
+                <p><mark>Выделенный текст</mark> используется для привлечения внимания к ключевым фразам.</p>
+                <p>Текст может содержать <a href="#">ссылки на другие страницы</a>, которые выделяются цветом и подчеркиванием при наведении.</p>
+                <p>Также возможно использование <small>мелкого текста</small> для примечаний или дополнительной информации.</p>
+            </div>
+            
+            <div class="text-sample">
+                <blockquote>
+                    <p>Цитаты оформляются в блоке с отступом и вертикальной линией слева. Это помогает визуально отделить цитируемый текст от основного содержимого.</p>
+                    <p>Если цитата имеет несколько параграфов, они все будут включены в один блок цитаты.</p>
+                </blockquote>
+            </div>
+            
+            <div class="text-sample">
+                <p>Примеры кода могут быть встроены в текст с помощью элемента <code>&lt;code&gt;</code>, который использует моноширинный шрифт.</p>
+                
+                <pre><code>// Пример блока кода
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+}</code></pre>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Списки</h2>
+            <p>Различные типы списков для структурирования информации.</p>
+            
+            <div class="text-sample">
+                <h4>Маркированный список:</h4>
+                <ul>
+                    <li>Комфортабельные номера с современной мебелью</li>
+                    <li>Бесплатный Wi-Fi на всей территории гостиницы</li>
+                    <li>Ресторан с разнообразным меню:
+                        <ul>
+                            <li>Завтраки включены в стоимость проживания</li>
+                            <li>Возможность заказа в номер</li>
+                            <li>Специальное меню для детей</li>
+                        </ul>
+                    </li>
+                    <li>Сауна с бассейном</li>
+                    <li>Конференц-зал для проведения мероприятий</li>
+                </ul>
+            </div>
+            
+            <div class="text-sample">
+                <h4>Нумерованный список:</h4>
+                <ol>
+                    <li>Забронируйте номер на сайте или по телефону</li>
+                    <li>Получите подтверждение бронирования</li>
+                    <li>Приезжайте в указанный день:
+                        <ol>
+                            <li>Предъявите документы администратору</li>
+                            <li>Оплатите проживание</li>
+                            <li>Получите ключи от номера</li>
+                        </ol>
+                    </li>
+                    <li>Наслаждайтесь отдыхом</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Вспомогательные классы текста</h2>
+            <p>Классы для быстрого изменения стиля текста без необходимости написания дополнительного CSS.</p>
+            
+            <div class="grid-demo">
+                <div class="text-sample">
+                    <h4>Размеры текста</h4>
+                    <p class="text-xs">Текст размера XS (.text-xs)</p>
+                    <p class="text-sm">Текст размера SM (.text-sm)</p>
+                    <p class="text-md">Текст размера MD (.text-md)</p>
+                    <p class="text-lg">Текст размера LG (.text-lg)</p>
+                    <p class="text-xl">Текст размера XL (.text-xl)</p>
+                    <p class="text-2xl">Текст размера 2XL (.text-2xl)</p>
+                    <p class="text-3xl">Текст 3XL (.text-3xl)</p>
+                </div>
+                
+                <div class="text-sample">
+                    <h4>Толщина шрифта</h4>
+                    <p class="text-light">Легкий текст (.text-light)</p>
+                    <p class="text-regular">Обычный текст (.text-regular)</p>
+                    <p class="text-medium">Средний текст (.text-medium)</p>
+                    <p class="text-semibold">Полужирный (.text-semibold)</p>
+                    <p class="text-bold">Жирный текст (.text-bold)</p>
+                </div>
+                
+                <div class="text-sample">
+                    <h4>Цвета текста</h4>
+                    <p class="text-primary">Основной цвет (.text-primary)</p>
+                    <p class="text-accent">Акцентный цвет (.text-accent)</p>
+                    <p class="text-dark">Темный текст (.text-dark)</p>
+                    <p class="text-light">Светлый текст (.text-light)</p>
+                    <p style="background-color: #333" class="text-white">Белый текст (.text-white)</p>
+                </div>
+                
+                <div class="text-sample">
+                    <h4>Выравнивание текста</h4>
+                    <p class="text-left">Выравнивание по левому краю (.text-left)</p>
+                    <p class="text-center">Выравнивание по центру (.text-center)</p>
+                    <p class="text-right">Выравнивание по правому краю (.text-right)</p>
+                    <p class="text-justify">Выравнивание по ширине с выравниванием обоих краев. Этот текст немного длиннее, чтобы показать, как работает выравнивание. (.text-justify)</p>
+                </div>
+                
+                <div class="text-sample">
+                    <h4>Трансформация текста</h4>
+                    <p class="text-uppercase">Все буквы прописные (.text-uppercase)</p>
+                    <p class="text-lowercase">ВСЕ БУКВЫ СТРОЧНЫЕ (.text-lowercase)</p>
+                    <p class="text-capitalize">первая буква каждого слова заглавная (.text-capitalize)</p>
+                </div>
+                
+                <div class="text-sample">
+                    <h4>Обработка текста</h4>
+                    <p class="text-nowrap" style="width: 200px; overflow: hidden;">Текст без переноса строк, который должен быть очень длинным (.text-nowrap)</p>
+                    <p class="text-truncate" style="width: 200px;">Текст с обрезкой и многоточием в конце, очень длинный текст (.text-truncate)</p>
+                    <p class="text-break">ОченьДлинноеСловоБезПробеловКотороеДолжноПереноситься (.text-break)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Адаптивная типографика</h2>
+            <p>Наша типографика автоматически адаптируется под различные размеры экранов:</p>
+            
+            <ul>
+                <li><strong>Десктоп (> 992px):</strong> Базовый размер шрифта 16px, заголовок H1 - 36px</li>
+                <li><strong>Планшет (768px - 992px):</strong> Базовый размер шрифта 16px, заголовок H1 - 32px</li>
+                <li><strong>Смартфон (576px - 768px):</strong> Базовый размер шрифта 15px, заголовок H1 - 28px</li>
+                <li><strong>Малые экраны (< 576px):</strong> Базовый размер шрифта 14px, заголовок H1 - 24px</li>
+            </ul>
+            
+            <p>Кроме того, система учитывает пользовательские настройки доступности:</p>
+            <ul>
+                <li>Режим с ограниченной анимацией (prefers-reduced-motion)</li>
+                <li>Режим высокой контрастности (prefers-contrast: high)</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Футер будет подключен через шаблон -->
+    </footer>
+
+    <script src="../js/header-autoload.js"></script>
+</body>
+</html> 

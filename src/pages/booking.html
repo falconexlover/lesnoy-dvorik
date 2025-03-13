@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Забронируйте номер в санатории-профилактории 'Лесной дворик'. Удобная система онлайн-бронирования с мгновенным подтверждением.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/header-fix.css">
+    <style>
+        :root {
+            --primary-color: #217148; /* Зеленый цвет */
+        }
+        
+        .booking-section {
+            padding: 80px 0;
+        }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .booking-info {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        .booking-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .booking-info ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        
+        .booking-info ul li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .booking-info ul li i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--primary-color);
+        }
+        
+        .booking-form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            padding: 30px;
+        }
+        
+        .booking-form-title {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+        
+        .whatsapp-booking {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e7f7e8;
+            border-radius: 8px;
+            border-left: 4px solid #25D366;
+        }
+        
+        .whatsapp-booking h3 {
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-booking h3 i {
+            color: #25D366;
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .whatsapp-booking p {
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+        
+        .room-types {
+            margin-top: 60px;
+        }
+        
+        .room-types h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .room-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .room-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .room-card:hover .room-image img {
+            transform: scale(1.05);
+        }
+        
+        .room-details {
+            padding: 20px;
+        }
+        
+        .room-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .room-price {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        .room-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .room-feature {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .room-feature i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+        
+        .room-description {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 992px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Хедер будет заменен скриптом -->
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Бронирование</h1>
+            <p>Забронируйте номер в санатории-профилактории "Лесной дворик"</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Бронирование номера</h2>
+                <p>Выберите удобный способ бронирования</p>
+            </div>
+            
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3>Информация о бронировании</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Заезд с 14:00, выезд до 12:00</li>
+                        <li><i class="fas fa-check-circle"></i> Ранний заезд и поздний выезд возможны за дополнительную плату</li>
+                        <li><i class="fas fa-check-circle"></i> Завтрак включен в стоимость проживания</li>
+                        <li><i class="fas fa-check-circle"></i> Бесплатный Wi-Fi на всей территории гостиницы</li>
+                        <li><i class="fas fa-check-circle"></i> Бесплатная парковка для гостей</li>
+                        <li><i class="fas fa-check-circle"></i> Оплата при заселении (наличные, банковские карты)</li>
+                    </ul>
+                    
+                    <div class="whatsapp-booking">
+                        <h3><i class="fab fa-whatsapp"></i> Бронирование через WhatsApp</h3>
+                        <p>Для быстрого бронирования отправьте сообщение в WhatsApp с указанием:</p>
+                        <ul>
+                            <li><i class="fas fa-calendar-alt"></i> Даты заезда и выезда</li>
+                            <li><i class="fas fa-bed"></i> Тип номера</li>
+                            <li><i class="fas fa-users"></i> Количество гостей</li>
+                            <li><i class="fas fa-user"></i> Ваше имя и контактный телефон</li>
+                        </ul>
+                        <a href="https://wa.me/79151201744?text=Здравствуйте!%20Хочу%20забронировать%20номер%20в%20гостинице%20'Лесной%20дворик'." class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Забронировать через WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="booking-form-container">
+                    <h3 class="booking-form-title">Форма бронирования</h3>
+                    <form id="booking-form" action="../php/booking.php" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Имя и фамилия *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Телефон *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="room-type">Тип номера *</label>
+                                <select id="room-type" name="room_type" required>
+                                    <option value="">Выберите тип номера</option>
+                                    <option value="econom">Эконом</option>
+                                    <option value="standard">Стандарт</option>
+                                    <option value="family">Семейный</option>
+                                    <option value="comfort">Комфорт</option>
+                                    <option value="lux">Люкс</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="check-in-date">Дата заезда *</label>
+                                <input type="date" id="check-in-date" name="check_in_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="check-out-date">Дата выезда *</label>
+                                <input type="date" id="check-out-date" name="check_out_date" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adults">Взрослых *</label>
+                                <select id="adults" name="adults" required>
+                                    <option value="1">1</option>
+                                    <option value="2" selected>2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="children">Детей</label>
+                                <select id="children" name="children">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="comments">Дополнительные пожелания</label>
+                                <textarea id="comments" name="comments"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <label for="privacy">Я согласен с <a href="privacy.html">политикой конфиденциальности</a> *</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="btn btn-primary">Забронировать</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="room-types">
+                <h3>Типы номеров</h3>
+                <div class="room-grid">
+                    <div class="room-card animate-on-scroll">
+                        <div class="room-image">
+                            <img data-src="../assets/images/rooms/econom.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' %3E%3Crect width='300' height='200' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Номер Эконом" class="lazy-image">
+                        </div>
+                        <div class="room-details">
+                            <div class="room-name">Эконом</div>
+                            <div class="room-price">от 2500 ₽/сутки</div>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-user"></i> 1-2 человека</span>
+                                <span class="room-feature"><i class="fas fa-expand-arrows-alt"></i> 15 м²</span>
+                                <span class="room-feature"><i class="fas fa-bed"></i> 1 кровать</span>
+                            </div>
+                            <div class="room-description">
+                                Уютный номер с одной двуспальной или двумя односпальными кроватями, телевизором, холодильником и собственной ванной комнатой.
+                            </div>
+                            <a href="hotel.html#econom" class="btn btn-outline">Подробнее</a>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card animate-on-scroll">
+                        <div class="room-image">
+                            <img data-src="../assets/images/rooms/standard.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' %3E%3Crect width='300' height='200' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Номер Стандарт" class="lazy-image">
+                        </div>
+                        <div class="room-details">
+                            <div class="room-name">Стандарт</div>
+                            <div class="room-price">от 3500 ₽/сутки</div>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-user"></i> 2 человека</span>
+                                <span class="room-feature"><i class="fas fa-expand-arrows-alt"></i> 20 м²</span>
+                                <span class="room-feature"><i class="fas fa-bed"></i> 1 кровать</span>
+                            </div>
+                            <div class="room-description">
+                                Комфортабельный номер с двуспальной кроватью, телевизором, холодильником, кондиционером и собственной ванной комнатой.
+                            </div>
+                            <a href="hotel.html#standard" class="btn btn-outline">Подробнее</a>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card animate-on-scroll">
+                        <div class="room-image">
+                            <img data-src="../assets/images/rooms/family.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' %3E%3Crect width='300' height='200' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Семейный номер" class="lazy-image">
+                        </div>
+                        <div class="room-details">
+                            <div class="room-name">Семейный</div>
+                            <div class="room-price">от 4500 ₽/сутки</div>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-user"></i> 2-4 человека</span>
+                                <span class="room-feature"><i class="fas fa-expand-arrows-alt"></i> 25 м²</span>
+                                <span class="room-feature"><i class="fas fa-bed"></i> 2 кровати</span>
+                            </div>
+                            <div class="room-description">
+                                Просторный номер с двуспальной и односпальной кроватями или диваном, идеально подходит для семей с детьми.
+                            </div>
+                            <a href="hotel.html#family" class="btn btn-outline">Подробнее</a>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card animate-on-scroll">
+                        <div class="room-image">
+                            <img data-src="../assets/images/rooms/comfort.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' %3E%3Crect width='300' height='200' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Номер Комфорт" class="lazy-image">
+                        </div>
+                        <div class="room-details">
+                            <div class="room-name">Комфорт</div>
+                            <div class="room-price">от 4000 ₽/сутки</div>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-user"></i> 2 человека</span>
+                                <span class="room-feature"><i class="fas fa-expand-arrows-alt"></i> 22 м²</span>
+                                <span class="room-feature"><i class="fas fa-bed"></i> 1 кровать</span>
+                            </div>
+                            <div class="room-description">
+                                Улучшенный номер с большой двуспальной кроватью, телевизором, холодильником, кондиционером и просторной ванной комнатой.
+                            </div>
+                            <a href="hotel.html#comfort" class="btn btn-outline">Подробнее</a>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card animate-on-scroll">
+                        <div class="room-image">
+                            <img data-src="../assets/images/rooms/lux.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' %3E%3Crect width='300' height='200' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Номер Люкс" class="lazy-image">
+                        </div>
+                        <div class="room-details">
+                            <div class="room-name">Люкс</div>
+                            <div class="room-price">от 6000 ₽/сутки</div>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-user"></i> 2-3 человека</span>
+                                <span class="room-feature"><i class="fas fa-expand-arrows-alt"></i> 35 м²</span>
+                                <span class="room-feature"><i class="fas fa-bed"></i> 1 кровать + диван</span>
+                            </div>
+                            <div class="room-description">
+                                Роскошный двухкомнатный номер с гостиной и спальней, большой двуспальной кроватью, диваном, мини-кухней и джакузи.
+                            </div>
+                            <a href="hotel.html#lux" class="btn btn-outline">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img data-src="../assets/images/logo-white.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 50' %3E%3Crect width='150' height='50' fill='%23333'/%3E%3C/svg%3E" alt="Лесной дворик" width="150" height="50" class="lazy-image">
+                    <p>Уютный отдых в окружении природы</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="../index.html#about">О нас</a></li>
+                        <li><a href="hotel.html">Гостиница</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Конференц-зал</a></li>
+                        <li><a href="special.html">Спецпредложения</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a href="info.html">Полезная информация</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="hotel.html">Проживание</a></li>
+                        <li><a href="restaurant.html">Ресторан</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Конференции</a></li>
+                        <li><a href="seminar.html">Конференции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Московская область, г. Жуковский, ул. Нижегородская, д. 4</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+74984831941">8 (498) 483-19-41</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                    <p><i class="fab fa-vk"></i> <a href="https://vk.com/lesnoy_dvorik">lesnoy_dvorik</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены. <a href="privacy.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/apply-header.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/booking.js"></script>
+    <script src="../js/debug.js"></script>
+</body>
+</html> 

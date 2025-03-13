@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виртуальный тур - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Виртуальный тур по гостинице 'Лесной дворик'. Познакомьтесь с нашими номерами, рестораном, сауной и другими удобствами в формате 360°.">
+    <!-- PWA поддержка -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#217148">
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Стили для хедера -->
+    <link rel="stylesheet" href="../css/header-fix.css">
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <!-- Pannellum для 360° панорам -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+        .panorama-container {
+            width: 100%;
+            height: 70vh;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tour-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .tour-nav-button {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+            font-weight: 500;
+        }
+        
+        .tour-nav-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .tour-nav-button.active {
+            background-color: var(--primary-dark);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tour-description {
+            margin-bottom: 30px;
+        }
+        
+        .tour-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tour-control-button {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+        
+        .tour-control-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .tour-info {
+            background-color: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tour-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .tour-info p {
+            margin-bottom: 15px;
+        }
+        
+        .tour-info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .hotspot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .hotspot:hover {
+            transform: scale(1.2);
+        }
+        
+        .hotspot-info {
+            color: var(--primary-color);
+        }
+        
+        .hotspot-scene {
+            color: var(--accent-color);
+        }
+        
+        .hotspot-tooltip {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 768px) {
+            .panorama-container {
+                height: 50vh;
+            }
+            
+            .tour-navigation {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .tour-nav-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Хедер будет заменен скриптом -->
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Виртуальный тур по гостинице</h1>
+                <p>Познакомьтесь с нашими номерами и удобствами в формате 360°</p>
+            </div>
+        </section>
+
+        <section class="virtual-tour-section">
+            <div class="container">
+                <div class="tour-navigation" id="tour-navigation">
+                    <!-- Кнопки навигации будут добавлены динамически -->
+                </div>
+                
+                <div class="tour-controls">
+                    <button class="tour-control-button" id="fullscreen-button">
+                        <i class="fas fa-expand"></i> Полный экран
+                    </button>
+                    <button class="tour-control-button" id="autorotate-button">
+                        <i class="fas fa-sync-alt"></i> Автовращение
+                    </button>
+                    <button class="tour-control-button" id="reset-button">
+                        <i class="fas fa-undo"></i> Сбросить вид
+                    </button>
+                </div>
+                
+                <div class="panorama-container" id="panorama"></div>
+                
+                <div class="tour-info" id="tour-info">
+                    <!-- Информация о текущей панораме будет добавлена динамически -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Футер будет заменен скриптом -->
+    </footer>
+
+    <script src="../js/header-autoload.js"></script>
+    <script>
+        // Загрузка данных о виртуальном туре из JSON-файла
+        let tourData = null;
+        let viewer = null;
+        let currentPanorama = null;
+        let autorotateInterval = null;
+        
+        // Загрузка данных
+        fetch('../data/virtual-tour.json')
+            .then(response => response.json())
+            .then(data => {
+                tourData = data;
+                initTour();
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки данных виртуального тура:', error);
+                document.getElementById('tour-info').innerHTML = `
+                    <h3>Ошибка загрузки</h3>
+                    <p>К сожалению, не удалось загрузить данные виртуального тура. Пожалуйста, попробуйте обновить страницу.</p>
+                `;
+            });
+        
+        // Инициализация тура
+        function initTour() {
+            if (!tourData) return;
+            
+            // Создание кнопок навигации
+            const navigationContainer = document.getElementById('tour-navigation');
+            tourData.panoramas.forEach(panorama => {
+                const button = document.createElement('button');
+                button.className = 'tour-nav-button';
+                button.dataset.panoramaId = panorama.id;
+                button.textContent = panorama.title;
+                button.addEventListener('click', () => initPanorama(panorama.id));
+                navigationContainer.appendChild(button);
+            });
+            
+            // Инициализация первой панорамы
+            initPanorama(tourData.settings.defaultScene || tourData.panoramas[0].id);
+        }
+        
+        // Инициализация панорамы
+        function initPanorama(panoramaId) {
+            if (!tourData) return;
+            
+            const panoramaData = tourData.panoramas.find(p => p.id === panoramaId);
+            if (!panoramaData) return;
+            
+            if (viewer) {
+                viewer.destroy();
+            }
+            
+            // Создание конфигурации для Pannellum
+            const config = {
+                type: 'equirectangular',
+                panorama: '../' + panoramaData.image,
+                autoLoad: true,
+                autoRotate: 0,
+                compass: tourData.settings.compass,
+                showZoomCtrl: true,
+                showFullscreenCtrl: true,
+                showControls: tourData.settings.showControls,
+                hfov: tourData.settings.defaultHfov,
+                minHfov: tourData.settings.minHfov,
+                maxHfov: tourData.settings.maxHfov,
+                hotSpots: []
+            };
+            
+            // Добавление точек перехода (hotspots)
+            if (panoramaData.hotspots && panoramaData.hotspots.length > 0) {
+                panoramaData.hotspots.forEach(hotspot => {
+                    const hotspotConfig = {
+                        pitch: hotspot.pitch,
+                        yaw: hotspot.yaw,
+                        type: hotspot.type,
+                        text: hotspot.text,
+                        cssClass: 'hotspot hotspot-' + hotspot.type,
+                        tooltipClassName: 'hotspot-tooltip'
+                    };
+                    
+                    if (hotspot.type === 'scene') {
+                        hotspotConfig.sceneId = hotspot.sceneId;
+                        hotspotConfig.targetPitch = -5;
+                        hotspotConfig.targetYaw = 0;
+                    }
+                    
+                    config.hotSpots.push(hotspotConfig);
+                });
+            }
+            
+            // Инициализация Pannellum
+            viewer = pannellum.viewer('panorama', config);
+            
+            // Обработчик события клика на точку перехода
+            viewer.on('click', function(e) {
+                if (e.target.classList.contains('hotspot-scene')) {
+                    const sceneId = e.target.getAttribute('data-scene-id');
+                    if (sceneId) {
+                        initPanorama(sceneId);
+                    }
+                }
+            });
+            
+            // Обновление информации о панораме
+            updatePanoramaInfo(panoramaData);
+            
+            // Обновление активной кнопки
+            document.querySelectorAll('.tour-nav-button').forEach(button => {
+                button.classList.remove('active');
+                if (button.dataset.panoramaId === panoramaId) {
+                    button.classList.add('active');
+                }
+            });
+            
+            currentPanorama = panoramaId;
+        }
+        
+        // Обновление информации о панораме
+        function updatePanoramaInfo(panoramaData) {
+            const infoContainer = document.getElementById('tour-info');
+            
+            let featuresHtml = '';
+            if (panoramaData.features && panoramaData.features.length > 0) {
+                featuresHtml = '<p>В этой зоне вы найдете:</p><ul>';
+                panoramaData.features.forEach(feature => {
+                    featuresHtml += `<li>${feature}</li>`;
+                });
+                featuresHtml += '</ul>';
+            }
+            
+            infoContainer.innerHTML = `
+                <h3>${panoramaData.title}</h3>
+                <p>${panoramaData.description}</p>
+                ${featuresHtml}
+            `;
+        }
+        
+        // Обработчики кнопок управления
+        document.addEventListener('DOMContentLoaded', function() {
+            // Обработчик кнопки полного экрана
+            document.getElementById('fullscreen-button').addEventListener('click', function() {
+                if (viewer) {
+                    viewer.toggleFullscreen();
+                }
+            });
+            
+            // Обработчик кнопки автовращения
+            document.getElementById('autorotate-button').addEventListener('click', function() {
+                if (!viewer) return;
+                
+                if (autorotateInterval) {
+                    viewer.stopAutoRotate();
+                    autorotateInterval = null;
+                    this.innerHTML = '<i class="fas fa-sync-alt"></i> Автовращение';
+                } else {
+                    viewer.startAutoRotate(tourData?.settings?.autoRotateSpeed || 2);
+                    autorotateInterval = true;
+                    this.innerHTML = '<i class="fas fa-pause"></i> Остановить';
+                }
+            });
+            
+            // Обработчик кнопки сброса вида
+            document.getElementById('reset-button').addEventListener('click', function() {
+                if (viewer) {
+                    viewer.reset();
+                }
+            });
+        });
+        
+        // Регистрация Service Worker для PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker успешно зарегистрирован со сферой действия: ', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Ошибка регистрации ServiceWorker: ', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html> 

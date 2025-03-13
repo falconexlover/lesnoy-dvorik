@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресторан гостиницы "Лесной дворик" - Изысканная кухня</title>
+    <meta name="description" content="Ресторан гостиницы 'Лесной дворик' предлагает блюда русской и европейской кухни. Уютная атмосфера, качественное обслуживание и вкусные блюда.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img data-src="../assets/images/logo.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 50' %3E%3Crect width='150' height='50' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Лесной дворик" width="150" height="50" class="lazy-image">
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="../index.html#about">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="hotel.html">Гостиница</a>
+                        <div class="dropdown-content">
+                            <a href="hotel.html#econom">Эконом</a>
+                            <a href="hotel.html#standard">Стандарт</a>
+                            <a href="hotel.html#family">Семейные</a>
+                            <a href="hotel.html#comfort">Комфорт</a>
+                            <a href="hotel.html#lux">Люкс</a>
+                        </div>
+                    </li>
+                    <li><a href="sauna.html">Сауна</a></li>
+                    <li><a href="restaurant.html" class="active">Ресторан</a></li>
+                    <li><a href="banquet.html">Банкетный зал</a></li>
+                    <li><a href="special.html">Спецпредложения</a></li>
+                    <li><a href="../index.html#booking">Бронирование</a></li>
+                    <li><a href="../index.html#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="booking-button">
+                <a href="../index.html#booking" class="btn btn-primary">Забронировать</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-banner" style="background-image: url('../assets/images/restaurant-banner.jpg');">
+        <div class="page-banner-content">
+            <h1>Ресторан "Лесной дворик"</h1>
+            <p>Изысканная кухня в уютной атмосфере</p>
+        </div>
+    </section>
+
+    <section class="restaurant-intro section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>О нашем ресторане</h2>
+                <p>Кулинарные традиции и современные тенденции</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ресторан гостиницы "Лесной дворик" предлагает своим гостям блюда русской и европейской кухни, приготовленные из свежих и качественных продуктов. Наши повара с многолетним опытом работы создают настоящие кулинарные шедевры, которые удовлетворят вкус даже самых требовательных гурманов.</p>
+                    <p>В меню ресторана вы найдете как традиционные русские блюда, так и популярные блюда европейской кухни. Особое внимание мы уделяем сезонным продуктам и блюдам, которые готовятся по старинным рецептам.</p>
+                    <p>Уютная атмосфера, внимательное обслуживание и вкусная еда сделают ваш визит в наш ресторан незабываемым. Мы рады видеть вас как в будние дни, так и в выходные, а также готовы организовать для вас праздничный ужин или банкет.</p>
+                </div>
+                <div class="about-image">
+                    <img data-src="../assets/images/restaurant-interior.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400' %3E%3Crect width='600' height='400' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Интерьер ресторана" width="600" height="400" class="lazy-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section section-padding" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наше меню</h2>
+                <p>Разнообразие блюд на любой вкус</p>
+            </div>
+            
+            <div class="menu-categories">
+                <div class="menu-category animate-on-scroll">
+                    <h3>Завтраки</h3>
+                    <p>Подаются с 7:00 до 11:00</p>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-name">Континентальный завтрак</div>
+                            <div class="menu-item-price">350 ₽</div>
+                            <div class="menu-item-description">Круассан, джем, масло, сыр, ветчина, кофе/чай</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Английский завтрак</div>
+                            <div class="menu-item-price">450 ₽</div>
+                            <div class="menu-item-description">Яичница с беконом, тосты, фасоль, помидоры, грибы, кофе/чай</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Русский завтрак</div>
+                            <div class="menu-item-price">400 ₽</div>
+                            <div class="menu-item-description">Блины со сметаной и вареньем, каша, творог, кофе/чай</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Здоровый завтрак</div>
+                            <div class="menu-item-price">380 ₽</div>
+                            <div class="menu-item-description">Мюсли с йогуртом, фруктовый салат, свежевыжатый сок</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-category animate-on-scroll">
+                    <h3>Основные блюда</h3>
+                    <p>Подаются с 12:00 до 22:00</p>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-name">Стейк из говядины</div>
+                            <div class="menu-item-price">850 ₽</div>
+                            <div class="menu-item-description">Стейк из мраморной говядины с овощами гриль и соусом</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Котлеты по-киевски</div>
+                            <div class="menu-item-price">650 ₽</div>
+                            <div class="menu-item-description">Классические котлеты с картофельным пюре и соусом</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Лосось на гриле</div>
+                            <div class="menu-item-price">750 ₽</div>
+                            <div class="menu-item-description">Филе лосося с овощами и лимонным соусом</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Паста Карбонара</div>
+                            <div class="menu-item-price">550 ₽</div>
+                            <div class="menu-item-description">Классическая итальянская паста с беконом и сливочным соусом</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Борщ</div>
+                            <div class="menu-item-price">350 ₽</div>
+                            <div class="menu-item-description">Традиционный борщ со сметаной и пампушками</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Пельмени сибирские</div>
+                            <div class="menu-item-price">450 ₽</div>
+                            <div class="menu-item-description">Домашние пельмени со сметаной и зеленью</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-category animate-on-scroll">
+                    <h3>Десерты</h3>
+                    <p>Подаются весь день</p>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-name">Медовик</div>
+                            <div class="menu-item-price">250 ₽</div>
+                            <div class="menu-item-description">Традиционный медовый торт с кремом</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Наполеон</div>
+                            <div class="menu-item-price">250 ₽</div>
+                            <div class="menu-item-description">Слоеный торт с заварным кремом</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Чизкейк</div>
+                            <div class="menu-item-price">280 ₽</div>
+                            <div class="menu-item-description">Нежный чизкейк с ягодным соусом</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Мороженое ассорти</div>
+                            <div class="menu-item-price">220 ₽</div>
+                            <div class="menu-item-description">Три шарика мороженого на выбор с топпингом</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-category animate-on-scroll">
+                    <h3>Напитки</h3>
+                    <p>Подаются весь день</p>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-name">Чай</div>
+                            <div class="menu-item-price">150 ₽</div>
+                            <div class="menu-item-description">Черный, зеленый, фруктовый, травяной (на выбор)</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Кофе</div>
+                            <div class="menu-item-price">от 150 ₽</div>
+                            <div class="menu-item-description">Эспрессо, американо, капучино, латте</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Свежевыжатые соки</div>
+                            <div class="menu-item-price">250 ₽</div>
+                            <div class="menu-item-description">Апельсиновый, грейпфрутовый, яблочный, морковный</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-name">Морс</div>
+                            <div class="menu-item-price">180 ₽</div>
+                            <div class="menu-item-description">Домашний ягодный морс</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-note">
+                <p>* Полное меню доступно в ресторане. Цены могут меняться.</p>
+                <p>** Для гостей гостиницы завтрак включен в стоимость проживания.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Фотогалерея</h2>
+                <p>Атмосфера нашего ресторана</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll">
+                    <img data-src="../assets/images/gallery/restaurant-1.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Интерьер ресторана" width="250" height="250" class="lazy-image">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img data-src="../assets/images/gallery/restaurant-2.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Блюда ресторана" width="250" height="250" class="lazy-image">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img data-src="../assets/images/gallery/restaurant-3.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Сервировка стола" width="250" height="250" class="lazy-image">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img data-src="../assets/images/gallery/restaurant-4.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Десерты" width="250" height="250" class="lazy-image">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img data-src="../assets/images/gallery/restaurant-5.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Бар" width="250" height="250" class="lazy-image">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img data-src="../assets/images/gallery/restaurant-6.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Шеф-повар" width="250" height="250" class="lazy-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reservation-section section-padding" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Забронировать стол</h2>
+                <p>Планируете посетить наш ресторан? Забронируйте стол заранее!</p>
+            </div>
+            <div class="booking-form">
+                <form id="table-booking-form" action="../php/table_booking.php" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Имя и фамилия *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Количество гостей *</label>
+                            <select id="guests" name="guests" required>
+                                <option value="1">1 человек</option>
+                                <option value="2" selected>2 человека</option>
+                                <option value="3">3 человека</option>
+                                <option value="4">4 человека</option>
+                                <option value="5">5 человек</option>
+                                <option value="6">6 человек</option>
+                                <option value="7">7 человек</option>
+                                <option value="8">8 человек</option>
+                                <option value="more">Более 8 человек</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Дата *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Время *</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="comments">Дополнительные пожелания</label>
+                            <textarea id="comments" name="comments"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-primary">Забронировать стол</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Информация</h2>
+                <p>Режим работы и контакты</p>
+            </div>
+            <div class="info-content">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Режим работы</h3>
+                        <p>Завтрак: 7:00 - 11:00</p>
+                        <p>Обед и ужин: 12:00 - 22:00</p>
+                        <p>Бар: 12:00 - 23:00</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Бронирование столов</h3>
+                        <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                        <p>Рекомендуем бронировать столы заранее, особенно в выходные дни</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>Дополнительная информация</h3>
+                        <p>Для гостей гостиницы завтрак включен в стоимость проживания</p>
+                        <p>Возможна организация банкетов и фуршетов</p>
+                        <p>Детское меню доступно по запросу</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img data-src="../assets/images/logo-white.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 50' %3E%3Crect width='150' height='50' fill='%23333'/%3E%3C/svg%3E" alt="Лесной дворик" width="150" height="50" class="lazy-image">
+                    <p>Уютный отдых в окружении природы</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="../index.html#about">О нас</a></li>
+                        <li><a href="hotel.html">Гостиница</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="restaurant.html">Ресторан</a></li>
+                        <li><a href="banquet.html">Банкетный зал</a></li>
+                        <li><a href="special.html">Спецпредложения</a></li>
+                        <li><a href="../index.html#booking">Бронирование</a></li>
+                        <li><a href="../index.html#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="hotel.html">Проживание</a></li>
+                        <li><a href="restaurant.html">Ресторан</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Банкеты</a></li>
+                        <li><a href="seminar.html">Конференции</a></li>
+                        <li><a href="../index.html#contacts">Трансфер</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Лесная, д. 15</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены. <a href="privacy.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотогалерея - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Фотогалерея гостиницы 'Лесной дворик'. Номера, сауна, банкетный зал, территория и окрестности.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gallery-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/header-fix.css">
+</head>
+<body>
+    <header>
+        <!-- Хедер будет заменен скриптом -->
+    </header>
+
+    <main>
+        <section class="page-banner">
+            <div class="container">
+                <h1>Фотогалерея</h1>
+                <p>Познакомьтесь с нашей гостиницей в фотографиях</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-description">
+                    <p>Добро пожаловать в фотогалерею гостиницы "Лесной дворик". Здесь вы можете увидеть наши номера, сауну, конференц-зал, территорию и окрестности. Нажмите на изображение, чтобы увеличить.</p>
+                </div>
+
+                <div class="gallery-tabs">
+                    <button class="gallery-tab active" data-category="all">Все фото</button>
+                    <button class="gallery-tab" data-category="rooms">Номера</button>
+                    <button class="gallery-tab" data-category="sauna">Сауна</button>
+                    <button class="gallery-tab" data-category="banquet">Конференц-зал</button>
+                    <button class="gallery-tab" data-category="territory">Территория</button>
+                    <button class="gallery-tab" data-category="surroundings">Окрестности</button>
+                </div>
+
+                <div class="gallery-category active" id="all">
+                    <div class="gallery-grid">
+                        <!-- Номера -->
+                        <div class="gallery-item" data-category="rooms">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Стандартный+номер" alt="Стандартный номер" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Стандартный номер</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="rooms">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Комфорт+номер" alt="Номер Комфорт" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Номер Комфорт</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="rooms">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Люкс+номер" alt="Номер Люкс" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Номер Люкс</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="rooms">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Семейный+номер" alt="Семейный номер" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Семейный номер</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="rooms">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Ванная+комната" alt="Ванная комната" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Ванная комната</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="rooms">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Интерьер+номера" alt="Интерьер номера" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Интерьер номера</h3>
+                            </div>
+                        </div>
+
+                        <!-- Сауна -->
+                        <div class="gallery-item" data-category="sauna">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Русская+баня" alt="Русская баня" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Русская баня</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="sauna">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Финская+сауна" alt="Финская сауна" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Финская сауна</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="sauna">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Комната+отдыха" alt="Комната отдыха" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Комната отдыха</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="sauna">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Бассейн" alt="Бассейн" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Бассейн</h3>
+                            </div>
+                        </div>
+
+                        <!-- Банкетный зал -->
+                        <div class="gallery-item" data-category="banquet">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Банкетный+зал" alt="Банкетный зал" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Банкетный зал</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="banquet">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Сервировка+стола" alt="Сервировка стола" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Сервировка стола</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="banquet">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Оформление+зала" alt="Оформление зала" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Оформление зала</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="banquet">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Фуршет" alt="Фуршет" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Фуршет</h3>
+                            </div>
+                        </div>
+
+                        <!-- Территория -->
+                        <div class="gallery-item" data-category="territory">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Фасад+гостиницы" alt="Фасад гостиницы" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Фасад гостиницы</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="territory">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Беседка" alt="Беседка" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Беседка</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="territory">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Зона+барбекю" alt="Зона барбекю" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Зона барбекю</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="territory">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Детская+площадка" alt="Детская площадка" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Детская площадка</h3>
+                            </div>
+                        </div>
+
+                        <!-- Окрестности -->
+                        <div class="gallery-item" data-category="surroundings">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Лесная+тропа" alt="Лесная тропа" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Лесная тропа</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="surroundings">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Озеро" alt="Озеро" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Озеро</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="surroundings">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Достопримечательности" alt="Достопримечательности" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Достопримечательности</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-category="surroundings">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Панорама" alt="Панорама" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Панорама</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category" id="rooms">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Стандартный+номер" alt="Стандартный номер" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Стандартный номер</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Комфорт+номер" alt="Номер Комфорт" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Номер Комфорт</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Люкс+номер" alt="Номер Люкс" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Номер Люкс</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Семейный+номер" alt="Семейный номер" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Семейный номер</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Ванная+комната" alt="Ванная комната" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Ванная комната</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Интерьер+номера" alt="Интерьер номера" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Интерьер номера</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category" id="sauna">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Русская+баня" alt="Русская баня" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Русская баня</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Финская+сауна" alt="Финская сауна" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Финская сауна</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Комната+отдыха" alt="Комната отдыха" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Комната отдыха</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Бассейн" alt="Бассейн" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Бассейн</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category" id="banquet">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Банкетный+зал" alt="Банкетный зал" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Банкетный зал</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Сервировка+стола" alt="Сервировка стола" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Сервировка стола</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Оформление+зала" alt="Оформление зала" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Оформление зала</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Фуршет" alt="Фуршет" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Фуршет</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category" id="territory">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Фасад+гостиницы" alt="Фасад гостиницы" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Фасад гостиницы</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Беседка" alt="Беседка" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Беседка</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Зона+барбекю" alt="Зона барбекю" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Зона барбекю</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Детская+площадка" alt="Детская площадка" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Детская площадка</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-category" id="surroundings">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Лесная+тропа" alt="Лесная тропа" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Лесная тропа</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Озеро" alt="Озеро" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Озеро</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Достопримечательности" alt="Достопримечательности" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Достопримечательности</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/600x400/5a8f7b/ffffff?text=Панорама" alt="Панорама" class="lazy-image" loading="lazy">
+                            <div class="gallery-item-overlay">
+                                <h3>Панорама</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <img src="../assets/images/logo.png" alt="Лесной дворик" width="150" height="50">
+                        </div>
+                        <p>Уютная гостиница в окружении природы для идеального отдыха от городской суеты.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Мы ВКонтакте"><i class="fab fa-vk"></i></a>
+                            <a href="#" aria-label="Мы в Telegram"><i class="fab fa-telegram"></i></a>
+                            <a href="#" aria-label="Мы в WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" aria-label="Мы в Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Навигация</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html">Главная</a></li>
+                            <li><a href="../index.html#about">О нас</a></li>
+                            <li><a href="hotel.html">Гостиница</a></li>
+                            <li><a href="sauna.html">Сауна</a></li>
+                            <li><a href="banquet.html">Конференц-зал</a></li>
+                            <li><a href="special.html">Спецпредложения</a></li>
+                            <li><a href="contacts.html">Контакты</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Контакты</h3>
+                        <ul class="footer-contacts">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Россия, Московская область, г. Звенигород, ул. Лесная, д. 10</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Подписка</h3>
+                        <p>Подпишитесь на нашу рассылку, чтобы получать новости и специальные предложения</p>
+                        <form class="footer-subscribe" action="../php/subscribe.php" method="post">
+                            <input type="email" name="email" placeholder="Ваш email" required>
+                            <button type="submit" aria-label="Подписаться"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="privacy.html">Политика конфиденциальности</a></li>
+                    <li><a href="#">Правила проживания</a></li>
+                    <li><a href="#">Карта сайта</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/apply-header.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Дополнительный скрипт для галереи
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryTabs = document.querySelectorAll('.gallery-tab');
+            const galleryCategories = document.querySelectorAll('.gallery-category');
+            
+            galleryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Удаляем активный класс у всех вкладок
+                    galleryTabs.forEach(t => t.classList.remove('active'));
+                    // Добавляем активный класс текущей вкладке
+                    this.classList.add('active');
+                    
+                    // Получаем категорию из атрибута data-category
+                    const category = this.getAttribute('data-category');
+                    
+                    // Скрываем все категории
+                    galleryCategories.forEach(cat => cat.classList.remove('active'));
+                    
+                    // Показываем выбранную категорию
+                    document.getElementById(category).classList.add('active');
+                });
+            });
+        });
+    </script>
+    <script src="../js/debug.js"></script>
+</body>
+</html> 

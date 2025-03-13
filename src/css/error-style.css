@@ -1,0 +1,145 @@
+/* Стили для страниц ошибок */
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.error-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+    font-size: 60px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.error-content h1 {
+    font-size: 72px;
+    color: #e74c3c;
+    margin: 0 0 10px;
+    font-weight: 700;
+}
+
+.error-content h2 {
+    font-size: 28px;
+    margin: 0 0 20px;
+    color: #333;
+}
+
+.error-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.error-suggestions {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.error-suggestions h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.suggestion-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.suggestion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-icon {
+    font-size: 36px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.suggestion-card h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.suggestion-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .error-content h1 {
+        font-size: 60px;
+    }
+    
+    .error-content h2 {
+        font-size: 24px;
+    }
+    
+    .error-content {
+        padding: 30px;
+    }
+    
+    .suggestions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-content h1 {
+        font-size: 48px;
+    }
+    
+    .error-content h2 {
+        font-size: 20px;
+    }
+    
+    .error-content p {
+        font-size: 16px;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+    }
+    
+    .error-actions .btn {
+        width: 100%;
+    }
+} 

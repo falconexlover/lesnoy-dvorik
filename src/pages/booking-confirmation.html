@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подтверждение бронирования - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Подтверждение бронирования в санатории-профилактории 'Лесной дворик'. Информация о вашем бронировании.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .confirmation-section {
+            padding: 80px 0;
+        }
+        
+        .confirmation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .confirmation-icon {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .confirmation-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .booking-details {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        .booking-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .booking-details p {
+            margin-bottom: 10px;
+        }
+        
+        .booking-code {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+        
+        .next-steps {
+            margin-top: 30px;
+        }
+        
+        .next-steps h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .next-steps ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 25px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .next-steps ul li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .next-steps ul li i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--primary-color);
+        }
+        
+        .action-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Лесной дворик" width="150" height="50">
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="../index.html#about">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="hotel.html">Гостиница</a>
+                        <div class="dropdown-content">
+                            <a href="hotel.html#econom">Эконом</a>
+                            <a href="hotel.html#standard">Стандарт</a>
+                            <a href="hotel.html#family">Семейные</a>
+                            <a href="hotel.html#comfort">Комфорт</a>
+                            <a href="hotel.html#lux">Люкс</a>
+                        </div>
+                    </li>
+                    <li><a href="sauna.html">Сауна</a></li>
+                    <li><a href="banquet.html">Конференц-зал</a></li>
+                    <li><a href="special.html">Спецпредложения</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="info.html">Полезная информация</a></li>
+                    <li><a href="../index.html#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="booking-button">
+                <a href="booking.html" class="btn btn-primary" style="font-weight: bold; box-shadow: 0 4px 8px rgba(33, 113, 72, 0.3); transform: scale(1.05);">Забронировать</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h1>Подтверждение бронирования</h1>
+            <p>Спасибо за выбор гостиницы "Лесной дворик"</p>
+        </div>
+    </section>
+
+    <section class="confirmation-section">
+        <div class="container">
+            <div class="confirmation-container">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="confirmation-title">Бронирование успешно отправлено!</h2>
+                <p>Мы получили ваш запрос на бронирование и свяжемся с вами в ближайшее время для подтверждения.</p>
+                
+                <div class="booking-details" id="booking-details">
+                    <h3>Детали бронирования</h3>
+                    <p><strong>Номер бронирования:</strong> <span class="booking-code" id="booking-code">XXXXXXXX</span></p>
+                    <p><strong>Статус:</strong> Ожидает подтверждения</p>
+                    <p><strong>Дата заезда:</strong> <span id="check-in-date">--.--.----</span></p>
+                    <p><strong>Дата выезда:</strong> <span id="check-out-date">--.--.----</span></p>
+                    <p><strong>Тип номера:</strong> <span id="room-type">--</span></p>
+                    <p><strong>Количество гостей:</strong> <span id="guests">-- взрослых, -- детей</span></p>
+                </div>
+                
+                <div class="next-steps">
+                    <h3>Что дальше?</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> Мы отправили подтверждение на указанный вами email</li>
+                        <li><i class="fas fa-phone-alt"></i> Наш менеджер свяжется с вами в течение 24 часов для подтверждения бронирования</li>
+                        <li><i class="fas fa-credit-card"></i> Оплата производится при заселении</li>
+                        <li><i class="fas fa-info-circle"></i> Если у вас возникли вопросы, вы можете связаться с нами по телефону или через WhatsApp</li>
+                    </ul>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="https://wa.me/79151201744?text=Здравствуйте!%20У%20меня%20вопрос%20по%20бронированию%20" id="whatsapp-link" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Связаться через WhatsApp
+                    </a>
+                    <a href="booking.html" class="btn btn-outline">Новое бронирование</a>
+                    <a href="../index.html" class="btn btn-outline">На главную</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img data-src="../assets/images/logo-white.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 50' %3E%3Crect width='150' height='50' fill='%23333'/%3E%3C/svg%3E" alt="Лесной дворик" width="150" height="50" class="lazy-image">
+                    <p>Уютный отдых в окружении природы</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="../index.html#about">О нас</a></li>
+                        <li><a href="hotel.html">Гостиница</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Конференц-зал</a></li>
+                        <li><a href="special.html">Спецпредложения</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a href="info.html">Полезная информация</a></li>
+                        <li><a href="../index.html#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="hotel.html">Проживание</a></li>
+                        <li><a href="restaurant.html">Ресторан</a></li>
+                        <li><a href="sauna.html">Сауна</a></li>
+                        <li><a href="banquet.html">Конференции</a></li>
+                        <li><a href="seminar.html">Конференции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Московская область, г. Жуковский, ул. Нижегородская, д. 4</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+74984831941">8 (498) 483-19-41</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                    <p><i class="fab fa-vk"></i> <a href="https://vk.com/lesnoy_dvorik">lesnoy_dvorik</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены. <a href="privacy.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Получение параметров из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookingCode = urlParams.get('booking_code');
+            const checkInDate = urlParams.get('check_in_date');
+            const checkOutDate = urlParams.get('check_out_date');
+            const roomType = urlParams.get('room_type');
+            const adults = urlParams.get('adults');
+            const children = urlParams.get('children');
+            
+            // Получение данных из сессии (если PHP передал их)
+            const sessionBookingCode = '<?php echo isset($_SESSION["booking_code"]) ? $_SESSION["booking_code"] : ""; ?>';
+            
+            // Форматирование даты из YYYY-MM-DD в DD.MM.YYYY
+            function formatDate(dateString) {
+                if (!dateString) return '--.--.----';
+                const [year, month, day] = dateString.split('-');
+                return `${day}.${month}.${year}`;
+            }
+            
+            // Перевод типа номера
+            function translateRoomType(type) {
+                const types = {
+                    'econom': 'Эконом',
+                    'standard': 'Стандарт',
+                    'family': 'Семейный',
+                    'comfort': 'Комфорт',
+                    'lux': 'Люкс'
+                };
+                return types[type] || type || '--';
+            }
+            
+            // Заполнение данных на странице
+            if (bookingCode || sessionBookingCode) {
+                const code = bookingCode || sessionBookingCode;
+                document.getElementById('booking-code').textContent = code;
+                
+                // Обновление ссылки WhatsApp
+                const whatsappLink = document.getElementById('whatsapp-link');
+                whatsappLink.href = `https://wa.me/79151201744?text=Здравствуйте!%20У%20меня%20вопрос%20по%20бронированию%20${code}`;
+                
+                // Если есть дополнительные параметры, заполняем их
+                if (checkInDate) {
+                    document.getElementById('check-in-date').textContent = formatDate(checkInDate);
+                }
+                
+                if (checkOutDate) {
+                    document.getElementById('check-out-date').textContent = formatDate(checkOutDate);
+                }
+                
+                if (roomType) {
+                    document.getElementById('room-type').textContent = translateRoomType(roomType);
+                }
+                
+                if (adults || children) {
+                    const adultCount = adults || '0';
+                    const childCount = children || '0';
+                    document.getElementById('guests').textContent = `${adultCount} взрослых, ${childCount} детей`;
+                }
+            } else {
+                // Если нет кода бронирования, скрываем блок с деталями
+                const bookingDetails = document.getElementById('booking-details');
+                if (bookingDetails) {
+                    bookingDetails.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

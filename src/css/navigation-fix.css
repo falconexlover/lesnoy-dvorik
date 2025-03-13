@@ -1,0 +1,201 @@
+/**
+ * Улучшения навигации и дизайна для сайта гостиницы "Лесной дворик"
+ */
+
+/* Улучшения для хедера */
+header {
+    transition: all 0.4s ease;
+}
+
+/* Улучшенная анимация для хедера при прокрутке */
+header.scrolled {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+/* Улучшения для логотипа */
+.logo img {
+    transition: all 0.3s ease;
+}
+
+header.scrolled .logo img {
+    transform: scale(0.9);
+}
+
+/* Улучшения для навигационного меню */
+.main-menu ul {
+    display: flex;
+    align-items: center;
+}
+
+.main-menu li {
+    position: relative;
+}
+
+.main-menu a {
+    position: relative;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Эффект подчеркивания для пунктов меню */
+.main-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.main-menu a:hover::after,
+.main-menu li.active a::after {
+    width: 70%;
+}
+
+/* Улучшения для выпадающего меню */
+.dropdown-content {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform-origin: top center;
+}
+
+.dropdown-content a {
+    padding: 12px 20px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-light);
+    padding-left: 25px;
+}
+
+/* Улучшения для мобильного меню */
+@media (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .mobile-menu-toggle span {
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .main-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: var(--background-color);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 80px 20px 20px;
+    }
+    
+    .main-menu.active {
+        right: 0;
+    }
+    
+    .main-menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .main-menu li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .main-menu a {
+        padding: 15px 0;
+        display: block;
+        width: 100%;
+    }
+    
+    .main-menu a::after {
+        display: none;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background-color: var(--background-light);
+        border-radius: 0;
+        margin-left: 15px;
+    }
+    
+    .dropdown.active .dropdown-content {
+        max-height: 500px;
+    }
+    
+    /* Затемнение фона при открытом меню */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Запрет прокрутки страницы при открытом меню */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* Улучшения для кнопки бронирования */
+.booking-button .btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(33, 113, 72, 0.2);
+}
+
+.booking-button .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(33, 113, 72, 0.3);
+}
+
+/* Индикатор активного пункта меню */
+.main-menu li.active a {
+    color: var(--primary-color);
+    font-weight: 600;
+} 

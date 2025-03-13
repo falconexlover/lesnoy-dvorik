@@ -1,0 +1,487 @@
+/* Общие стили для всех вариантов хедера */
+:root {
+    /* Все основные цветовые переменные уже определены в style.css
+     * Чтобы избежать дублирования, используем переменные оттуда
+     */
+}
+
+/* Базовые стили хедера */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--background-color);
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-fast);
+    height: var(--header-height);
+}
+
+/* Стили для логотипа */
+.logo a {
+    display: block;
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Стили для основного меню */
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-menu li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.main-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    padding: 10px 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.main-menu a:hover,
+.main-menu a.active {
+    color: var(--primary-color);
+}
+
+/* Стили для выпадающего меню */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: var(--dark-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--light-color);
+}
+
+/* Стили для кнопки бронирования */
+.booking-button .btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.booking-button .btn i {
+    margin-right: 8px;
+}
+
+.booking-button .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Стили для мобильного меню */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-color);
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 999;
+}
+
+/* Эффект при скроллинге */
+header.scrolled {
+    padding: 5px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для активного состояния мобильного меню */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .main-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100%;
+        background-color: #fff;
+        padding: 80px 20px 20px;
+        overflow-y: auto;
+        transition: right 0.3s;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-menu.active {
+        right: 0;
+    }
+    
+    .main-menu ul {
+        flex-direction: column;
+    }
+    
+    .main-menu li {
+        margin: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .main-menu a {
+        padding: 15px 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+    }
+    
+    .dropdown.active .dropdown-content {
+        max-height: 500px;
+    }
+}
+
+/* Специфические стили для Варианта 1: Современный минималистичный */
+.header-variant-1 .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.header-variant-1 .main-menu ul {
+    display: flex;
+}
+
+.header-variant-1 .main-menu li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.header-variant-1 .main-menu a {
+    padding: 10px 5px;
+    display: block;
+}
+
+.header-variant-1 .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s;
+}
+
+.header-variant-1 .dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header-variant-1 .dropdown-content a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.header-variant-1 .booking-button .btn {
+    padding: 10px 20px;
+}
+
+/* Специфические стили для Варианта 2: Двухуровневый хедер */
+.header-variant-2 .header-top {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.header-variant-2 .header-top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-variant-2 .contact-info {
+    display: flex;
+    align-items: center;
+}
+
+.header-variant-2 .contact-info a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-variant-2 .contact-info a i {
+    margin-right: 5px;
+}
+
+.header-variant-2 .social-links a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.header-variant-2 .header-main {
+    padding: 15px 0;
+}
+
+.header-variant-2 .header-main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-variant-2 .main-menu ul {
+    display: flex;
+}
+
+.header-variant-2 .main-menu li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.header-variant-2 .main-menu a {
+    padding: 10px 5px;
+    display: block;
+}
+
+.header-variant-2 .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s;
+}
+
+.header-variant-2 .dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header-variant-2 .dropdown-content a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.header-variant-2 .booking-button .btn {
+    padding: 10px 20px;
+}
+
+.header-variant-2.scrolled .header-top {
+    display: none;
+}
+
+/* Специфические стили для Варианта 3: Центрированное меню */
+.header-variant-3 .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.header-variant-3 .logo {
+    margin-bottom: 15px;
+}
+
+.header-variant-3 .main-menu {
+    width: 100%;
+    text-align: center;
+}
+
+.header-variant-3 .main-menu ul {
+    display: flex;
+    justify-content: center;
+}
+
+.header-variant-3 .main-menu li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.header-variant-3 .main-menu a {
+    padding: 10px 5px;
+    display: block;
+}
+
+.header-variant-3 .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.header-variant-3 .dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.header-variant-3 .dropdown-content a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.header-variant-3 .booking-button {
+    margin-top: 15px;
+}
+
+.header-variant-3 .booking-button .btn {
+    padding: 10px 20px;
+}
+
+.header-variant-3.scrolled .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+
+.header-variant-3.scrolled .logo {
+    margin-bottom: 0;
+}
+
+.header-variant-3.scrolled .main-menu {
+    width: auto;
+}
+
+.header-variant-3.scrolled .booking-button {
+    margin-top: 0;
+}
+
+/* Адаптивность для Варианта 2 */
+@media (max-width: 992px) {
+    .header-variant-2 .header-top-container {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    
+    .header-variant-2 .contact-info {
+        margin-bottom: 10px;
+    }
+    
+    .header-variant-2 .header-main-container {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-variant-2 .contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .header-variant-2 .contact-info a {
+        margin-bottom: 5px;
+    }
+}
+
+/* Адаптивность для Варианта 3 */
+@media (max-width: 992px) {
+    .header-variant-3 .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+    
+    .header-variant-3 .logo {
+        margin-bottom: 0;
+    }
+    
+    .header-variant-3 .booking-button {
+        display: none;
+    }
+} 

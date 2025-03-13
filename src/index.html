@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостиница "Лесной дворик" - Уютный отдых в окружении природы</title>
+    <meta name="description" content="Гостиница 'Лесной дворик' - идеальное место для отдыха в окружении природы. Комфортабельные номера, сауна, банкетный зал и отличный сервис.">
+    <!-- PWA поддержка -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#217148">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Лесной дворик">
+    <link rel="apple-touch-icon" href="assets/images/icons/icon-152x152.png">
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/design-improvements.css">
+    <link rel="stylesheet" href="css/visual-enhancements.css">
+    <link rel="stylesheet" href="css/form-enhancements.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Стили для хедера -->
+    <link rel="stylesheet" href="css/header-fix.css">
+    <link rel="stylesheet" href="css/navigation-fix.css">
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Мета-теги для соц. сетей -->
+    <meta property="og:title" content="Гостиница 'Лесной дворик' - Уютный отдых в окружении природы">
+    <meta property="og:description" content="Гостиница 'Лесной дворик' - идеальное место для отдыха в окружении природы. Комфортабельные номера, сауна, банкетный зал и отличный сервис.">
+    <meta property="og:image" content="assets/images/hotel-exterior.jpg">
+    <meta property="og:url" content="https://lesnoy-dvorik.ru">
+    <meta property="og:type" content="website">
+    <!-- Структурированные данные для поисковых систем -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Гостиница Лесной дворик",
+      "image": "assets/images/hotel-exterior.jpg",
+      "url": "https://lesnoy-dvorik.ru",
+      "description": "Гостиница 'Лесной дворик' - идеальное место для отдыха в окружении природы. Комфортабельные номера, сауна, банкетный зал и отличный сервис.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Лесная, 15",
+        "addressLocality": "Москва",
+        "postalCode": "123456",
+        "addressCountry": "RU"
+      },
+      "telephone": "+7 (123) 456-78-90",
+      "priceRange": "$$",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Бесплатный Wi-Fi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Парковка",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Ресторан",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Сауна",
+          "value": true
+        }
+      ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary-color: #217148; /* Новый зеленый цвет */
+        }
+    </style>
+    <!-- Предзагрузка критических ресурсов -->
+    <link rel="preload" href="assets/images/hotel-exterior.jpg" as="image">
+    <link rel="preload" href="js/main.js" as="script">
+</head>
+<body>
+    <header>
+        <!-- Хедер будет заменен скриптом -->
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Добро пожаловать в гостиницу "Лесной дворик"</h1>
+                <p>Уютный отдых в окружении природы всего в 15 минутах от центра города</p>
+                <a href="#booking" class="btn btn-primary">Забронировать номер</a>
+                <a href="#about" class="btn btn-outline">Узнать больше</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>О нас</h2>
+                    <p>Санаторий-профилакторий "Лесной дворик" - идеальное место для отдыха и деловых поездок</p>
+                </div>
+                <div class="about-content animate-on-scroll">
+                    <div class="about-text">
+                        <p>Санаторий-профилакторий расположен в красивейшей лесопарковой зоне, сохраненной с начала века. Гостиница, конференц-зал, сауна в одном комплексе в городе Жуковский. «Лесной дворик» расположен недалеко от ж/д станции МЦД Отдых, в шаговой доступности от городской инфраструктуры и общественного транспорта.</p>
+                        <p>Здание построено в 1979 году, в стиле советского постмодернизма. Использовалось как санаторий-профилакторий Жуковского машиностроительного завода. С 1991 года лечебные и оздоровительные процедуры больше не проводятся, зато комплекс прекрасно справляется с ролью отеля.</p>
+                        <p>Атмосфера советской романтики - это не просто слова. Мозаика, лепнина, внешний облик - всё это тщательно сохраняется при ремонте и реконструкции.</p>
+                        <p>«Лесной дворик» - не только гостиница в Жуковском. Это еще и оборудованный конференц-зал, и сауна с купелью и двумя парилками, и собственная кухня с уникальными блюдами по заводским рецептам.</p>
+                        <p>Цены на номера - по нижней границе рынка. Дружелюбный персонал постарается сделать ваше пребывание в гостинице беспроблемным и приятным.</p>
+                        <p>К вашим услугам:</p>
+                        <ul>
+                            <li>Комфортабельные номера с современной мебелью и техникой</li>
+                            <li>Бесплатный Wi-Fi на всей территории гостиницы</li>
+                            <li>Ресторан с разнообразным меню</li>
+                            <li>Сауна с бассейном</li>
+                            <li>Конференц-зал для проведения мероприятий</li>
+                            <li>Бесплатная парковка</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img data-src="assets/images/hotel-exterior.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' %3E%3Crect width='400' height='300' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Гостиница Лесной дворик" width="600" height="400" class="lazy-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Наши услуги</h2>
+                    <p>Мы предлагаем широкий спектр услуг для комфортного отдыха</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3>Комфортные номера</h3>
+                        <p>Различные категории номеров с современной мебелью и всеми удобствами для комфортного проживания.</p>
+                        <a href="pages/hotel.html" class="btn btn-outline">Подробнее</a>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-hot-tub"></i>
+                        </div>
+                        <h3>Сауна с бассейном</h3>
+                        <p>Отличное место для релаксации после напряженного дня. Финская сауна, бассейн и комната отдыха.</p>
+                        <a href="pages/sauna.html" class="btn btn-outline">Подробнее</a>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Ресторан</h3>
+                        <p>Разнообразное меню из блюд русской и европейской кухни. Завтраки включены в стоимость проживания.</p>
+                        <a href="pages/restaurant.html" class="btn btn-outline">Подробнее</a>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <h3>Конференц-зал</h3>
+                        <p>Просторный зал для проведения конференций, семинаров и деловых встреч. Современное оборудование и комфортная обстановка.</p>
+                        <a href="pages/banquet.html" class="btn btn-outline">Подробнее</a>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Конференц-зал</h3>
+                        <p>Современный конференц-зал для проведения деловых встреч, семинаров и тренингов.</p>
+                        <a href="pages/seminar.html" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Фотогалерея</h2>
+                    <p>Познакомьтесь с нашей гостиницей</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/hotel-1.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Внешний вид гостиницы" width="250" height="250" class="lazy-image">
+                    </div>
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/room-1.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Стандартный номер" width="250" height="250" class="lazy-image">
+                    </div>
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/room-2.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Люкс номер" width="250" height="250" class="lazy-image">
+                    </div>
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/restaurant.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Ресторан" width="250" height="250" class="lazy-image">
+                    </div>
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/sauna.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Сауна" width="250" height="250" class="lazy-image">
+                    </div>
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/banquet.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Конференц-зал" width="250" height="250" class="lazy-image">
+                    </div>
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/conference.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Конференц-зал" width="250" height="250" class="lazy-image">
+                    </div>
+                    <div class="gallery-item animate-on-scroll">
+                        <img data-src="assets/images/gallery/territory.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' %3E%3Crect width='250' height='250' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Территория" width="250" height="250" class="lazy-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="booking-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Бронирование</h2>
+                    <p>Забронируйте номер прямо сейчас</p>
+                </div>
+                <form id="booking-form" class="booking-form" action="php/booking.php" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Имя и фамилия *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="room-type">Тип номера *</label>
+                            <select id="room-type" name="room_type" required>
+                                <option value="">Выберите тип номера</option>
+                                <option value="econom">Эконом</option>
+                                <option value="standard">Стандарт</option>
+                                <option value="family">Семейный</option>
+                                <option value="comfort">Комфорт</option>
+                                <option value="lux">Люкс</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="check-in-date">Дата заезда *</label>
+                            <input type="date" id="check-in-date" name="check_in_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="check-out-date">Дата выезда *</label>
+                            <input type="date" id="check-out-date" name="check_out_date" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adults">Взрослых *</label>
+                            <select id="adults" name="adults" required>
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Детей</label>
+                            <select id="children" name="children">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="comments">Дополнительные пожелания</label>
+                            <textarea id="comments" name="comments"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-primary">Забронировать</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="contacts" class="contacts-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Контакты</h2>
+                    <p>Свяжитесь с нами любым удобным способом</p>
+                </div>
+                <div class="contacts-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Адрес</h3>
+                                <p>Московская область, г. Жуковский, ул. Нижегородская, д. 4</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Телефоны</h3>
+                                <p><strong>Гостиница:</strong> <a href="tel:+74984831941">8 (498) 483-19-41</a>, <a href="tel:+79151201744">8 (915) 120-17-44</a></p>
+                                <p><strong>Сауна:</strong> <a href="tel:+79151201744">8 (915) 120-17-44</a></p>
+                                <p><strong>Конференц-зал:</strong> <a href="tel:+79169266514">8 (916) 926-65-14</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p><a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Режим работы</h3>
+                                <p>Круглосуточно, без выходных</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/lesnoy_dvorik" class="social-link" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2252.1651082137283!2d38.11935231590079!3d55.59147998056131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab8c5e5b7a9d7%3A0x5e5b4c5b5e5b4c5b!2z0J3QuNC20LXQs9C-0YDQvtC00YHQutCw0Y8g0YPQuy4sIDQsINCW0YPQutC-0LLRgdC60LjQuSwg0JzQvtGB0LrQvtCy0YHQutCw0Y8g0L7QsdC7LiwgMTQwMTgw!5e0!3m2!1sru!2sru!4v1615300313281!5m2!1sru!2sru" allowfullscreen="" loading="lazy" title="Карта расположения гостиницы"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img data-src="assets/images/logo-white.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 50' %3E%3Crect width='150' height='50' fill='%23333'/%3E%3C/svg%3E" alt="Лесной дворик" width="150" height="50" class="lazy-image">
+                    <p>Уютный отдых в окружении природы</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="pages/hotel.html">Гостиница</a></li>
+                        <li><a href="pages/sauna.html">Сауна</a></li>
+                        <li><a href="pages/banquet.html">Конференц-зал</a></li>
+                        <li><a href="pages/special.html">Спецпредложения</a></li>
+                        <li><a href="pages/reviews.html">Отзывы</a></li>
+                        <li><a href="pages/virtual-tour.html">3D-тур</a></li>
+                        <li><a href="pages/info.html">Полезная информация</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="pages/hotel.html">Проживание</a></li>
+                        <li><a href="pages/restaurant.html">Ресторан</a></li>
+                        <li><a href="pages/sauna.html">Сауна</a></li>
+                        <li><a href="pages/banquet.html">Банкеты</a></li>
+                        <li><a href="pages/seminar.html">Конференции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Московская область, г. Жуковский, ул. Нижегородская, д. 4</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+74984831941">8 (498) 483-19-41</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a></p>
+                    <p><i class="fab fa-vk"></i> <a href="https://vk.com/lesnoy_dvorik">lesnoy_dvorik</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Гостиница "Лесной дворик". Все права защищены. <a href="pages/privacy.html">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/header-autoload.js"></script>
+    <script src="js/apply-header.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/debug.js"></script>
+    <script src="js/header-debug.js"></script>
+    <script src="js/navigation-fix.js"></script>
+    <script src="js/design-improvements.js"></script>
+    <script src="js/user-experience.js"></script>
+    
+    <!-- Скрипты -->
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/apply-header.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script>
+        // Регистрация Service Worker для PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker зарегистрирован успешно: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Ошибка регистрации ServiceWorker: ', error);
+                    });
+            });
+        }
+        
+        // Обработка установки PWA
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        installButton.style.display = 'none';
+        installButton.classList.add('pwa-install-button');
+        installButton.textContent = 'Установить приложение';
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Предотвращаем стандартное отображение мини-инфобара
+            e.preventDefault();
+            // Сохраняем событие для использования позже
+            deferredPrompt = e;
+            // Показываем кнопку установки
+            installButton.style.display = 'block';
+            
+            // Добавляем кнопку в DOM, если она еще не добавлена
+            if (!document.querySelector('.pwa-install-button')) {
+                const heroSection = document.querySelector('.hero .container');
+                if (heroSection) {
+                    heroSection.appendChild(installButton);
+                }
+            }
+            
+            // Обработчик клика по кнопке установки
+            installButton.addEventListener('click', (e) => {
+                // Скрываем кнопку установки
+                installButton.style.display = 'none';
+                // Показываем диалог установки
+                deferredPrompt.prompt();
+                // Ожидаем ответа пользователя
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Пользователь установил приложение');
+                    } else {
+                        console.log('Пользователь отклонил установку');
+                    }
+                    // Очищаем сохраненное событие
+                    deferredPrompt = null;
+                });
+            });
+        });
+        
+        // Обработка события успешной установки
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('Приложение установлено!');
+        });
+    </script>
+</body>
+</html> 

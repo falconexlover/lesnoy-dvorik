@@ -1,0 +1,580 @@
+/**
+ * Улучшенные анимации и переходы для сайта гостиницы "Лесной дворик"
+ * Оптимизировано для производительности и плавности
+ */
+
+/* Определение переменных для анимаций */
+:root {
+    --animation-duration: 0.8s;
+    --animation-delay-step: 0.1s;
+    --animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --animation-timing-function-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --animation-timing-function-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Цвета для анимаций */
+    --animation-primary: var(--primary-color, #217148);
+    --animation-primary-dark: var(--primary-color-dark, #1a5c3a);
+    --animation-accent: var(--accent-color, #ff9800);
+}
+
+/* Базовые анимации с аппаратным ускорением */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translate3d(0, 30px, 0);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInDown {
+    from { 
+        opacity: 0; 
+        transform: translate3d(0, -30px, 0);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from { 
+        opacity: 0; 
+        transform: translate3d(-30px, 0, 0);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInRight {
+    from { 
+        opacity: 0; 
+        transform: translate3d(30px, 0, 0);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes zoomIn {
+    from { 
+        opacity: 0; 
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    40% {
+        transform: translate3d(0, -20px, 0);
+    }
+    60% {
+        transform: translate3d(0, -10px, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Оптимизированные анимации для элементов при прокрутке */
+.animate-on-scroll {
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: opacity var(--animation-duration) var(--animation-timing-function),
+                transform var(--animation-duration) var(--animation-timing-function);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+}
+
+/* Предустановленные классы анимаций */
+.fade-in {
+    animation: fadeIn var(--animation-duration) var(--animation-timing-function-smooth) forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp var(--animation-duration) var(--animation-timing-function) forwards;
+    will-change: opacity, transform;
+}
+
+.fade-in-down {
+    animation: fadeInDown var(--animation-duration) var(--animation-timing-function) forwards;
+    will-change: opacity, transform;
+}
+
+.fade-in-left {
+    animation: fadeInLeft var(--animation-duration) var(--animation-timing-function) forwards;
+    will-change: opacity, transform;
+}
+
+.fade-in-right {
+    animation: fadeInRight var(--animation-duration) var(--animation-timing-function) forwards;
+    will-change: opacity, transform;
+}
+
+.zoom-in {
+    animation: zoomIn var(--animation-duration) var(--animation-timing-function) forwards;
+    will-change: opacity, transform;
+}
+
+/* Анимации для секций с трансформацией */
+.section-title.animate-on-scroll {
+    transform: translate3d(0, -30px, 0);
+}
+
+.section-title.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.service-card.animate-on-scroll {
+    transform: translate3d(0, 30px, 0);
+}
+
+.service-card.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.gallery-item.animate-on-scroll {
+    transform: scale3d(0.9, 0.9, 0.9);
+}
+
+.gallery-item.visible {
+    transform: scale3d(1, 1, 1);
+}
+
+.about-image.animate-on-scroll {
+    transform: translate3d(-30px, 0, 0);
+}
+
+.about-image.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.about-text.animate-on-scroll {
+    transform: translate3d(30px, 0, 0);
+}
+
+.about-text.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Каскадные анимации для элементов в одной секции с переменными CSS */
+.service-card:nth-child(1).visible { transition-delay: 0s; }
+.service-card:nth-child(2).visible { transition-delay: calc(var(--animation-delay-step) * 1); }
+.service-card:nth-child(3).visible { transition-delay: calc(var(--animation-delay-step) * 2); }
+.service-card:nth-child(4).visible { transition-delay: calc(var(--animation-delay-step) * 3); }
+.service-card:nth-child(5).visible { transition-delay: calc(var(--animation-delay-step) * 4); }
+
+.gallery-item:nth-child(1).visible { transition-delay: 0s; }
+.gallery-item:nth-child(2).visible { transition-delay: calc(var(--animation-delay-step) * 1); }
+.gallery-item:nth-child(3).visible { transition-delay: calc(var(--animation-delay-step) * 2); }
+.gallery-item:nth-child(4).visible { transition-delay: calc(var(--animation-delay-step) * 3); }
+.gallery-item:nth-child(5).visible { transition-delay: calc(var(--animation-delay-step) * 4); }
+.gallery-item:nth-child(6).visible { transition-delay: calc(var(--animation-delay-step) * 5); }
+.gallery-item:nth-child(7).visible { transition-delay: calc(var(--animation-delay-step) * 6); }
+.gallery-item:nth-child(8).visible { transition-delay: calc(var(--animation-delay-step) * 7); }
+
+/* Оптимизированные анимации для кнопок */
+.btn {
+    transition: transform 0.3s var(--animation-timing-function),
+                box-shadow 0.3s var(--animation-timing-function);
+    will-change: transform, box-shadow;
+}
+
+.btn:hover {
+    transform: translate3d(0, -3px, 0);
+}
+
+.btn:active {
+    transform: translate3d(0, 1px, 0);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 15px rgba(33, 113, 72, 0.3);
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 6px 15px rgba(255, 152, 0, 0.3);
+}
+
+/* Оптимизированные анимации для форм */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    transition: transform 0.3s var(--animation-timing-function-smooth),
+                border-color 0.3s var(--animation-timing-function-smooth),
+                box-shadow 0.3s var(--animation-timing-function-smooth);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    transform: translate3d(0, -2px, 0);
+}
+
+/* Оптимизированные анимации для социальных иконок */
+.social-links a {
+    transition: transform 0.3s var(--animation-timing-function);
+    will-change: transform;
+}
+
+.social-links a:hover {
+    transform: translate3d(0, -3px, 0) rotate(5deg);
+}
+
+/* Оптимизированные анимации для хедера */
+header {
+    transition: transform 0.4s var(--animation-timing-function-smooth),
+                background-color 0.4s var(--animation-timing-function-smooth);
+    will-change: transform, background-color;
+}
+
+header.scrolled {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Оптимизированная анимация для лого */
+.logo img {
+    transition: transform 0.3s var(--animation-timing-function);
+    will-change: transform;
+}
+
+.logo img:hover {
+    transform: scale3d(1.05, 1.05, 1.05);
+}
+
+/* Оптимизированная анимация для меню */
+.main-menu a {
+    position: relative;
+    transition: color 0.3s var(--animation-timing-function-smooth);
+}
+
+.main-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--animation-primary);
+    transition: width 0.3s var(--animation-timing-function),
+                transform 0.3s var(--animation-timing-function);
+    transform: translateX(-50%);
+    will-change: width, transform;
+}
+
+.main-menu a:hover::after,
+.main-menu li.active a::after {
+    width: 70%;
+}
+
+/* Оптимизированная анимация для мобильного меню */
+.mobile-menu-toggle span {
+    transition: transform 0.3s var(--animation-timing-function-smooth),
+                opacity 0.3s var(--animation-timing-function-smooth);
+    will-change: transform, opacity;
+}
+
+/* Оптимизированная анимация для галереи */
+.gallery-item img {
+    transition: transform 0.5s var(--animation-timing-function-smooth);
+    will-change: transform;
+}
+
+.gallery-item:hover img {
+    transform: scale3d(1.1, 1.1, 1.1);
+}
+
+/* Оптимизированная анимация для лайтбокса */
+.lightbox {
+    transition: opacity 0.4s var(--animation-timing-function-smooth),
+                visibility 0.4s var(--animation-timing-function-smooth);
+}
+
+.lightbox-content {
+    animation: zoomIn 0.4s var(--animation-timing-function) forwards;
+    will-change: opacity, transform;
+}
+
+/* Оптимизированная анимация для кнопки "Наверх" */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--animation-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--animation-timing-function),
+                visibility 0.3s var(--animation-timing-function),
+                transform 0.3s var(--animation-timing-function),
+                background-color 0.3s var(--animation-timing-function),
+                box-shadow 0.3s var(--animation-timing-function);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    will-change: opacity, transform, background-color;
+    cursor: pointer;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translate3d(0, -5px, 0);
+    background-color: var(--animation-primary-dark);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top i {
+    font-size: 20px;
+}
+
+/* Оптимизированная анимация для прогресс-бара */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--animation-primary);
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.1s linear;
+    will-change: width;
+}
+
+/* Новые анимации для улучшения взаимодействия */
+@keyframes shake {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate3d(-5px, 0, 0); }
+    20%, 40%, 60%, 80% { transform: translate3d(5px, 0, 0); }
+}
+
+.shake {
+    animation: shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale3d(1, 1, 1); }
+    14% { transform: scale3d(1.1, 1.1, 1.1); }
+    28% { transform: scale3d(1, 1, 1); }
+    42% { transform: scale3d(1.1, 1.1, 1.1); }
+    70% { transform: scale3d(1, 1, 1); }
+}
+
+.heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Анимация для уведомлений */
+@keyframes slideInDown {
+    from { transform: translate3d(0, -100%, 0); opacity: 0; }
+    to { transform: translate3d(0, 0, 0); opacity: 1; }
+}
+
+.notification {
+    animation: slideInDown 0.5s var(--animation-timing-function-smooth) forwards;
+    will-change: transform, opacity;
+}
+
+/* Анимация для подсказок */
+@keyframes fadeInTooltip {
+    from { opacity: 0; transform: translate3d(0, 10px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.tooltip {
+    animation: fadeInTooltip 0.3s var(--animation-timing-function-smooth) forwards;
+    will-change: opacity, transform;
+}
+
+/* Стили для уведомлений */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideInDown 0.5s var(--animation-timing-function-smooth) forwards;
+    will-change: transform, opacity;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+}
+
+.notification-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.notification-success .notification-icon {
+    color: #4CAF50;
+}
+
+.notification-error .notification-icon {
+    color: #F44336;
+}
+
+.notification-info .notification-icon {
+    color: #2196F3;
+}
+
+.notification-message {
+    font-size: 16px;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.notification-close:hover {
+    color: #333;
+}
+
+/* Стили для подсказок */
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1000;
+    pointer-events: none;
+    animation: fadeInTooltip 0.3s var(--animation-timing-function-smooth) forwards;
+    will-change: transform, opacity;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+/* Стили для ленивой загрузки изображений */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Стили для класса reduced-motion */
+.reduced-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+.reduced-motion .animate-on-scroll {
+    opacity: 1;
+    transform: none !important;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    :root {
+        --animation-duration: 0.6s;
+        --animation-delay-step: 0.08s;
+    }
+    
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .back-to-top i {
+        font-size: 16px;
+    }
+    
+    .notification {
+        max-width: calc(100% - 40px);
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+    
+    /* Уменьшаем интенсивность анимаций для мобильных устройств */
+    .service-card.animate-on-scroll,
+    .about-image.animate-on-scroll,
+    .about-text.animate-on-scroll {
+        transform: translate3d(0, 20px, 0);
+    }
+    
+    /* Добавляем поддержку prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+        
+        .animate-on-scroll {
+            opacity: 1;
+            transform: none !important;
+        }
+    }
+} 

@@ -1,0 +1,177 @@
+/* Стили для страницы с номерами гостиницы */
+
+/* Специфичные стили для страницы отеля */
+.hotel-intro {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hotel-intro p {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: var(--text-light);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hotel-intro .btn {
+    margin-top: 20px;
+}
+
+.room-types-nav {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+}
+
+.room-types-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.room-types-nav a {
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color var(--transition-fast);
+}
+
+.room-types-nav a:hover,
+.room-types-nav a.active {
+    background-color: var(--primary-dark);
+}
+
+.room-type-section {
+    padding: 80px 0;
+    scroll-margin-top: 150px;
+}
+
+.room-type-section:nth-child(even) {
+    background-color: var(--background-light);
+}
+
+.room-type-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.room-type-header h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.room-type-header p {
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.booking-cta {
+    text-align: center;
+    padding: 80px 0;
+    background-color: var(--primary-light);
+}
+
+.booking-cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.booking-cta p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: var(--text-light);
+    font-size: 18px;
+}
+
+.booking-cta .btn {
+    margin: 0 10px;
+}
+
+/* Медиа-запросы */
+@media screen and (max-width: 992px) {
+    .rooms-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .room-types-nav {
+        top: 70px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hotel-intro p {
+        font-size: 16px;
+    }
+    
+    .room-type-header h2 {
+        font-size: 28px;
+    }
+    
+    .room-types-nav {
+        padding: 10px 0;
+    }
+    
+    .room-types-nav ul {
+        gap: 10px;
+    }
+    
+    .room-types-nav a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .booking-cta h2 {
+        font-size: 28px;
+    }
+    
+    .booking-cta p {
+        font-size: 16px;
+    }
+    
+    .booking-cta .btn {
+        margin: 0 5px 10px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .room-type-section {
+        padding: 50px 0;
+    }
+    
+    .hotel-intro {
+        padding: 40px 0;
+    }
+    
+    .room-types-nav {
+        position: relative;
+        top: 0;
+    }
+    
+    .room-types-nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .room-types-nav a {
+        display: block;
+        text-align: center;
+    }
+} 

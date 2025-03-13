@@ -1,0 +1,335 @@
+/**
+ * Улучшения визуальной составляющей для сайта гостиницы "Лесной дворик"
+ */
+
+/* Улучшенные цветовые переходы и градиенты */
+:root {
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    --gradient-accent: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --animation-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Улучшенные эффекты наведения для карточек */
+.service-card, .gallery-item, .room-card {
+    transition: all 0.4s var(--animation-bounce);
+    box-shadow: var(--shadow-card);
+    transform: translateY(0);
+}
+
+.service-card:hover, .gallery-item:hover, .room-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Улучшенные кнопки с градиентом */
+.btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-dark);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-secondary {
+    background: var(--gradient-accent);
+}
+
+/* Улучшенные заголовки с декоративными элементами */
+.section-title h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+
+.section-title h2::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 70px;
+    width: 30px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+/* Улучшенный фон для секций */
+section:nth-child(even) {
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+section:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(33, 113, 72, 0.03), transparent);
+    z-index: 0;
+}
+
+section:nth-child(even) .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Улучшенные изображения с эффектом глубины */
+.about-image img, .gallery-item img, .room-image img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.about-image:hover img, .gallery-item:hover img, .room-image:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Улучшенные формы с анимацией фокуса */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 16px;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group select:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    background-color: white;
+    padding: 0 5px;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(33, 113, 72, 0.1);
+}
+
+/* Улучшенный футер с градиентом */
+footer {
+    background: linear-gradient(to bottom, #333, #222);
+    color: white;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+/* Улучшенные социальные иконки */
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Улучшенная анимация для элементов при прокрутке */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Улучшенный лайтбокс для галереи */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Улучшенные карточки номеров */
+.room-card {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: var(--shadow-card);
+}
+
+.room-card-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.room-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.room-card:hover .room-card-image img {
+    transform: scale(1.1);
+}
+
+.room-card-content {
+    padding: 20px;
+}
+
+.room-card-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.room-card-price {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.room-card-features {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.room-card-feature {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.room-card-feature i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .section-title h2::before {
+        display: none;
+    }
+    
+    .room-card-image {
+        height: 180px;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+    }
+} 
