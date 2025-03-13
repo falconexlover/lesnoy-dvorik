@@ -71,32 +71,32 @@ function applyHeaderVariant1(header, isMainPage, rootPath) {
                 </a>
             </div>
             <nav class="main-menu">
-                <ul>
-                    <li><a href="${isMainPage ? '#about' : '../index.html#about'}">О нас</a></li>
-                    <li class="dropdown">
-                        <a href="${isMainPage ? 'pages/hotel.html' : 'hotel.html'}">Номера</a>
+                <ul class="menu-list">
+                    <li class="menu-item"><a href="${isMainPage ? '#about' : '../index.html#about'}" class="menu-link">О нас</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="${isMainPage ? 'pages/rooms.html' : 'rooms.html'}" class="menu-link has-dropdown">Номера <span class="dropdown-arrow"></span></a>
                         <div class="dropdown-content">
-                            <a href="${isMainPage ? 'pages/hotel.html#econom' : 'hotel.html#econom'}">Эконом</a>
-                            <a href="${isMainPage ? 'pages/hotel.html#standard' : 'hotel.html#standard'}">Стандарт</a>
-                            <a href="${isMainPage ? 'pages/hotel.html#comfort' : 'hotel.html#comfort'}">Комфорт</a>
-                            <a href="${isMainPage ? 'pages/hotel.html#lux' : 'hotel.html#lux'}">Люкс</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#standard' : 'rooms.html#standard'}" class="dropdown-item">Стандарт</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#comfort' : 'rooms.html#comfort'}" class="dropdown-item">Комфорт</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#family' : 'rooms.html#family'}" class="dropdown-item">Семейный</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#lux' : 'rooms.html#lux'}" class="dropdown-item">Люкс</a>
                         </div>
                     </li>
-                    <li><a href="${isMainPage ? 'pages/sauna.html' : 'sauna.html'}">Сауна</a></li>
-                    <li><a href="${isMainPage ? 'pages/banquet.html' : 'banquet.html'}">Банкетный зал</a></li>
-                    <li><a href="${isMainPage ? 'pages/gallery.html' : 'gallery.html'}">Галерея</a></li>
-                    <li><a href="${isMainPage ? 'pages/virtual-tour.html' : 'virtual-tour.html'}"><i class="fas fa-vr-cardboard"></i> 3D-тур</a></li>
-                    <li><a href="${isMainPage ? 'pages/contacts.html' : 'contacts.html'}">Контакты</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/sauna.html' : 'sauna.html'}" class="menu-link">Сауна</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/banquet.html' : 'banquet.html'}" class="menu-link">Банкетный зал</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/gallery.html' : 'gallery.html'}" class="menu-link">Галерея</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/virtual-tour.html' : 'virtual-tour.html'}" class="menu-link"><i class="fas fa-vr-cardboard"></i> 3D-тур</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/contacts.html' : 'contacts.html'}" class="menu-link">Контакты</a></li>
                 </ul>
             </nav>
             <div class="booking-button">
                 <a href="${isMainPage ? 'pages/booking.html' : 'booking.html'}" class="btn btn-primary">Забронировать <i class="fas fa-arrow-right"></i></a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <div class="mobile-menu-toggle" aria-label="Открыть меню">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
+            </div>
         </div>
     `;
 }
@@ -125,32 +125,32 @@ function applyHeaderVariant2(header, isMainPage, rootPath) {
                     </a>
                 </div>
                 <nav class="main-menu">
-                    <ul>
-                        <li><a href="${isMainPage ? '#about' : '../index.html#about'}">О нас</a></li>
-                        <li class="dropdown">
-                            <a href="${isMainPage ? 'pages/hotel.html' : 'hotel.html'}">Номера</a>
+                    <ul class="menu-list">
+                        <li class="menu-item"><a href="${isMainPage ? '#about' : '../index.html#about'}" class="menu-link">О нас</a></li>
+                        <li class="menu-item dropdown">
+                            <a href="${isMainPage ? 'pages/rooms.html' : 'rooms.html'}" class="menu-link has-dropdown">Номера <span class="dropdown-arrow"></span></a>
                             <div class="dropdown-content">
-                                <a href="${isMainPage ? 'pages/hotel.html#econom' : 'hotel.html#econom'}">Эконом</a>
-                                <a href="${isMainPage ? 'pages/hotel.html#standard' : 'hotel.html#standard'}">Стандарт</a>
-                                <a href="${isMainPage ? 'pages/hotel.html#comfort' : 'hotel.html#comfort'}">Комфорт</a>
-                                <a href="${isMainPage ? 'pages/hotel.html#lux' : 'hotel.html#lux'}">Люкс</a>
+                                <a href="${isMainPage ? 'pages/rooms.html#standard' : 'rooms.html#standard'}" class="dropdown-item">Стандарт</a>
+                                <a href="${isMainPage ? 'pages/rooms.html#comfort' : 'rooms.html#comfort'}" class="dropdown-item">Комфорт</a>
+                                <a href="${isMainPage ? 'pages/rooms.html#family' : 'rooms.html#family'}" class="dropdown-item">Семейный</a>
+                                <a href="${isMainPage ? 'pages/rooms.html#lux' : 'rooms.html#lux'}" class="dropdown-item">Люкс</a>
                             </div>
                         </li>
-                        <li><a href="${isMainPage ? 'pages/sauna.html' : 'sauna.html'}">Сауна</a></li>
-                        <li><a href="${isMainPage ? 'pages/banquet.html' : 'banquet.html'}">Банкетный зал</a></li>
-                        <li><a href="${isMainPage ? 'pages/gallery.html' : 'gallery.html'}">Галерея</a></li>
-                        <li><a href="${isMainPage ? 'pages/virtual-tour.html' : 'virtual-tour.html'}"><i class="fas fa-vr-cardboard"></i> 3D-тур</a></li>
-                        <li><a href="${isMainPage ? 'pages/contacts.html' : 'contacts.html'}">Контакты</a></li>
+                        <li class="menu-item"><a href="${isMainPage ? 'pages/sauna.html' : 'sauna.html'}" class="menu-link">Сауна</a></li>
+                        <li class="menu-item"><a href="${isMainPage ? 'pages/banquet.html' : 'banquet.html'}" class="menu-link">Банкетный зал</a></li>
+                        <li class="menu-item"><a href="${isMainPage ? 'pages/gallery.html' : 'gallery.html'}" class="menu-link">Галерея</a></li>
+                        <li class="menu-item"><a href="${isMainPage ? 'pages/virtual-tour.html' : 'virtual-tour.html'}" class="menu-link"><i class="fas fa-vr-cardboard"></i> 3D-тур</a></li>
+                        <li class="menu-item"><a href="${isMainPage ? 'pages/contacts.html' : 'contacts.html'}" class="menu-link">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="booking-button">
                     <a href="${isMainPage ? 'pages/booking.html' : 'booking.html'}" class="btn btn-primary">Забронировать</a>
                 </div>
-                <button class="mobile-menu-toggle" aria-label="Открыть меню">
+                <div class="mobile-menu-toggle" aria-label="Открыть меню">
                     <span></span>
                     <span></span>
                     <span></span>
-                </button>
+                </div>
             </div>
         </div>
     `;
@@ -165,33 +165,33 @@ function applyHeaderVariant3(header, isMainPage, rootPath) {
                     <img src="${rootPath}assets/images/logo.png" alt="Лесной дворик" width="150" height="50">
                 </a>
             </div>
-            <div class="main-menu">
-                <ul>
-                    <li><a href="${isMainPage ? '#about' : '../index.html#about'}">О нас</a></li>
-                    <li class="dropdown">
-                        <a href="${isMainPage ? 'pages/hotel.html' : 'hotel.html'}">Номера</a>
+            <nav class="main-menu">
+                <ul class="menu-list">
+                    <li class="menu-item"><a href="${isMainPage ? '#about' : '../index.html#about'}" class="menu-link">О нас</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="${isMainPage ? 'pages/rooms.html' : 'rooms.html'}" class="menu-link has-dropdown">Номера <span class="dropdown-arrow"></span></a>
                         <div class="dropdown-content">
-                            <a href="${isMainPage ? 'pages/hotel.html#econom' : 'hotel.html#econom'}">Эконом</a>
-                            <a href="${isMainPage ? 'pages/hotel.html#standard' : 'hotel.html#standard'}">Стандарт</a>
-                            <a href="${isMainPage ? 'pages/hotel.html#comfort' : 'hotel.html#comfort'}">Комфорт</a>
-                            <a href="${isMainPage ? 'pages/hotel.html#lux' : 'hotel.html#lux'}">Люкс</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#standard' : 'rooms.html#standard'}" class="dropdown-item">Стандарт</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#comfort' : 'rooms.html#comfort'}" class="dropdown-item">Комфорт</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#family' : 'rooms.html#family'}" class="dropdown-item">Семейный</a>
+                            <a href="${isMainPage ? 'pages/rooms.html#lux' : 'rooms.html#lux'}" class="dropdown-item">Люкс</a>
                         </div>
                     </li>
-                    <li><a href="${isMainPage ? 'pages/sauna.html' : 'sauna.html'}">Сауна</a></li>
-                    <li><a href="${isMainPage ? 'pages/banquet.html' : 'banquet.html'}">Банкетный зал</a></li>
-                    <li><a href="${isMainPage ? 'pages/gallery.html' : 'gallery.html'}">Галерея</a></li>
-                    <li><a href="${isMainPage ? 'pages/virtual-tour.html' : 'virtual-tour.html'}"><i class="fas fa-vr-cardboard"></i> 3D-тур</a></li>
-                    <li><a href="${isMainPage ? 'pages/contacts.html' : 'contacts.html'}">Контакты</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/sauna.html' : 'sauna.html'}" class="menu-link">Сауна</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/banquet.html' : 'banquet.html'}" class="menu-link">Банкетный зал</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/gallery.html' : 'gallery.html'}" class="menu-link">Галерея</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/virtual-tour.html' : 'virtual-tour.html'}" class="menu-link"><i class="fas fa-vr-cardboard"></i> 3D-тур</a></li>
+                    <li class="menu-item"><a href="${isMainPage ? 'pages/contacts.html' : 'contacts.html'}" class="menu-link">Контакты</a></li>
                 </ul>
-            </div>
+            </nav>
             <div class="booking-button">
                 <a href="${isMainPage ? 'pages/booking.html' : 'booking.html'}" class="btn btn-primary">Забронировать</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <div class="mobile-menu-toggle" aria-label="Открыть меню">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
+            </div>
         </div>
     `;
 }
@@ -199,52 +199,80 @@ function applyHeaderVariant3(header, isMainPage, rootPath) {
 // Функция для инициализации обработчиков мобильного меню
 function initMobileMenuHandlers() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainMenu = document.querySelector('.main-menu');
-    const menuOverlay = document.querySelector('.menu-overlay');
-    const dropdowns = document.querySelectorAll('.dropdown');
+    const menuList = document.querySelector('.menu-list');
+    const body = document.body;
     
-    if (mobileMenuToggle && mainMenu && menuOverlay) {
+    // Создаем оверлей для мобильного меню, если его нет
+    let menuOverlay = document.querySelector('.menu-overlay');
+    if (!menuOverlay) {
+        menuOverlay = document.createElement('div');
+        menuOverlay.className = 'menu-overlay';
+        document.body.appendChild(menuOverlay);
+    }
+    
+    if (mobileMenuToggle && menuList) {
         // Удаляем существующие обработчики, чтобы избежать дублирования
         const newMobileMenuToggle = mobileMenuToggle.cloneNode(true);
         mobileMenuToggle.parentNode.replaceChild(newMobileMenuToggle, mobileMenuToggle);
         
         const newMenuOverlay = menuOverlay.cloneNode(true);
-        menuOverlay.parentNode.replaceChild(newMenuOverlay, menuOverlay);
+        if (menuOverlay.parentNode) {
+            menuOverlay.parentNode.replaceChild(newMenuOverlay, menuOverlay);
+        }
         
         // Добавляем новые обработчики
         newMobileMenuToggle.addEventListener('click', function() {
             this.classList.toggle('active');
-            mainMenu.classList.toggle('active');
+            menuList.classList.toggle('active');
             newMenuOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            body.classList.toggle('no-scroll');
         });
         
         newMenuOverlay.addEventListener('click', function() {
             newMobileMenuToggle.classList.remove('active');
-            mainMenu.classList.remove('active');
+            menuList.classList.remove('active');
             this.classList.remove('active');
-            document.body.classList.remove('menu-open');
+            body.classList.remove('no-scroll');
         });
     }
     
     // Обработка выпадающего меню на мобильных устройствах
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
     if (dropdowns.length > 0) {
         dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
+            const link = dropdown.querySelector('.has-dropdown');
             
-            // Удаляем существующие обработчики
-            const newLink = link.cloneNode(true);
-            link.parentNode.replaceChild(newLink, link);
-            
-            // Добавляем новые обработчики
-            newLink.addEventListener('click', function(e) {
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
-            });
+            if (link) {
+                // Удаляем существующие обработчики
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+                
+                // Добавляем новые обработчики
+                newLink.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 991) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            }
         });
     }
+    
+    // Обработка изменения размера окна
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 991) {
+            if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+            if (menuList) menuList.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            body.classList.remove('no-scroll');
+            
+            // Сбрасываем активные выпадающие меню
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
 }
 
 // Функция для показа уведомления

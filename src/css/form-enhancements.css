@@ -210,6 +210,12 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23217148' width='18px' height='18px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
 }
 
+/* Исправление для выпадающих списков */
+.form-group select option {
+    background-color: var(--background-color, #FFFFFF);
+    color: var(--text-color, #333333);
+}
+
 /* Улучшенные поля для даты */
 .form-group input[type="date"] {
     appearance: none;
@@ -237,4 +243,414 @@
     .form-row button {
         width: 100%;
     }
+}
+
+/* Улучшения для форм бронирования */
+
+/* Общие стили для формы */
+.booking-form-container {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.booking-form-title {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.75rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1 0 300px;
+    padding: 0 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(33, 113, 72, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.booking-section .submit-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.booking-section .submit-btn:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.booking-section .submit-btn:active {
+    transform: translateY(0);
+}
+
+.booking-section .submit-btn:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Стили для дополнительной информации */
+.booking-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.booking-info-col {
+    flex: 1 0 300px;
+}
+
+/* Стили для информации о номере */
+.room-info {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.room-info h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+}
+
+.room-info p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.room-info h5 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.amenities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+}
+
+.amenities-list li {
+    padding: 0.25rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.amenities-list i {
+    color: var(--color-primary);
+    margin-right: 0.5rem;
+}
+
+/* Стили для сводки цены */
+.price-details {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.price-row:last-child {
+    border-bottom: none;
+}
+
+.price-row.highlight {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.price-row.total {
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 2px solid var(--border-color);
+    border-bottom: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .form-group {
+        flex: 0 0 100%;
+    }
+    
+    .amenities-list {
+        columns: 1;
+    }
+    
+    .booking-info-col {
+        flex: 0 0 100%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Новые стили для улучшения UX */
+.form-error {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.form-group.has-error input,
+.form-group.has-error select {
+    border-color: #d9534f;
+}
+
+.form-group.has-error .form-error {
+    display: block;
+}
+
+.date-range-preview {
+    text-align: center;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background-color: var(--bg-primary);
+    border-radius: 5px;
+    color: var(--text-secondary);
+}
+
+.date-range-preview strong {
+    color: var(--color-primary);
+}
+
+/* Переключатель темной/светлой темы */
+:root {
+    --bg-primary: #fff;
+    --bg-secondary: #f7f9fc;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --color-primary: #217148;
+    --color-primary-dark: #185e3a;
+    --border-color: #ddd;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --text-primary: #f0f0f0;
+    --text-secondary: #aaa;
+    --color-primary: #28a060;
+    --color-primary-dark: #1f804c;
+    --border-color: #444;
+}
+
+/* Стили для чекбоксов */
+.checkbox-group {
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+.checkbox-label span {
+    font-size: 0.95rem;
+}
+
+.checkbox-label a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+
+.checkbox-label a:hover {
+    border-bottom: 1px solid;
+}
+
+/* Стили для правил бронирования */
+.booking-rules {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.booking-rules h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rules-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.rules-list i {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+}
+
+.rule-content {
+    flex: 1;
+}
+
+.rule-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.rule-content p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* Улучшения для ввода даты */
+input[type="date"] {
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Дополнительные стили для мобильных устройств */
+@media (max-width: 576px) {
+    .booking-form-container,
+    .booking-info-col,
+    .booking-rules {
+        padding: 1.25rem;
+    }
+    
+    .rules-list li {
+        flex-direction: column;
+    }
+    
+    .rules-list i {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Анимации для улучшения UX */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.price-details, .room-info {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Стили для адаптивности в iPad */
+@media (min-width: 577px) and (max-width: 991px) {
+    .booking-info {
+        gap: 1rem;
+    }
+}
+
+/* Улучшения доступности для элементов формы */
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(33, 113, 72, 0.25);
+}
+
+/* Визуальное выделение текущего дня в календаре */
+input[type="date"]::-webkit-datetime-edit {
+    color: var(--text-primary);
+}
+
+/* Улучшение для форм при вводе данных */
+.form-group input:not(:placeholder-shown),
+.form-group select:not([value=""]),
+.form-group textarea:not(:placeholder-shown) {
+    border-color: var(--color-primary-dark);
+}
+
+/* Улучшение для чекбоксов */
+.checkbox-group input[type="checkbox"]:checked + span {
+    font-weight: 500;
+    color: var(--color-primary);
 } 

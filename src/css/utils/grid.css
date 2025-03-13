@@ -1,0 +1,181 @@
+/**
+ * Сеточные утилиты
+ * Современные системы сеток для сайта "Лесной дворик"
+ */
+
+/* Базовый контейнер сетки */
+.grid {
+  display: grid;
+  gap: var(--grid-gap, 1.5rem);
+}
+
+/* Колонки */
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.grid-cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.grid-cols-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.grid-cols-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+.grid-cols-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+.grid-cols-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+.grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+/* Строки */
+.grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+.grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+.grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+.grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+
+/* Охват колонок */
+.col-span-1 { grid-column: span 1 / span 1; }
+.col-span-2 { grid-column: span 2 / span 2; }
+.col-span-3 { grid-column: span 3 / span 3; }
+.col-span-4 { grid-column: span 4 / span 4; }
+.col-span-5 { grid-column: span 5 / span 5; }
+.col-span-6 { grid-column: span 6 / span 6; }
+.col-span-7 { grid-column: span 7 / span 7; }
+.col-span-8 { grid-column: span 8 / span 8; }
+.col-span-9 { grid-column: span 9 / span 9; }
+.col-span-10 { grid-column: span 10 / span 10; }
+.col-span-11 { grid-column: span 11 / span 11; }
+.col-span-12 { grid-column: span 12 / span 12; }
+.col-span-full { grid-column: 1 / -1; }
+
+/* Охват строк */
+.row-span-1 { grid-row: span 1 / span 1; }
+.row-span-2 { grid-row: span 2 / span 2; }
+.row-span-3 { grid-row: span 3 / span 3; }
+.row-span-4 { grid-row: span 4 / span 4; }
+.row-span-5 { grid-row: span 5 / span 5; }
+.row-span-6 { grid-row: span 6 / span 6; }
+.row-span-full { grid-row: 1 / -1; }
+
+/* Отступы сетки */
+.gap-0 { gap: 0; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-5 { gap: 1.5rem; }
+.gap-6 { gap: 2rem; }
+.gap-8 { gap: 3rem; }
+.gap-10 { gap: 4rem; }
+
+/* Отступы сетки по X */
+.gap-x-0 { column-gap: 0; }
+.gap-x-1 { column-gap: 0.25rem; }
+.gap-x-2 { column-gap: 0.5rem; }
+.gap-x-3 { column-gap: 0.75rem; }
+.gap-x-4 { column-gap: 1rem; }
+.gap-x-5 { column-gap: 1.5rem; }
+.gap-x-6 { column-gap: 2rem; }
+.gap-x-8 { column-gap: 3rem; }
+.gap-x-10 { column-gap: 4rem; }
+
+/* Отступы сетки по Y */
+.gap-y-0 { row-gap: 0; }
+.gap-y-1 { row-gap: 0.25rem; }
+.gap-y-2 { row-gap: 0.5rem; }
+.gap-y-3 { row-gap: 0.75rem; }
+.gap-y-4 { row-gap: 1rem; }
+.gap-y-5 { row-gap: 1.5rem; }
+.gap-y-6 { row-gap: 2rem; }
+.gap-y-8 { row-gap: 3rem; }
+.gap-y-10 { row-gap: 4rem; }
+
+/* Автоматическое заполнение сетки */
+.grid-cols-auto-fill { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.grid-cols-auto-fit { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+/* Сетка для галереи изображений */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Области в сетке */
+.grid-areas {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+}
+
+.grid-area-header { grid-area: header; }
+.grid-area-sidebar { grid-area: sidebar; }
+.grid-area-main { grid-area: main; }
+.grid-area-footer { grid-area: footer; }
+
+/* Выравнивание в сетке */
+.grid-flow-row { grid-auto-flow: row; }
+.grid-flow-col { grid-auto-flow: column; }
+.grid-flow-dense { grid-auto-flow: dense; }
+.grid-flow-row-dense { grid-auto-flow: row dense; }
+.grid-flow-col-dense { grid-auto-flow: column dense; }
+
+/* Адаптивные сетки */
+@media (max-width: 1200px) {
+  .grid-cols-lg-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-cols-lg-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-lg-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-cols-lg-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-cols-lg-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  
+  .col-lg-span-1 { grid-column: span 1 / span 1; }
+  .col-lg-span-2 { grid-column: span 2 / span 2; }
+  .col-lg-span-3 { grid-column: span 3 / span 3; }
+  .col-lg-span-4 { grid-column: span 4 / span 4; }
+  .col-lg-span-6 { grid-column: span 6 / span 6; }
+  .col-lg-span-12 { grid-column: span 12 / span 12; }
+}
+
+@media (max-width: 992px) {
+  .grid-cols-md-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-cols-md-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-md-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-cols-md-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  
+  .col-md-span-1 { grid-column: span 1 / span 1; }
+  .col-md-span-2 { grid-column: span 2 / span 2; }
+  .col-md-span-3 { grid-column: span 3 / span 3; }
+  .col-md-span-4 { grid-column: span 4 / span 4; }
+  .col-md-span-6 { grid-column: span 6 / span 6; }
+  .col-md-span-12 { grid-column: span 12 / span 12; }
+}
+
+@media (max-width: 768px) {
+  .grid-cols-sm-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-cols-sm-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  
+  .col-sm-span-1 { grid-column: span 1 / span 1; }
+  .col-sm-span-2 { grid-column: span 2 / span 2; }
+  .col-sm-span-3 { grid-column: span 3 / span 3; }
+  .col-sm-span-4 { grid-column: span 4 / span 4; }
+  .col-sm-span-6 { grid-column: span 6 / span 6; }
+  .col-sm-span-12 { grid-column: span 12 / span 12; }
+  
+  .row-sm-span-1 { grid-row: span 1 / span 1; }
+  .row-sm-span-2 { grid-row: span 2 / span 2; }
+  
+  .grid-areas-sm {
+    grid-template-areas: 
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-cols-xs-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  
+  .col-xs-span-1 { grid-column: span 1 / span 1; }
+  .col-xs-span-12 { grid-column: span 12 / span 12; }
+} 

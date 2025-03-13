@@ -1,0 +1,330 @@
+/**
+ * CSS-оптимизации для сайта гостиницы "Лесной дворик"
+ * Содержит современные практики для улучшения производительности и адаптивности
+ * 2024-2025
+ */
+
+/* Оптимизация отрисовки контента */
+.optimize-content {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px; /* Примерная высота для предотвращения прыжков скролла */
+}
+
+/* Оптимизированные медиа-запросы с переменными */
+@media (max-width: 768px) {
+    :root {
+        --element-padding: 1rem;
+        --container-width: 100%;
+        --heading-size: var(--font-size-xl);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    :root {
+        --element-padding: 2rem;
+        --container-width: 90%;
+        --heading-size: var(--font-size-2xl);
+    }
+}
+
+@media (min-width: 1201px) {
+    :root {
+        --element-padding: 3rem;
+        --container-width: 1140px;
+        --heading-size: var(--font-size-3xl);
+    }
+}
+
+/* Упрощенное центрирование элементов */
+.center-element {
+    margin-inline: auto;
+    display: block;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Адаптивная типографика с использованием clamp */
+.fluid-title {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+.fluid-text {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.5;
+}
+
+/* Оптимизированные переходы для всплывающих элементов */
+dialog, 
+[popover] {
+    transition: display 0.3s allow-discrete, 
+                overlay 0.3s allow-discrete, 
+                opacity 0.3s;
+    opacity: 0;
+}
+
+dialog[open], 
+:popover-open {
+    opacity: 1;
+}
+
+@starting-style {
+    dialog[open], 
+    :popover-open {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Плавное раскрытие элементов details */
+details {
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+details summary {
+    cursor: pointer;
+}
+
+details[open] summary ~ * {
+    animation: details-show 0.3s ease-in-out;
+}
+
+@keyframes details-show {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Переходы между страницами */
+@view-transition {
+    navigation: auto;
+}
+
+.header {
+    view-transition-name: --header;
+}
+
+.logo {
+    view-transition-name: --logo;
+}
+
+.footer {
+    view-transition-name: --footer;
+}
+
+/* Оптимизированные градиенты с интерполяцией в современных цветовых пространствах */
+.modern-gradient {
+    --angle: 135deg;
+    background: linear-gradient(
+        var(--angle),
+        color-mix(in oklch, var(--primary-dark), var(--terracotta) 30%),
+        color-mix(in oklch, var(--accent-color), var(--sage-green) 20%)
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Типизированные CSS-переменные для лучшей производительности анимаций */
+@property --card-shadow-opacity {
+    syntax: "<number>";
+    initial-value: 0.08;
+    inherits: false;
+}
+
+.typed-card {
+    box-shadow: 0 8px 30px rgba(46, 32, 17, var(--card-shadow-opacity));
+    transition: --card-shadow-opacity 0.3s;
+}
+
+.typed-card:hover {
+    --card-shadow-opacity: a0.15;
+}
+
+/* Улучшенные анимации с пружинным эффектом */
+.spring-animation {
+    animation-timing-function: linear(
+        0, 0.0455, 0.182, 0.4085, 0.6345, 0.818, 0.9345, 0.9845, 0.996, 0.9985, 0.9995, 1
+    );
+    transition-timing-function: linear(
+        0, 0.0455, 0.182, 0.4085, 0.6345, 0.818, 0.9345, 0.9845, 0.996, 0.9985, 0.9995, 1
+    );
+}
+
+/* Упрощенное переключение темы с функцией light-dark */
+.theme-aware-text {
+    color: light-dark(var(--text-dark), #ffffff);
+}
+
+.theme-aware-bg {
+    background-color: light-dark(var(--bg-light), var(--primary-dark));
+}
+
+.theme-aware-border {
+    border-color: light-dark(var(--border-color), var(--primary-light));
+}
+
+/* Оптимизированные изображения с лениво-загружаемым фоном */
+.lazy-bg {
+    background-image: none;
+    background-color: var(--bg-medium);
+}
+
+.lazy-bg.loaded {
+    animation: fade-in 0.5s ease-in;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Адаптивные карточки для оптимизации на мобильных устройствах */
+.adaptive-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 2rem;
+}
+
+/* Улучшенная доступность для элементов формы */
+.form-field:user-invalid {
+    border-color: var(--error-color);
+}
+
+.form-field:user-valid {
+    border-color: var(--success-color);
+}
+
+/* Улучшенная оптимизация для печати */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt !important;
+    }
+    
+    a {
+        color: #000000 !important;
+        text-decoration: underline !important;
+    }
+    
+    .container, .section {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+}
+
+/* Приоритет отображения содержимого с помощью display:swap для шрифтов */
+@font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    /* Остальные свойства шрифта */
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+    /* Остальные свойства шрифта */
+}
+
+/* Блок для предзагрузки ключевых ресурсов */
+/*
+Добавить в <head>:
+<link rel="preload" href="fonts/montserrat-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-v21-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/images/hero-bg.jpg" as="image">
+*/
+
+/* Замена изображений CSS-эффектами для уменьшения объема загружаемых данных */
+.gradient-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    margin: 2rem 0;
+}
+
+.shape-decoration {
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+    background: var(--gradient-forest);
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg);
+    opacity: 0.15;
+}
+
+/* Минимизация длины селекторов для улучшения производительности */
+/* Вместо body > main.main > section.first h2:nth-of-type(odd) */
+.section-heading {
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+/* Оптимизированные анимации с использованием will-change */
+.animate-transform {
+    will-change: transform;
+    transition: transform 0.3s var(--animation-smooth);
+}
+
+.animate-opacity {
+    will-change: opacity;
+    transition: opacity 0.3s var(--animation-smooth);
+}
+
+/* Избегаем "дорогих" CSS-свойств в анимациях */
+.light-animation {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Вместо анимации box-shadow */
+.card-animate {
+    position: relative;
+}
+
+.card-animate::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: 0 10px 30px rgba(46, 32, 17, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s var(--animation-smooth);
+    z-index: -1;
+}
+
+.card-animate:hover::after {
+    opacity: 1;
+} 

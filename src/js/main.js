@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Отложенная загрузка скриптов
     initDeferredScripts();
+    
+    // Улучшенная инициализация выпадающего меню с поддержкой доступности
+    initDropdownMenu();
 });
 
 /**
@@ -506,4 +509,113 @@ function initDeferredScripts() {
             loadScript(script.src, script.defer, script.async);
         });
     }, 2000);
+}
+
+/**
+ * Улучшенная инициализация выпадающего меню с поддержкой доступности
+ */
+function initDropdownMenu() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        const content = dropdown.querySelector('.dropdown-content');
+        
+        if (!link || !content) return;
+        
+        // Добавляем ARIA-атрибуты для доступности
+        link.setAttribute('aria-haspopup', 'true');
+        link.setAttribute('aria-expanded', 'false');
+        
+        // Генерируем уникальный ID для выпадающего меню
+        const dropdownId = 'dropdown-' + Math.random().toString(36).substring(2, 9);
+        content.id = dropdownId;
+        link.setAttribute('aria-controls', dropdownId);
+        
+        // Добавляем роль для выпадающего меню
+        content.setAttribute('role', 'menu');
+        
+        // Добавляем роль для элементов меню
+        const menuItems = content.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.setAttribute('role', 'menuitem');
+            item.setAttribute('tabindex', '-1');
+        });
+        
+        // Обработчик для мобильных устройств
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                
+                // Обновляем ARIA-атрибуты
+                const isExpanded = dropdown.classList.contains('active');
+                link.setAttribute('aria-expanded', isExpanded.toString());
+                
+                // Устанавливаем фокус на первый элемент меню, если меню открыто
+                if (isExpanded && menuItems.length > 0) {
+                    menuItems[0].focus();
+                }
+            }
+        });
+        
+        // Обработчик для клавиатурной навигации
+        link.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                dropdown.classList.add('active');
+                link.setAttribute('aria-expanded', 'true');
+                
+                // Устанавливаем фокус на первый элемент меню
+                if (menuItems.length > 0) {
+                    menuItems[0].focus();
+                }
+            }
+        });
+        
+        // Обработчик для клавиатурной навигации внутри меню
+        content.addEventListener('keydown', function(e) {
+            const currentIndex = Array.from(menuItems).indexOf(document.activeElement);
+            
+            if (e.key === 'Escape') {
+                // Закрываем меню и возвращаем фокус на родительскую ссылку
+                e.preventDefault();
+                dropdown.classList.remove('active');
+                link.setAttribute('aria-expanded', 'false');
+                link.focus();
+            } else if (e.key === 'ArrowDown') {
+                // Перемещаем фокус на следующий элемент
+                e.preventDefault();
+                if (currentIndex < menuItems.length - 1) {
+                    menuItems[currentIndex + 1].focus();
+                } else {
+                    menuItems[0].focus(); // Циклический переход
+                }
+            } else if (e.key === 'ArrowUp') {
+                // Перемещаем фокус на предыдущий элемент
+                e.preventDefault();
+                if (currentIndex > 0) {
+                    menuItems[currentIndex - 1].focus();
+                } else {
+                    menuItems[menuItems.length - 1].focus(); // Циклический переход
+                }
+            } else if (e.key === 'Tab' && !e.shiftKey && currentIndex === menuItems.length - 1) {
+                // Закрываем меню при табуляции с последнего элемента
+                dropdown.classList.remove('active');
+                link.setAttribute('aria-expanded', 'false');
+            } else if (e.key === 'Tab' && e.shiftKey && currentIndex === 0) {
+                // Закрываем меню при обратной табуляции с первого элемента
+                dropdown.classList.remove('active');
+                link.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Закрываем меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+                link.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
 } 

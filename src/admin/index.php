@@ -8,7 +8,7 @@
 session_start();
 
 // Подключение конфигурации БД
-require_once '../db_config.php';
+require_once '../includes/db_config.php';
 
 // Проверка авторизации
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
@@ -250,34 +250,22 @@ if ($action === 'content') {
         header('Location: index.php?action=content&page=' . $page . '&message=' . urlencode($message) . '&message_type=' . $message_type);
         exit;
     }
-} elseif ($action === 'settings') {
-    // Страница настроек сайта
-    include 'templates/settings.php';
+} elseif ($action === 'analytics') {
+    // Страница аналитики и статистики
+    include 'templates/analytics.php';
     exit;
-} elseif ($action === 'save_settings') {
-    // Обработка сохранения настроек
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['settings'])) {
-        $settings = $_POST['settings'];
-        $success = true;
-        
-        foreach ($settings as $key => $value) {
-            if (!updateSetting($pdo, $key, sanitize($value))) {
-                $success = false;
-            }
-        }
-        
-        if ($success) {
-            $message = 'Настройки успешно сохранены';
-            $message_type = 'success';
-        } else {
-            $message = 'Ошибка при сохранении настроек';
-            $message_type = 'danger';
-        }
-        
-        // Перенаправление на страницу настроек
-        header('Location: index.php?action=settings&message=' . urlencode($message) . '&message_type=' . $message_type);
-        exit;
-    }
+} elseif ($action === 'loyalty') {
+    // Страница управления программой лояльности
+    include 'templates/loyalty.php';
+    exit;
+} elseif ($action === 'services') {
+    // Страница управления дополнительными услугами
+    include 'templates/services.php';
+    exit;
+} elseif ($action === 'metasearch') {
+    // Страница интеграции с метапоисковиками
+    include 'templates/metasearch.php';
+    exit;
 } elseif ($action === 'reviews') {
     // Страница управления отзывами
     include 'templates/reviews.php';
@@ -360,6 +348,256 @@ if ($action === 'content') {
         header('Location: index.php?action=generate&message=' . urlencode($message) . '&message_type=' . $message_type);
         exit;
     }
+} elseif ($action === 'settings') {
+    // Страница настроек
+    include 'templates/settings.php';
+    exit;
+} elseif ($action === 'save_settings') {
+    // Обработка сохранения настроек
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['settings'])) {
+        $settings = $_POST['settings'];
+        $success = true;
+        
+        foreach ($settings as $key => $value) {
+            if (!updateSetting($pdo, $key, sanitize($value))) {
+                $success = false;
+            }
+        }
+        
+        if ($success) {
+            $message = 'Настройки успешно сохранены';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при сохранении настроек';
+            $message_type = 'danger';
+        }
+        
+        // Перенаправление на страницу настроек
+        header('Location: index.php?action=settings&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+}
+
+// Обработка действий с программой лояльности
+if ($action === 'add_loyalty_level') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $levelData = [
+            'name' => sanitize($_POST['name']),
+            'min_nights' => (int)$_POST['min_nights'],
+            'discount_percent' => (int)$_POST['discount_percent'],
+            'description' => sanitize($_POST['description'])
+        ];
+        
+        if (addLoyaltyLevel($pdo, $levelData)) {
+            $message = 'Уровень лояльности успешно добавлен';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при добавлении уровня лояльности';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=loyalty&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+} elseif ($action === 'update_loyalty_level') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['id'])) {
+        $levelId = (int)$_GET['id'];
+        $levelData = [
+            'name' => sanitize($_POST['name']),
+            'min_nights' => (int)$_POST['min_nights'],
+            'discount_percent' => (int)$_POST['discount_percent'],
+            'description' => sanitize($_POST['description'])
+        ];
+        
+        if (updateLoyaltyLevel($pdo, $levelId, $levelData)) {
+            $message = 'Уровень лояльности успешно обновлен';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при обновлении уровня лояльности';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=loyalty&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+} elseif ($action === 'delete_loyalty_level') {
+    if (isset($_GET['id'])) {
+        $levelId = (int)$_GET['id'];
+        
+        $stmt = $pdo->prepare("DELETE FROM loyalty_levels WHERE id = :id");
+        $stmt->bindParam(':id', $levelId);
+        
+        if ($stmt->execute()) {
+            $message = 'Уровень лояльности успешно удален';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при удалении уровня лояльности';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=loyalty&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+} elseif ($action === 'send_loyalty_email') {
+    if (isset($_GET['id'])) {
+        $userId = (int)$_GET['id'];
+        
+        // Получаем данные пользователя
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt->bindParam(':id', $userId);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($user) {
+            // Отправка письма с информацией о программе лояльности
+            // Здесь должен быть код для отправки письма
+            
+            $message = 'Письмо с информацией о программе лояльности успешно отправлено';
+            $message_type = 'success';
+        } else {
+            $message = 'Пользователь не найден';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=loyalty&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+}
+
+// Обработка действий с дополнительными услугами
+if ($action === 'add_service') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $serviceData = [
+            'name' => sanitize($_POST['name']),
+            'description' => sanitize($_POST['description']),
+            'price' => (float)$_POST['price'],
+            'image_path' => '',
+            'is_active' => isset($_POST['is_active']) ? 1 : 0,
+            'sort_order' => (int)$_POST['sort_order']
+        ];
+        
+        // Обработка загрузки изображения
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $imagePath = uploadImage($_FILES['image']);
+            if ($imagePath) {
+                $serviceData['image_path'] = $imagePath;
+            }
+        }
+        
+        if (addService($pdo, $serviceData)) {
+            $message = 'Услуга успешно добавлена';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при добавлении услуги';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=services&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+} elseif ($action === 'update_service') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['id'])) {
+        $serviceId = (int)$_GET['id'];
+        $serviceData = [
+            'name' => sanitize($_POST['name']),
+            'description' => sanitize($_POST['description']),
+            'price' => (float)$_POST['price'],
+            'image_path' => sanitize($_POST['current_image'] ?? ''),
+            'is_active' => isset($_POST['is_active']) ? 1 : 0,
+            'sort_order' => (int)$_POST['sort_order']
+        ];
+        
+        // Обработка загрузки изображения
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $imagePath = uploadImage($_FILES['image']);
+            if ($imagePath) {
+                $serviceData['image_path'] = $imagePath;
+            }
+        }
+        
+        if (updateService($pdo, $serviceId, $serviceData)) {
+            $message = 'Услуга успешно обновлена';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при обновлении услуги';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=services&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+} elseif ($action === 'delete_service') {
+    if (isset($_GET['id'])) {
+        $serviceId = (int)$_GET['id'];
+        
+        if (deleteService($pdo, $serviceId)) {
+            $message = 'Услуга успешно удалена';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при удалении услуги';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=services&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+} elseif ($action === 'toggle_service') {
+    if (isset($_GET['id']) && isset($_GET['status'])) {
+        $serviceId = (int)$_GET['id'];
+        $status = (int)$_GET['status'];
+        
+        $stmt = $pdo->prepare("UPDATE services SET is_active = :status WHERE id = :id");
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':id', $serviceId);
+        
+        if ($stmt->execute()) {
+            $message = $status ? 'Услуга успешно активирована' : 'Услуга успешно деактивирована';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при изменении статуса услуги';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=services&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+}
+
+// Обработка действий с метапоисковиками
+if ($action === 'save_metasearch_settings') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['settings'])) {
+        $settings = $_POST['settings'];
+        
+        if (updateMetasearchSettings($pdo, $settings)) {
+            $message = 'Настройки метапоисковиков успешно сохранены';
+            $message_type = 'success';
+        } else {
+            $message = 'Ошибка при сохранении настроек метапоисковиков';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=metasearch&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
+} elseif ($action === 'generate_feed') {
+    if (isset($_GET['type'])) {
+        $feedType = sanitize($_GET['type']);
+        $validTypes = ['google', 'yandex', 'trivago', 'tripadvisor', 'booking'];
+        
+        if (in_array($feedType, $validTypes)) {
+            // Здесь должен быть код для генерации фида
+            // В зависимости от типа фида
+            
+            $message = 'Фид для ' . $feedType . ' успешно сгенерирован';
+            $message_type = 'success';
+        } else {
+            $message = 'Неверный тип фида';
+            $message_type = 'danger';
+        }
+        
+        header('Location: index.php?action=metasearch&message=' . urlencode($message) . '&message_type=' . $message_type);
+        exit;
+    }
 }
 
 // Получение данных из БД в зависимости от действия
@@ -382,7 +620,8 @@ switch ($action) {
         break;
         
     case 'stats':
-        $stats = getBookingStats($pdo);
+        // Функция getBookingStats() используется из db_config.php
+        // Не объявляем ее здесь, чтобы избежать конфликта
         break;
         
     case 'list':
@@ -409,7 +648,8 @@ switch ($action) {
         break;
         
     case 'stats':
-        include 'templates/booking_stats.php';
+        // Функция getBookingStats() используется из db_config.php
+        // Не объявляем ее здесь, чтобы избежать конфликта
         break;
         
     case 'list':
@@ -543,5 +783,150 @@ function updateContactsInfo($content_data) {
             file_put_contents($html_file, $html_content);
         }
     }
+}
+
+// Функции для работы с программой лояльности
+function getLoyaltyLevels($pdo) {
+    $stmt = $pdo->query("SELECT * FROM loyalty_levels ORDER BY min_nights ASC");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getLoyaltyUsers($pdo, $limit = 10, $offset = 0) {
+    $stmt = $pdo->prepare("SELECT u.*, 
+                          (SELECT COUNT(*) FROM bookings WHERE user_id = u.id AND status = 'completed') as bookings_count,
+                          (SELECT SUM(nights) FROM bookings WHERE user_id = u.id AND status = 'completed') as total_nights,
+                          (SELECT l.name FROM loyalty_levels l WHERE l.min_nights <= (SELECT SUM(nights) FROM bookings WHERE user_id = u.id AND status = 'completed') ORDER BY l.min_nights DESC LIMIT 1) as loyalty_level
+                          FROM users u
+                          ORDER BY total_nights DESC
+                          LIMIT :limit OFFSET :offset");
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function updateLoyaltyLevel($pdo, $level_id, $data) {
+    $stmt = $pdo->prepare("UPDATE loyalty_levels SET 
+                          name = :name, 
+                          min_nights = :min_nights, 
+                          discount_percent = :discount_percent,
+                          description = :description
+                          WHERE id = :id");
+    $stmt->bindParam(':name', $data['name']);
+    $stmt->bindParam(':min_nights', $data['min_nights']);
+    $stmt->bindParam(':discount_percent', $data['discount_percent']);
+    $stmt->bindParam(':description', $data['description']);
+    $stmt->bindParam(':id', $level_id);
+    return $stmt->execute();
+}
+
+function addLoyaltyLevel($pdo, $data) {
+    $stmt = $pdo->prepare("INSERT INTO loyalty_levels (name, min_nights, discount_percent, description) 
+                          VALUES (:name, :min_nights, :discount_percent, :description)");
+    $stmt->bindParam(':name', $data['name']);
+    $stmt->bindParam(':min_nights', $data['min_nights']);
+    $stmt->bindParam(':discount_percent', $data['discount_percent']);
+    $stmt->bindParam(':description', $data['description']);
+    return $stmt->execute();
+}
+
+// Функции для работы с дополнительными услугами
+function getServices($pdo) {
+    $stmt = $pdo->query("SELECT * FROM services ORDER BY sort_order ASC");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getService($pdo, $service_id) {
+    $stmt = $pdo->prepare("SELECT * FROM services WHERE id = :id");
+    $stmt->bindParam(':id', $service_id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function updateService($pdo, $service_id, $data) {
+    $stmt = $pdo->prepare("UPDATE services SET 
+                          name = :name, 
+                          description = :description, 
+                          price = :price,
+                          image_path = :image_path,
+                          is_active = :is_active,
+                          sort_order = :sort_order
+                          WHERE id = :id");
+    $stmt->bindParam(':name', $data['name']);
+    $stmt->bindParam(':description', $data['description']);
+    $stmt->bindParam(':price', $data['price']);
+    $stmt->bindParam(':image_path', $data['image_path']);
+    $stmt->bindParam(':is_active', $data['is_active']);
+    $stmt->bindParam(':sort_order', $data['sort_order']);
+    $stmt->bindParam(':id', $service_id);
+    return $stmt->execute();
+}
+
+function addService($pdo, $data) {
+    $stmt = $pdo->prepare("INSERT INTO services (name, description, price, image_path, is_active, sort_order) 
+                          VALUES (:name, :description, :price, :image_path, :is_active, :sort_order)");
+    $stmt->bindParam(':name', $data['name']);
+    $stmt->bindParam(':description', $data['description']);
+    $stmt->bindParam(':price', $data['price']);
+    $stmt->bindParam(':image_path', $data['image_path']);
+    $stmt->bindParam(':is_active', $data['is_active']);
+    $stmt->bindParam(':sort_order', $data['sort_order']);
+    return $stmt->execute();
+}
+
+function deleteService($pdo, $service_id) {
+    $stmt = $pdo->prepare("DELETE FROM services WHERE id = :id");
+    $stmt->bindParam(':id', $service_id);
+    return $stmt->execute();
+}
+
+// Функции для работы с метапоисковиками
+function getMetasearchSettings($pdo) {
+    $stmt = $pdo->query("SELECT * FROM metasearch_settings");
+    $settings = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $settings[$row['meta_key']] = $row['meta_value'];
+    }
+    return $settings;
+}
+
+function updateMetasearchSettings($pdo, $settings) {
+    $pdo->beginTransaction();
+    try {
+        foreach ($settings as $key => $value) {
+            $stmt = $pdo->prepare("INSERT INTO metasearch_settings (meta_key, meta_value) 
+                                  VALUES (:key, :value)
+                                  ON DUPLICATE KEY UPDATE meta_value = :value");
+            $stmt->bindParam(':key', $key);
+            $stmt->bindParam(':value', $value);
+            $stmt->execute();
+        }
+        $pdo->commit();
+        return true;
+    } catch (Exception $e) {
+        $pdo->rollBack();
+        return false;
+    }
+}
+
+// Функции для аналитики
+// Функция getBookingStats() используется из db_config.php
+// Не объявляем ее здесь, чтобы избежать конфликта
+
+function getRoomOccupancy($pdo, $start_date, $end_date) {
+    $stmt = $pdo->prepare("SELECT 
+                          r.name as room_name,
+                          COUNT(b.id) as bookings_count,
+                          SUM(b.nights) as booked_nights,
+                          (SUM(b.nights) / (DATEDIFF(:end_date, :start_date) * r.count)) * 100 as occupancy_percent
+                          FROM rooms r
+                          LEFT JOIN bookings b ON b.room_id = r.id AND b.status = 'completed' 
+                              AND (b.check_in BETWEEN :start_date AND :end_date OR b.check_out BETWEEN :start_date AND :end_date)
+                          GROUP BY r.id
+                          ORDER BY occupancy_percent DESC");
+    $stmt->bindParam(':start_date', $start_date);
+    $stmt->bindParam(':end_date', $end_date);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?> 

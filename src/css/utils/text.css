@@ -1,0 +1,122 @@
+/**
+ * Текстовые утилиты
+ * Современные стили для управления текстом на сайте "Лесной дворик"
+ */
+
+/* Выравнивание текста */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+/* Трансформация текста */
+.text-lowercase { text-transform: lowercase !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+/* Стилизация текста */
+.text-bold { font-weight: 700 !important; }
+.text-medium { font-weight: 500 !important; }
+.text-normal { font-weight: 400 !important; }
+.text-light { font-weight: 300 !important; }
+
+.text-italic { font-style: italic !important; }
+.text-underline { text-decoration: underline !important; }
+.text-no-underline { text-decoration: none !important; }
+
+/* Цвета текста */
+.text-primary { color: var(--primary-color) !important; }
+.text-primary-light { color: var(--primary-light) !important; }
+.text-primary-dark { color: var(--primary-dark) !important; }
+
+.text-accent { color: var(--accent-color) !important; }
+.text-success { color: var(--success-color) !important; }
+.text-warning { color: var(--warning-color) !important; }
+.text-error { color: var(--error-color) !important; }
+.text-info { color: var(--info-color) !important; }
+
+.text-dark { color: var(--text-dark) !important; }
+.text-medium-gray { color: var(--text-medium) !important; }
+.text-light-gray { color: var(--text-light) !important; }
+.text-white { color: white !important; }
+
+/* Размеры текста */
+.text-xs { font-size: var(--font-size-xs) !important; }
+.text-sm { font-size: var(--font-size-sm) !important; }
+.text-md { font-size: var(--font-size-md) !important; }
+.text-lg { font-size: var(--font-size-lg) !important; }
+.text-xl { font-size: var(--font-size-xl) !important; }
+.text-2xl { font-size: var(--font-size-2xl) !important; }
+.text-3xl { font-size: var(--font-size-3xl) !important; }
+.text-4xl { font-size: var(--font-size-4xl) !important; }
+.text-5xl { font-size: var(--font-size-5xl) !important; }
+
+/* Высота строки */
+.leading-none { line-height: 1 !important; }
+.leading-tight { line-height: 1.25 !important; }
+.leading-snug { line-height: 1.375 !important; }
+.leading-normal { line-height: 1.5 !important; }
+.leading-relaxed { line-height: 1.625 !important; }
+.leading-loose { line-height: 2 !important; }
+
+/* Межбуквенный интервал */
+.tracking-tighter { letter-spacing: -0.05em !important; }
+.tracking-tight { letter-spacing: -0.025em !important; }
+.tracking-normal { letter-spacing: 0 !important; }
+.tracking-wide { letter-spacing: 0.025em !important; }
+.tracking-wider { letter-spacing: 0.05em !important; }
+.tracking-widest { letter-spacing: 0.1em !important; }
+
+/* Обрезка текста */
+.truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3 {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.line-clamp-1 { -webkit-line-clamp: 1 !important; }
+.line-clamp-2 { -webkit-line-clamp: 2 !important; }
+.line-clamp-3 { -webkit-line-clamp: 3 !important; }
+
+/* Переносы */
+.break-normal { overflow-wrap: normal !important; word-break: normal !important; }
+.break-words { overflow-wrap: break-word !important; }
+.break-all { word-break: break-all !important; }
+.whitespace-normal { white-space: normal !important; }
+.whitespace-nowrap { white-space: nowrap !important; }
+.whitespace-pre { white-space: pre !important; }
+.whitespace-pre-line { white-space: pre-line !important; }
+.whitespace-pre-wrap { white-space: pre-wrap !important; }
+
+/* Шрифты */
+.font-base { font-family: var(--font-family-base) !important; }
+.font-heading { font-family: var(--font-family-heading) !important; }
+
+/* Медиа-запросы для адаптивных текстов */
+@media (max-width: 768px) {
+  .text-md-left { text-align: left !important; }
+  .text-md-center { text-align: center !important; }
+  .text-md-right { text-align: right !important; }
+  
+  .text-md-sm { font-size: var(--font-size-sm) !important; }
+  .text-md-base { font-size: var(--font-size-md) !important; }
+  .text-md-lg { font-size: var(--font-size-lg) !important; }
+}
+
+@media (max-width: 576px) {
+  .text-sm-left { text-align: left !important; }
+  .text-sm-center { text-align: center !important; }
+  .text-sm-right { text-align: right !important; }
+  
+  .text-sm-xs { font-size: var(--font-size-xs) !important; }
+  .text-sm-sm { font-size: var(--font-size-sm) !important; }
+  .text-sm-base { font-size: var(--font-size-md) !important; }
+} 

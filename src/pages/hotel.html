@@ -120,10 +120,27 @@
     <section id="rooms" class="rooms-section">
         <div class="container">
             <h2>Наши номера</h2>
+            <div class="section-description">
+                <p>Мы предлагаем различные категории номеров для комфортного отдыха и проживания. От стандартных номеров до люксов с современной мебелью и всеми удобствами.</p>
+                <div class="cta-button">
+                    <a href="rooms.html" class="btn btn-primary">Посмотреть все номера</a>
+                </div>
+            </div>
             
             <article id="econom" class="room-card">
                 <div class="room-image">
-                    <img src="../assets/images/room-econom.jpg" alt="Номер Эконом">
+                    <div class="room-gallery">
+                        <div class="main-image">
+                            <img src="../assets/images/rooms/econom/econom-room-1.jpg" alt="Номер Эконом - основной вид">
+                        </div>
+                        <div class="thumbnail-container">
+                            <img src="../assets/images/rooms/econom/econom-room-1.jpg" alt="Номер Эконом - вид 1" class="thumbnail active" onclick="changeMainImage(this, 'econom')">
+                            <img src="../assets/images/rooms/econom/econom-room-2.jpg" alt="Номер Эконом - вид 2" class="thumbnail" onclick="changeMainImage(this, 'econom')">
+                            <img src="../assets/images/rooms/econom/econom-room-3.jpg" alt="Номер Эконом - вид 3" class="thumbnail" onclick="changeMainImage(this, 'econom')">
+                            <img src="../assets/images/rooms/econom/econom-room-4.jpg" alt="Номер Эконом - вид 4" class="thumbnail" onclick="changeMainImage(this, 'econom')">
+                            <img src="../assets/images/rooms/econom/econom-room-5.jpg" alt="Номер Эконом - вид 5" class="thumbnail" onclick="changeMainImage(this, 'econom')">
+                        </div>
+                    </div>
                 </div>
                 <div class="room-content">
                     <h3>Номер "Эконом"</h3>
@@ -477,6 +494,7 @@
         </div>
     </div>
 
-    <script src="../js/script.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/room-gallery.js"></script>
 </body>
 </html> 

@@ -10,9 +10,9 @@
                 <i class="fa fa-calendar"></i> Бронирования
             </a>
         </li>
-        <li class="<?php echo ($action === 'stats') ? 'active' : ''; ?>">
-            <a href="index.php?action=stats">
-                <i class="fa fa-chart-bar"></i> Статистика
+        <li class="<?php echo ($action === 'stats' || $action === 'analytics') ? 'active' : ''; ?>">
+            <a href="index.php?action=analytics">
+                <i class="fa fa-chart-bar"></i> Аналитика
             </a>
         </li>
         <li class="<?php echo ($action === 'rooms') ? 'active' : ''; ?>">
@@ -20,21 +20,36 @@
                 <i class="fa fa-bed"></i> Управление номерами
             </a>
         </li>
+        <li class="<?php echo ($action === 'services') ? 'active' : ''; ?>">
+            <a href="index.php?action=services">
+                <i class="fa fa-concierge-bell"></i> Доп. услуги
+            </a>
+        </li>
+        <li class="<?php echo ($action === 'loyalty') ? 'active' : ''; ?>">
+            <a href="index.php?action=loyalty">
+                <i class="fa fa-award"></i> Программа лояльности
+            </a>
+        </li>
         
-        <!-- Новые пункты меню для CMS -->
+        <!-- Пункты меню для CMS -->
         <li class="<?php echo ($action === 'content') ? 'active' : ''; ?>">
             <a href="index.php?action=content">
                 <i class="fa fa-file-alt"></i> Управление контентом
             </a>
         </li>
-        <li class="<?php echo ($action === 'settings') ? 'active' : ''; ?>">
-            <a href="index.php?action=settings">
-                <i class="fa fa-cog"></i> Настройки сайта
-            </a>
-        </li>
         <li class="<?php echo ($action === 'reviews') ? 'active' : ''; ?>">
             <a href="index.php?action=reviews">
                 <i class="fa fa-comments"></i> Отзывы
+            </a>
+        </li>
+        <li class="<?php echo ($action === 'metasearch') ? 'active' : ''; ?>">
+            <a href="index.php?action=metasearch">
+                <i class="fa fa-search"></i> Метапоисковики
+            </a>
+        </li>
+        <li class="<?php echo ($action === 'settings') ? 'active' : ''; ?>">
+            <a href="index.php?action=settings">
+                <i class="fa fa-cog"></i> Настройки сайта
             </a>
         </li>
         <li class="<?php echo ($action === 'generate') ? 'active' : ''; ?>">

@@ -1,0 +1,336 @@
+/**
+ * Flexbox утилиты
+ * Современные стили для гибкой компоновки сайта "Лесной дворик"
+ */
+
+/* Основные контейнеры */
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+/* Направление */
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Перенос */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/* Гибкость элементов */
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
+}
+
+.flex-none {
+  flex: none;
+}
+
+/* Рост элементов */
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* Сжатие элементов */
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+/* Размер элементов */
+.flex-basis-0 {
+  flex-basis: 0%;
+}
+
+.flex-basis-auto {
+  flex-basis: auto;
+}
+
+.flex-basis-full {
+  flex-basis: 100%;
+}
+
+/* Выравнивание по главной оси */
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* Выравнивание по поперечной оси */
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+/* Выравнивание отдельных элементов */
+.self-auto {
+  align-self: auto;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+/* Выравнивание содержимого */
+.content-center {
+  align-content: center;
+}
+
+.content-start {
+  align-content: flex-start;
+}
+
+.content-end {
+  align-content: flex-end;
+}
+
+.content-between {
+  align-content: space-between;
+}
+
+.content-around {
+  align-content: space-around;
+}
+
+.content-evenly {
+  align-content: space-evenly;
+}
+
+/* Порядок элементов */
+.order-first {
+  order: -9999;
+}
+
+.order-last {
+  order: 9999;
+}
+
+.order-none {
+  order: 0;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.order-4 {
+  order: 4;
+}
+
+.order-5 {
+  order: 5;
+}
+
+/* Отступы между элементами */
+.gap-x-flex-0 {
+  column-gap: 0;
+}
+
+.gap-x-flex-1 {
+  column-gap: 0.25rem;
+}
+
+.gap-x-flex-2 {
+  column-gap: 0.5rem;
+}
+
+.gap-x-flex-3 {
+  column-gap: 0.75rem;
+}
+
+.gap-x-flex-4 {
+  column-gap: 1rem;
+}
+
+.gap-y-flex-0 {
+  row-gap: 0;
+}
+
+.gap-y-flex-1 {
+  row-gap: 0.25rem;
+}
+
+.gap-y-flex-2 {
+  row-gap: 0.5rem;
+}
+
+.gap-y-flex-3 {
+  row-gap: 0.75rem;
+}
+
+.gap-y-flex-4 {
+  row-gap: 1rem;
+}
+
+/* Размер шрифтов */
+.flex-gap-1 { gap: 0.25rem; }
+.flex-gap-2 { gap: 0.5rem; }
+.flex-gap-3 { gap: 0.75rem; }
+.flex-gap-4 { gap: 1rem; }
+.flex-gap-5 { gap: 1.5rem; }
+.flex-gap-6 { gap: 2rem; }
+.flex-gap-8 { gap: 3rem; }
+.flex-gap-10 { gap: 4rem; }
+
+/* Медиа-запросы */
+@media (max-width: 992px) {
+  .flex-md-row {
+    flex-direction: row;
+  }
+  
+  .flex-md-col {
+    flex-direction: column;
+  }
+  
+  .flex-md-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .justify-md-center {
+    justify-content: center;
+  }
+  
+  .justify-md-between {
+    justify-content: space-between;
+  }
+  
+  .items-md-center {
+    align-items: center;
+  }
+  
+  .items-md-start {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-sm-row {
+    flex-direction: row;
+  }
+  
+  .flex-sm-col {
+    flex-direction: column;
+  }
+  
+  .flex-sm-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .justify-sm-center {
+    justify-content: center;
+  }
+  
+  .justify-sm-between {
+    justify-content: space-between;
+  }
+  
+  .items-sm-center {
+    align-items: center;
+  }
+  
+  .items-sm-start {
+    align-items: flex-start;
+  }
+  
+  .order-sm-1 {
+    order: 1;
+  }
+  
+  .order-sm-2 {
+    order: 2;
+  }
+} 

@@ -125,26 +125,28 @@ elseif ($action === 'get' && isset($_GET['id'])) {
 }
 // Проверка доступности номеров на определенные даты
 elseif ($action === 'check_availability') {
+    // Получение параметров запроса
+    $arrival = isset($_GET['arrival']) ? $_GET['arrival'] : null;
+    $departure = isset($_GET['departure']) ? $_GET['departure'] : null;
+    $room_type = isset($_GET['room_type']) ? $_GET['room_type'] : null;
+    $guests = isset($_GET['guests']) ? (int)$_GET['guests'] : 1;
+    
+    // Проверка наличия обязательных параметров
+    if (!$arrival || !$departure || !$room_type) {
+        header('Content-Type: application/json');
+        echo json_encode([
+            'success' => false,
+            'message' => 'Необходимо указать даты заезда, выезда и тип номера'
+        ]);
+        exit;
+    }
+    
     try {
-        // Получение параметров запроса
-        $arrival = isset($_GET['arrival']) ? $_GET['arrival'] : null;
-        $departure = isset($_GET['departure']) ? $_GET['departure'] : null;
-        $guests = isset($_GET['guests']) ? (int)$_GET['guests'] : 1;
-        
-        // Проверка наличия обязательных параметров
-        if (!$arrival || !$departure) {
-            header('Content-Type: application/json');
-            echo json_encode([
-                'success' => false,
-                'message' => 'Необходимо указать даты заезда и выезда'
-            ]);
-            exit;
-        }
-        
         // Проверка корректности дат
         $arrivalDate = new DateTime($arrival);
         $departureDate = new DateTime($departure);
         $today = new DateTime();
+        $today->setTime(0, 0, 0); // Сбрасываем время до начала дня
         
         if ($arrivalDate < $today) {
             header('Content-Type: application/json');
@@ -164,84 +166,92 @@ elseif ($action === 'check_availability') {
             exit;
         }
         
-        // Получение списка доступных номеров
-        $sql = "SELECT r.id, r.name, r.description, r.price, r.capacity, r.amenities, r.images 
-                FROM rooms r 
-                WHERE r.is_active = 1 
-                AND r.is_available = 1 
-                AND r.capacity >= ? 
-                AND r.id NOT IN (
-                    SELECT DISTINCT room_id 
-                    FROM bookings 
-                    WHERE status IN ('confirmed', 'pending') 
-                    AND (
-                        (arrival_date <= ? AND departure_date > ?) OR 
-                        (arrival_date < ? AND departure_date >= ?) OR 
-                        (arrival_date >= ? AND departure_date <= ?)
-                    )
-                ) 
-                ORDER BY r.price ASC";
+        // Подключение к базе данных
+        $db = getDBConnection();
         
-        $rooms = fetchAll($sql, [
-            $guests,
-            $departure,
-            $arrival,
-            $departure,
-            $arrival,
-            $arrival,
-            $departure
-        ]);
+        // Запрос для проверки наличия свободных номеров указанного типа на заданные даты
+        $query = "
+            SELECT COUNT(*) as available_rooms
+            FROM rooms r
+            WHERE r.room_type = :room_type
+            AND r.capacity >= :guests
+            AND r.status = 'Доступен'
+            AND r.id NOT IN (
+                SELECT DISTINCT b.room_id
+                FROM bookings b
+                WHERE 
+                    (b.arrival_date < :departure_date AND b.departure_date > :arrival_date)
+                    AND b.status NOT IN ('Отменено', 'Отклонено')
+            )
+        ";
         
-        // Преобразование строковых данных в массивы
-        foreach ($rooms as &$room) {
-            // Преобразование строки с удобствами в массив
-            if (isset($room['amenities'])) {
-                $room['amenities'] = json_decode($room['amenities'], true);
-            } else {
-                $room['amenities'] = [];
-            }
-            
-            // Преобразование строки с изображениями в массив
-            if (isset($room['images'])) {
-                $room['images'] = json_decode($room['images'], true);
-            } else {
-                $room['images'] = [];
-            }
-            
-            // Форматирование цены
-            $room['price_formatted'] = number_format($room['price'], 0, ',', ' ') . ' ₽';
-            
-            // Расчет общей стоимости проживания
-            $interval = $arrivalDate->diff($departureDate);
-            $nights = $interval->days;
-            $room['total_price'] = $room['price'] * $nights;
-            $room['total_price_formatted'] = number_format($room['total_price'], 0, ',', ' ') . ' ₽';
-            $room['nights'] = $nights;
-        }
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':room_type', $room_type);
+        $stmt->bindParam(':guests', $guests);
+        $stmt->bindParam(':arrival_date', $arrival);
+        $stmt->bindParam(':departure_date', $departure);
+        $stmt->execute();
         
-        // Возвращаем доступные номера в формате JSON
-        header('Content-Type: application/json');
-        echo json_encode([
-            'success' => true,
-            'data' => [
-                'rooms' => $rooms,
-                'dates' => [
-                    'arrival' => $arrival,
-                    'departure' => $departure,
-                    'nights' => $arrivalDate->diff($departureDate)->days
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $availableRooms = (int)$result['available_rooms'];
+        
+        // Получаем базовую цену номера и рассчитываем общую стоимость
+        $priceQuery = "
+            SELECT price_per_night
+            FROM rooms 
+            WHERE room_type = :room_type
+            LIMIT 1
+        ";
+        
+        $priceStmt = $db->prepare($priceQuery);
+        $priceStmt->bindParam(':room_type', $room_type);
+        $priceStmt->execute();
+        
+        $priceResult = $priceStmt->fetch(PDO::FETCH_ASSOC);
+        $basePrice = $priceResult ? (float)$priceResult['price_per_night'] : 0;
+        
+        // Расчет количества ночей
+        $nights = $arrivalDate->diff($departureDate)->days;
+        
+        // Расчет общей стоимости (простой вариант без учета скидок и доп. услуг)
+        $totalPrice = $basePrice * $nights;
+        
+        if ($availableRooms > 0) {
+            // Номера доступны
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => true,
+                'message' => 'Номер доступен для бронирования',
+                'availability' => [
+                    'available' => true,
+                    'available_rooms' => $availableRooms,
+                    'base_price' => $basePrice,
+                    'nights' => $nights,
+                    'total_price' => $totalPrice
                 ]
-            ]
-        ]);
-        
+            ]);
+        } else {
+            // Номера не доступны
+            // Проверяем ближайшие свободные даты (опционально)
+            $alternativeDates = findAlternativeDates($db, $room_type, $arrival, $departure, $guests);
+            
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => 'К сожалению, на выбранные даты нет доступных номеров указанного типа',
+                'availability' => [
+                    'available' => false,
+                    'alternative_dates' => $alternativeDates
+                ]
+            ]);
+        }
     } catch (Exception $e) {
-        // Логирование ошибки
-        error_log("Ошибка при проверке доступности номеров: " . $e->getMessage());
+        error_log('Ошибка при проверке доступности номеров: ' . $e->getMessage());
         
-        // Возвращаем сообщение об ошибке
         header('Content-Type: application/json');
         echo json_encode([
             'success' => false,
-            'message' => 'Произошла ошибка при проверке доступности номеров. Пожалуйста, попробуйте позже.'
+            'message' => 'Произошла ошибка при проверке доступности. Пожалуйста, попробуйте позже.'
         ]);
     }
 }
@@ -252,4 +262,78 @@ else {
         'success' => false,
         'message' => 'Неизвестное действие'
     ]);
+}
+
+/**
+ * Функция поиска альтернативных дат для бронирования
+ * 
+ * @param PDO $db Подключение к базе данных
+ * @param string $roomType Тип номера
+ * @param string $arrival Дата заезда
+ * @param string $departure Дата выезда
+ * @param int $guests Количество гостей
+ * @return array Массив с альтернативными датами
+ */
+function findAlternativeDates($db, $roomType, $arrival, $departure, $guests) {
+    $alternatives = [];
+    
+    try {
+        $arrivalDate = new DateTime($arrival);
+        $departureDate = new DateTime($departure);
+        $requestedNights = $arrivalDate->diff($departureDate)->days;
+        
+        // Проверяем даты на неделю вперед
+        $checkDate = clone $arrivalDate;
+        $checkDate->add(new DateInterval('P3D')); // Проверяем на 3 дня вперед
+        
+        for ($i = 0; $i < 7; $i++) {
+            $checkArrival = $checkDate->format('Y-m-d');
+            $checkDeparture = (clone $checkDate)->add(new DateInterval('P' . $requestedNights . 'D'))->format('Y-m-d');
+            
+            // Проверяем доступность номеров на эти даты
+            $query = "
+                SELECT COUNT(*) as available_rooms
+                FROM rooms r
+                WHERE r.room_type = :room_type
+                AND r.capacity >= :guests
+                AND r.status = 'Доступен'
+                AND r.id NOT IN (
+                    SELECT DISTINCT b.room_id
+                    FROM bookings b
+                    WHERE 
+                        (b.arrival_date < :departure_date AND b.departure_date > :arrival_date)
+                        AND b.status NOT IN ('Отменено', 'Отклонено')
+                )
+            ";
+            
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':room_type', $roomType);
+            $stmt->bindParam(':guests', $guests);
+            $stmt->bindParam(':arrival_date', $checkArrival);
+            $stmt->bindParam(':departure_date', $checkDeparture);
+            $stmt->execute();
+            
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $availableRooms = (int)$result['available_rooms'];
+            
+            if ($availableRooms > 0) {
+                $alternatives[] = [
+                    'arrival' => $checkArrival,
+                    'departure' => $checkDeparture,
+                    'available_rooms' => $availableRooms
+                ];
+                
+                // Если нашли 3 альтернативы, возвращаем результат
+                if (count($alternatives) >= 3) {
+                    break;
+                }
+            }
+            
+            $checkDate->add(new DateInterval('P1D')); // Проверяем следующий день
+        }
+    } catch (Exception $e) {
+        error_log('Ошибка при поиске альтернативных дат: ' . $e->getMessage());
+    }
+    
+    return $alternatives;
 } 

@@ -1,0 +1,601 @@
+/**
+ * Компоненты для отображения номеров и услуг гостиницы "Лесной дворик"
+ * Включает современные CSS-техники для 2024-2025
+ */
+
+/* Основные стили для грид-контейнера номеров */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+/* Фильтры номеров */
+.room-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.filter-button {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-button.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Стили для преимуществ проживания */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.benefit-card {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-earthy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.benefit-card p {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Правила проживания */
+.rules-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rules-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-medium);
+}
+
+.rules-list li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Карточка номера с плавными переходами */
+.room-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-light);
+    box-shadow: 0 6px 20px rgba(46, 32, 17, 0.05);
+    transition: transform 0.4s var(--animation-smooth), 
+                box-shadow 0.4s var(--animation-smooth);
+    position: relative;
+    contain: layout;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(46, 32, 17, 0.1);
+}
+
+/* Контейнер изображения с оверлеем */
+.room-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.room-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.room-card:hover .room-image {
+    transform: scale(1.05);
+}
+
+/* Бейдж статуса номера */
+.room-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    color: #fff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.status-available {
+    background-color: color-mix(in oklch, var(--success-color), transparent 20%);
+}
+
+.status-limited {
+    background-color: color-mix(in oklch, var(--warning-color), transparent 20%);
+}
+
+.status-booked {
+    background-color: color-mix(in oklch, var(--error-color), transparent 20%);
+}
+
+/* Контент номера */
+.room-content {
+    padding: 1.5rem;
+}
+
+.room-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.room-description {
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    line-height: 1.6;
+}
+
+/* Характеристики номера */
+.room-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-medium);
+}
+
+.room-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.room-feature i {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+/* Футер карточки номера */
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.room-price {
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+}
+
+.room-price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-medium);
+}
+
+/* Кнопка бронирования */
+.book-button {
+    background: var(--gradient-earthy);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.6rem 1.3rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+}
+
+.book-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(209, 148, 32, 0.2);
+}
+
+.book-button:active {
+    transform: translateY(0);
+}
+
+/* Галерея изображений номера */
+.room-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-item {
+    height: 80px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Детальное представление номера */
+.room-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.room-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.room-details-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.room-details-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-color);
+}
+
+.room-details-rating span {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Главная галерея */
+.main-gallery {
+    width: 100%;
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.gallery-control {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.gallery-control:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Вкладки с информацией о номере */
+.room-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.room-tab {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-medium);
+    transition: color 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+.room-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.room-tab:hover {
+    color: var(--primary-color);
+}
+
+.room-tab.active {
+    color: var(--primary-color);
+}
+
+.room-tab.active::after {
+    transform: scaleX(1);
+}
+
+/* Контент вкладок */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Список удобств */
+.amenities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-medium);
+}
+
+.amenity-item i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+/* Секция услуг */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.service-card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-light);
+    box-shadow: 0 6px 20px rgba(46, 32, 17, 0.05);
+    transition: transform 0.4s var(--animation-smooth), 
+                box-shadow 0.4s var(--animation-smooth);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(46, 32, 17, 0.1);
+}
+
+.service-image-container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.service-card:hover .service-image {
+    transform: scale(1.05);
+}
+
+.service-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.service-content {
+    padding: 1.5rem;
+}
+
+.service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.service-description {
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.service-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.service-price {
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+}
+
+.service-cta {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+}
+
+.service-cta:hover {
+    color: var(--primary-dark);
+}
+
+.service-cta i {
+    font-size: 0.85rem;
+    transition: transform 0.3s;
+}
+
+.service-cta:hover i {
+    transform: translateX(3px);
+}
+
+/* Отзывчивость для мобильных устройств */
+@media (max-width: 768px) {
+    .rooms-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .room-details-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .amenities-list {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .main-gallery {
+        height: 300px;
+    }
+    
+    .room-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Эффекты входа при скролле */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Фикс для высокого dpi */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .room-image, 
+    .service-image {
+        transform: translateZ(0);
+    }
+} 

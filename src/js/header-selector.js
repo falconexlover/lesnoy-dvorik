@@ -185,13 +185,13 @@ function getNavigationHTML() {
             <ul>
                 <li><a href="#about">О нас</a></li>
                 <li class="dropdown">
-                    <a href="pages/hotel.html">Гостиница</a>
-                    <div class="dropdown-content">
-                        <a href="pages/hotel.html#econom">Эконом</a>
-                        <a href="pages/hotel.html#standard">Стандарт</a>
-                        <a href="pages/hotel.html#family">Семейные</a>
-                        <a href="pages/hotel.html#comfort">Комфорт</a>
-                        <a href="pages/hotel.html#lux">Люкс</a>
+                    <a href="pages/hotel.html" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-hotel">Гостиница</a>
+                    <div id="dropdown-hotel" class="dropdown-content" role="menu">
+                        <a href="pages/hotel.html#econom" role="menuitem"><i class="fas fa-bed fa-fw"></i> Эконом</a>
+                        <a href="pages/hotel.html#standard" role="menuitem"><i class="fas fa-bed fa-fw"></i> Стандарт</a>
+                        <a href="pages/hotel.html#family" role="menuitem"><i class="fas fa-users fa-fw"></i> Семейные</a>
+                        <a href="pages/hotel.html#comfort" role="menuitem"><i class="fas fa-star fa-fw"></i> Комфорт</a>
+                        <a href="pages/hotel.html#lux" role="menuitem"><i class="fas fa-crown fa-fw"></i> Люкс</a>
                     </div>
                 </li>
                 <li><a href="pages/sauna.html">Сауна</a></li>

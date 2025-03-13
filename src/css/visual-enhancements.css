@@ -1,19 +1,31 @@
 /**
- * Улучшения визуальной составляющей для сайта гостиницы "Лесной дворик"
+ * Визуальные улучшения для сайта гостиницы "Лесной дворик"
+ * Содержит стили для улучшения визуального восприятия элементов
  */
 
 /* Улучшенные цветовые переходы и градиенты */
 :root {
+    /* Натуральные градиенты */
     --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     --gradient-accent: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
-    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
-    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --gradient-earthy: linear-gradient(135deg, var(--accent-dark), var(--terracotta)); 
+    --gradient-forest: linear-gradient(135deg, var(--primary-dark), var(--sage-green));
+    --gradient-sunset: linear-gradient(135deg, var(--terracotta), var(--accent-light));
+    
+    /* Улучшенные тени с теплыми оттенками */
+    --shadow-hover: 0 8px 20px rgba(46, 32, 17, 0.12);
+    --shadow-card: 0 4px 15px rgba(46, 32, 17, 0.08);
+    --shadow-warm: 0 6px 18px rgba(209, 148, 32, 0.15);
+    --shadow-cool: 0 6px 18px rgba(42, 110, 74, 0.12);
+    
+    /* Изящные анимации */
     --animation-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --animation-smooth: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
 /* Улучшенные эффекты наведения для карточек */
 .service-card, .gallery-item, .room-card {
-    transition: all 0.4s var(--animation-bounce);
+    transition: all 0.4s var(--animation-smooth);
     box-shadow: var(--shadow-card);
     transform: translateY(0);
 }
@@ -21,6 +33,15 @@
 .service-card:hover, .gallery-item:hover, .room-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-hover);
+}
+
+/* Уникальные эффекты для разных типов карточек */
+.room-card:hover {
+    box-shadow: var(--shadow-warm);
+}
+
+.service-card:hover {
+    box-shadow: var(--shadow-cool);
 }
 
 /* Улучшенные кнопки с градиентом */
@@ -331,5 +352,235 @@ footer::before {
     .social-links a {
         width: 35px;
         height: 35px;
+    }
+}
+
+/* Эффект стекла для карточек */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Темная версия стеклянной карточки */
+.glass-card.dark {
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Эффект параллакса для фоновых изображений */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Градиентные наложения для секций */
+.gradient-overlay {
+    position: relative;
+}
+
+.gradient-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(var(--primary-color-rgb), 0.8), rgba(var(--primary-dark-rgb), 0.9));
+    z-index: 1;
+}
+
+.gradient-overlay.light::before {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95));
+}
+
+.gradient-overlay.accent::before {
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.8), rgba(var(--accent-color-rgb), 0.8));
+}
+
+.gradient-overlay > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Улучшенные тени для карточек */
+.shadow-hover {
+    transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+/* Эффект подсветки для изображений */
+.image-glow {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+.image-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(var(--primary-color-rgb), 0.2), 
+        rgba(var(--accent-color-rgb), 0.2));
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.image-glow:hover::after {
+    opacity: 1;
+}
+
+/* Современный бенто-грид для секций */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.bento-item {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.bento-item.featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-item-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.bento-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.bento-item:hover .bento-item-image img {
+    transform: scale(1.08);
+}
+
+.bento-item-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-item-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+}
+
+.bento-item-description {
+    color: var(--text-medium);
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+/* Улучшенные кнопки с эффектами */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--primary-color), 
+        var(--accent-color), 
+        var(--primary-light), 
+        var(--accent-light));
+    z-index: -1;
+    border-radius: calc(var(--radius-md) + 2px);
+    background-size: 400%;
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.btn-glow:hover::before {
+    opacity: 1;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Адаптивные медиа-запросы */
+@media (max-width: 992px) {
+    .bento-item.featured {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 1.5rem;
+    }
+    
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .glass-card {
+        background: rgba(30, 30, 30, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .bento-item {
+        background-color: var(--bg-medium);
+        border: 1px solid rgba(255, 255, 255, 0.05);
     }
 } 

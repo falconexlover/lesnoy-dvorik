@@ -1,0 +1,113 @@
+/**
+ * Исправление для темы сайта "Лесной дворик"
+ * Отключает автоматическое определение темной темы и фиксирует светлую тему
+ */
+
+/* Принудительно устанавливаем светлую тему */
+:root {
+    /* Основные цвета */
+    --text-color: #2c2c2c !important;
+    --text-light: #767676 !important;
+    --text-medium: #4d4d4d !important;
+    --text-dark: #2c2c2c !important;
+    --background-color: #f9f7f4 !important;
+    --background-light: #f0ece6 !important;
+    --border-color: #e5e1d8 !important;
+    
+    /* Адаптируем другие цвета */
+    --primary-color: #2a6e4a !important;
+    --primary-light: #3c8c63 !important;
+    --primary-dark: #1e5035 !important;
+    --accent-color: #d19420 !important;
+    --accent-light: #e6a82e !important;
+    --accent-dark: #b37818 !important;
+    
+    /* Дополнительные акцентные цвета */
+    --terracotta: #c75f3e !important;
+    --sage-green: #aebea3 !important;
+}
+
+/* Отменяем стили темной темы */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Отменяем установки темной темы */
+        --l-0: 0% !important;
+        --l-10: 10% !important;
+        --l-20: 20% !important;
+        --l-30: 30% !important;
+        --l-40: 40% !important;
+        --l-50: 50% !important;
+        --l-60: 60% !important;
+        --l-70: 70% !important;
+        --l-80: 80% !important;
+        --l-90: 90% !important;
+        --l-95: 95% !important;
+        --l-100: 100% !important;
+        
+        /* Основные цвета для светлой темы */
+        --text-color: #2c2c2c !important;
+        --text-light: #767676 !important;
+        --background-color: #f9f7f4 !important;
+        --background-light: #f0ece6 !important;
+        --border-color: #e5e1d8 !important;
+    }
+    
+    body {
+        color: var(--text-color) !important;
+        background-color: var(--background-color) !important;
+    }
+    
+    .card,
+    .service-card,
+    .booking-form,
+    .modal-content,
+    .dropdown-content {
+        background-color: var(--background-light) !important;
+        box-shadow: 0 4px 10px rgba(46, 32, 17, 0.08) !important;
+    }
+    
+    /* Исправление для выпадающего меню */
+    .dropdown-content a {
+        color: var(--text-color) !important;
+    }
+    
+    /* Отключаем приглушение изображений */
+    img {
+        filter: none !important;
+    }
+    
+    /* Исправляем тени */
+    .shadow-hover:hover {
+        box-shadow: 0 10px 30px rgba(46, 32, 17, 0.12) !important;
+    }
+}
+
+/* Общие исправления */
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.modern-card, .glass-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(46, 32, 17, 0.05) !important;
+}
+
+.modern-service-card {
+    background-color: var(--background-light) !important;
+}
+
+/* Исправление для текста */
+h1, h2, h3, h4, h5, h6, p, a, span, div {
+    color: var(--text-color);
+}
+
+/* Принудительно устанавливаем цветовую схему */
+html {
+    color-scheme: light !important;
+}
+
+/* Это важный мета-тег, который также должен быть изменен в HTML */
+/* 
+<meta name="color-scheme" content="light">
+*/ 

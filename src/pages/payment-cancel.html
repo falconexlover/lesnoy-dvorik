@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Платеж отменен - Лесной дворик</title>
+    <meta name="description" content="Платеж отменен. Гостиница Лесной дворик - уютное место для отдыха на природе.">
+    
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/payment.css">
+    
+    <!-- Подключаем шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="/" class="logo">
+                    <img src="../img/logo.svg" alt="Лесной дворик" class="logo__img">
+                </a>
+                
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="/" class="nav__link">Главная</a></li>
+                        <li class="nav__item"><a href="/rooms" class="nav__link">Номера</a></li>
+                        <li class="nav__item"><a href="/services" class="nav__link">Услуги</a></li>
+                        <li class="nav__item"><a href="/gallery" class="nav__link">Галерея</a></li>
+                        <li class="nav__item"><a href="/booking" class="nav__link">Бронирование</a></li>
+                        <li class="nav__item"><a href="/contacts" class="nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header__contacts">
+                    <a href="tel:+79001234567" class="header__phone">+7 (900) 123-45-67</a>
+                </div>
+                
+                <button class="burger" type="button">
+                    <span class="burger__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Основной контент -->
+    <main class="main">
+        <!-- Баннер -->
+        <section class="banner banner--small">
+            <div class="container">
+                <h1 class="banner__title">Платеж отменен</h1>
+            </div>
+        </section>
+        
+        <!-- Секция с информацией об отмене платежа -->
+        <section class="payment-cancel">
+            <div class="container">
+                <div class="payment-cancel__inner">
+                    <div class="payment-cancel__icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="40" r="40" fill="#F44336" fill-opacity="0.1"/>
+                            <path d="M54 30.4L49.6 26L40 35.6L30.4 26L26 30.4L35.6 40L26 49.6L30.4 54L40 44.4L49.6 54L54 49.6L44.4 40L54 30.4Z" fill="#F44336"/>
+                        </svg>
+                    </div>
+                    
+                    <h2 class="payment-cancel__title">Платеж отменен</h2>
+                    
+                    <p class="payment-cancel__text">
+                        Ваш платеж был отменен. Если вы столкнулись с проблемами при оплате, пожалуйста, свяжитесь с нами.
+                    </p>
+                    
+                    <div class="payment-cancel__details" id="paymentDetails">
+                        <!-- Здесь будут отображаться детали платежа -->
+                        <div class="payment-cancel__detail">
+                            <span class="payment-cancel__detail-label">Номер бронирования:</span>
+                            <span class="payment-cancel__detail-value" id="bookingId">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-cancel__actions">
+                        <a href="/booking" class="btn btn--primary">Попробовать снова</a>
+                        <a href="/" class="btn btn--secondary">Вернуться на главную</a>
+                    </div>
+                    
+                    <div class="payment-cancel__help">
+                        <h3 class="payment-cancel__help-title">Нужна помощь?</h3>
+                        <p class="payment-cancel__help-text">
+                            Если у вас возникли проблемы с оплатой, вы можете связаться с нами по телефону 
+                            <a href="tel:+79001234567">+7 (900) 123-45-67</a> или по электронной почте 
+                            <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__col">
+                    <a href="/" class="logo footer__logo">
+                        <img src="../img/logo-white.svg" alt="Лесной дворик" class="logo__img">
+                    </a>
+                    <p class="footer__text">
+                        Уютная гостиница в окружении природы для идеального отдыха от городской суеты.
+                    </p>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">Навигация</h3>
+                    <ul class="footer__nav">
+                        <li class="footer__nav-item"><a href="/" class="footer__nav-link">Главная</a></li>
+                        <li class="footer__nav-item"><a href="/rooms" class="footer__nav-link">Номера</a></li>
+                        <li class="footer__nav-item"><a href="/services" class="footer__nav-link">Услуги</a></li>
+                        <li class="footer__nav-item"><a href="/gallery" class="footer__nav-link">Галерея</a></li>
+                        <li class="footer__nav-item"><a href="/booking" class="footer__nav-link">Бронирование</a></li>
+                        <li class="footer__nav-item"><a href="/contacts" class="footer__nav-link">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">Контакты</h3>
+                    <ul class="footer__contacts">
+                        <li class="footer__contact">
+                            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 2.4C8.8 2.4 9.6 3.2 9.6 4C9.6 4.8 8.8 5.6 8 5.6C7.2 5.6 6.4 4.8 6.4 4C6.4 3.2 7.2 2.4 8 2.4ZM9.6 12.8H6.4C5.6 12.8 5.6 12 5.6 11.2C5.6 9.6 7.2 8 8 8C8.8 8 10.4 9.6 10.4 11.2C10.4 12 10.4 12.8 9.6 12.8Z" fill="white"/>
+                            </svg>
+                            <span>г. Москва, ул. Лесная, д. 10</span>
+                        </li>
+                        <li class="footer__contact">
+                            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.4 10.4C13.6 10.4 12.8 10.2 12 9.8C11.8 9.7 11.5 9.7 11.3 9.8L9.8 11C7.5 10 5.9 8.5 5 6.2L6.2 4.7C6.4 4.5 6.4 4.2 6.3 4C5.9 3.2 5.7 2.4 5.7 1.6C5.7 1.2 5.3 0.8 4.9 0.8H1.6C1.2 0.8 0.8 1.2 0.8 1.6C0.8 9.4 7.2 15.8 15 15.8C15.4 15.8 15.8 15.4 15.8 15V11.7C15.2 11.2 14.8 10.8 14.4 10.4Z" fill="white"/>
+                            </svg>
+                            <a href="tel:+79001234567">+7 (900) 123-45-67</a>
+                        </li>
+                        <li class="footer__contact">
+                            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.4 2.4H1.6C0.7 2.4 0 3.1 0 4V12C0 12.9 0.7 13.6 1.6 13.6H14.4C15.3 13.6 16 12.9 16 12V4C16 3.1 15.3 2.4 14.4 2.4ZM14.4 4L8 8L1.6 4H14.4Z" fill="white"/>
+                            </svg>
+                            <a href="mailto:info@lesnoy-dvorik.ru">info@lesnoy-dvorik.ru</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">Мы в соцсетях</h3>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.4C6.7 2.4 2.4 6.7 2.4 12C2.4 17.3 6.7 21.6 12 21.6C17.3 21.6 21.6 17.3 21.6 12C21.6 6.7 17.3 2.4 12 2.4ZM15.8 8.5H14.5C13.9 8.5 13.7 8.8 13.7 9.3V10.4H15.8L15.6 12.5H13.7V18.4H11.5V12.5H9.7V10.4H11.5V9.1C11.5 7.3 12.5 6.4 14.1 6.4H15.8V8.5Z" fill="white"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.4C6.7 2.4 2.4 6.7 2.4 12C2.4 17.3 6.7 21.6 12 21.6C17.3 21.6 21.6 17.3 21.6 12C21.6 6.7 17.3 2.4 12 2.4ZM16.7 9.2C16.7 9.3 16.7 9.4 16.7 9.5C16.7 13 14 17 9.3 17C7.7 17 6.2 16.5 5 15.7C5.2 15.7 5.5 15.7 5.7 15.7C7 15.7 8.2 15.2 9.2 14.4C8 14.4 7 13.6 6.7 12.5C6.9 12.5 7 12.5 7.2 12.5C7.4 12.5 7.7 12.5 7.9 12.4C6.7 12.2 5.7 11.1 5.7 9.8V9.8C6 10 6.5 10.1 6.9 10.1C6.1 9.6 5.7 8.7 5.7 7.8C5.7 7.3 5.8 6.8 6 6.4C7.3 8 9.2 9 11.3 9.1C11.3 8.9 11.2 8.7 11.2 8.5C11.2 7 12.4 5.8 13.9 5.8C14.7 5.8 15.4 6.1 15.9 6.7C16.5 6.6 17 6.3 17.6 6C17.4 6.7 17 7.2 16.5 7.5C17 7.4 17.5 7.3 18 7.1C17.6 7.6 17.2 8.1 16.7 8.4C16.7 8.7 16.7 8.9 16.7 9.2Z" fill="white"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.4C6.7 2.4 2.4 6.7 2.4 12C2.4 17.3 6.7 21.6 12 21.6C17.3 21.6 21.6 17.3 21.6 12C21.6 6.7 17.3 2.4 12 2.4ZM16.8 14.5C16.6 14.8 16.3 15 15.9 15C15.7 15 15.5 14.9 15.3 14.8C14.4 14.3 13.5 13.9 12.6 13.5C12.4 13.4 12.2 13.4 12 13.5C11.3 14.1 10.6 14.7 9.9 15.3C9.6 15.5 9.3 15.5 9 15.3C8.7 15.1 8.5 14.8 8.5 14.4C8.5 12.9 8.5 11.4 8.5 9.9C8.5 9.5 8.7 9.2 9 9C9.3 8.8 9.6 8.8 9.9 9C11.3 9.8 12.6 10.7 14 11.5C14.3 11.7 14.5 12 14.5 12.4C14.5 12.8 14.3 13.1 14 13.3C13.6 13.5 13.3 13.7 12.9 13.9C13.8 14.3 14.6 14.7 15.5 15.1C16 15.3 16.1 15.3 16.3 15.1C16.5 14.9 16.5 14.7 16.5 14.5C16.5 13.8 16.5 13 16.5 12.3C16.5 11.6 16.5 10.8 16.5 10.1C16.5 9.7 16.3 9.4 16 9.2C15.7 9 15.4 9 15.1 9.2C13.7 10 12.4 10.9 11 11.7C10.7 11.9 10.5 12.2 10.5 12.6C10.5 13 10.7 13.3 11 13.5C12.4 14.3 13.7 15.2 15.1 16C15.4 16.2 15.7 16.2 16 16C16.3 15.8 16.5 15.5 16.5 15.1C16.5 14.9 16.7 14.7 16.8 14.5Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2023 Гостиница "Лесной дворик". Все права защищены.
+                </p>
+                <a href="/privacy-policy" class="footer__policy">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Подключаем скрипты -->
+    <script src="../js/main.js"></script>
+    <script src="../js/payment-cancel.js"></script>
+</body>
+</html> 

@@ -1,0 +1,220 @@
+/**
+ * Bento UI Grid компоненты для сайта "Лесной дворик"
+ * Современный модульный подход к организации контента
+ */
+
+/* Основной контейнер для Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: minmax(180px, auto);
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+/* Варианты для разных секций */
+.bento-grid-large {
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(220px, auto);
+}
+
+.bento-grid-feature {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Карточки в стиле Bento UI */
+.bento-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Эффект при наведении */
+.bento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Настройка размеров карточек для разных позиций в сетке */
+.bento-span-2 {
+  grid-column: span 2;
+}
+
+.bento-span-3 {
+  grid-column: span 3;
+}
+
+.bento-span-6 {
+  grid-column: span 6;
+}
+
+.bento-span-row-2 {
+  grid-row: span 2;
+}
+
+/* Акцентная карточка */
+.bento-card-accent {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+/* Карточка с изображением */
+.bento-card-image {
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.bento-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bento-card-image:hover img {
+  transform: scale(1.05);
+}
+
+.bento-card-image .bento-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+}
+
+/* Стеклянная карточка */
+.bento-card-glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Содержимое карточки */
+.bento-card-header {
+  margin-bottom: 1rem;
+}
+
+.bento-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.bento-card-subtitle {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.bento-card-body {
+  margin-bottom: 1.5rem;
+}
+
+.bento-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Иконки внутри карточек */
+.bento-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.bento-card-icon i {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+/* 3D эффекты */
+.bento-card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.bento-card-3d .bento-card-icon,
+.bento-card-3d img {
+  transform: translateZ(20px);
+  transition: transform 0.3s ease;
+}
+
+.bento-card-3d:hover .bento-card-icon,
+.bento-card-3d:hover img {
+  transform: translateZ(40px);
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .bento-card {
+    background: rgba(25, 25, 25, 0.8);
+    color: #f5f5f5;
+  }
+  
+  .bento-card-glass {
+    background: rgba(30, 30, 30, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .bento-card-icon {
+    background-color: rgba(var(--primary-light-rgb), 0.15);
+  }
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 992px) {
+  .bento-grid-large,
+  .bento-grid-feature {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .bento-span-3 {
+    grid-column: span 3;
+  }
+  
+  .bento-span-6 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-grid-large,
+  .bento-grid-feature {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-span-2,
+  .bento-span-3,
+  .bento-span-6 {
+    grid-column: span 1;
+  }
+  
+  .bento-span-row-2 {
+    grid-row: span 1;
+  }
+} 

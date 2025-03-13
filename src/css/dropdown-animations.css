@@ -1,0 +1,140 @@
+/**
+ * Анимации для выпадающего меню
+ * Гостиница "Лесной дворик"
+ */
+
+/* Анимация появления выпадающего меню */
+@keyframes dropdown-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dropdown-fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+/* Анимация для индикатора активного элемента */
+@keyframes dropdown-indicator {
+    0% {
+        transform: scaleY(0);
+    }
+    50% {
+        transform: scaleY(0.5);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/* Применение анимаций */
+.dropdown:hover .dropdown-content {
+    animation: dropdown-fade-in 0.3s ease forwards;
+}
+
+.dropdown-content a:hover::before {
+    animation: dropdown-indicator 0.2s ease forwards;
+}
+
+/* Анимация для стрелки выпадающего меню */
+@keyframes dropdown-arrow-rotate {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(180deg);
+    }
+}
+
+.dropdown.active > a::after {
+    animation: dropdown-arrow-rotate 0.3s ease forwards;
+}
+
+/* Анимация для мобильного выпадающего меню */
+@keyframes dropdown-mobile-expand {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .dropdown.active .dropdown-content {
+        animation: dropdown-mobile-expand 0.3s ease forwards;
+    }
+}
+
+/* Эффект волны при нажатии на элемент меню */
+.dropdown-content a {
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown-content a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(33, 113, 72, 0.3);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.dropdown-content a:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+/* Улучшения для темного режима */
+@media (prefers-color-scheme: dark) {
+    .dropdown-content a::after {
+        background: rgba(143, 206, 160, 0.3);
+    }
+    
+    @keyframes dropdown-indicator {
+        0% {
+            transform: scaleY(0);
+            background-color: var(--primary-light);
+        }
+        50% {
+            transform: scaleY(0.5);
+            background-color: var(--primary-light);
+        }
+        100% {
+            transform: scaleY(1);
+            background-color: var(--primary-light);
+        }
+    }
+} 

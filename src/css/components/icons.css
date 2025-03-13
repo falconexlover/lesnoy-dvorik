@@ -1,0 +1,267 @@
+/**
+ * Набор иконок для сайта "Лесной дворик"
+ * Включает современные стилизованные иконки
+ */
+
+@font-face {
+  font-family: 'LesnoiDvorikIcons';
+  src: url('../assets/fonts/lesnoiicons.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.ld-icon {
+  font-family: 'LesnoiDvorikIcons' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+}
+
+/* Набор CSS иконок (не зависят от шрифта) */
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+/* Иконка природы */
+.icon-nature::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.8;
+}
+
+.icon-nature::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 8px;
+  bottom: 2px;
+  left: 3px;
+  border-radius: 50% 50% 0 0;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+/* Иконка дерева */
+.icon-tree {
+  position: relative;
+}
+
+.icon-tree::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 4px;
+  background: currentColor;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.icon-tree::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 8px;
+  bottom: 0;
+  left: 10px;
+  background: currentColor;
+}
+
+/* Иконка домика */
+.icon-cabin {
+  position: relative;
+}
+
+.icon-cabin::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 12px;
+  top: 2px;
+  left: 2px;
+  background: currentColor;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.icon-cabin::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  bottom: 0;
+  left: 6px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+/* Иконка Бассейн */
+.icon-pool {
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-pool::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 12px;
+  bottom: 2px;
+  left: 2px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+
+.icon-pool::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 4px;
+  bottom: 4px;
+  left: 4px;
+  background: currentColor;
+  opacity: 0.5;
+  border-radius: 2px;
+  transform: skewX(15deg);
+}
+
+/* Иконка Сауна */
+.icon-sauna {
+  position: relative;
+}
+
+.icon-sauna::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 4px;
+  left: 4px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.icon-sauna::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  top: 10px;
+  left: 8px;
+  background: currentColor;
+  box-shadow: 0 4px 0 0 currentColor;
+}
+
+/* Иконка "Еда" */
+.icon-food {
+  position: relative;
+}
+
+.icon-food::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 6px;
+  left: 6px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-food::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 3px;
+  left: 5px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+}
+
+/* Иконка Местоположение */
+.icon-location {
+  position: relative;
+}
+
+.icon-location::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 16px;
+  top: 3px;
+  left: 6px;
+  background: currentColor;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+
+.icon-location::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 9px;
+  left: 10px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Анимированные иконки */
+.icon-animated.icon-tree::before {
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.icon-animated.icon-pool::after {
+  animation: waves 2s ease-in-out infinite;
+}
+
+/* Анимации */
+@keyframes sway {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes waves {
+  0%, 100% { transform: skewX(15deg) translateX(0); }
+  50% { transform: skewX(-15deg) translateX(2px); }
+}
+
+/* Размеры иконок */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-xl {
+  width: 48px;
+  height: 48px;
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .icon-location::after {
+    background: var(--dark-bg);
+  }
+} 

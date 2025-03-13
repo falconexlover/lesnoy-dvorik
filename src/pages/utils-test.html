@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест утилит - Лесной дворик</title>
+    <meta name="description" content="Тестовая страница для проверки утилит CSS">
+    
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/utils.css">
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Тест утилит CSS</h1>
+            <a href="../index.html">Вернуться на главную</a>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">Тест текстовых утилит</h2>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Выравнивание текста</h3>
+                <p class="text-left mb-2">Этот текст выровнен по левому краю (text-left)</p>
+                <p class="text-center mb-2">Этот текст выровнен по центру (text-center)</p>
+                <p class="text-right mb-2">Этот текст выровнен по правому краю (text-right)</p>
+                <p class="text-justify mb-2">Этот текст выровнен по ширине (text-justify). Длинный текст для демонстрации выравнивания по ширине. Длинный текст для демонстрации выравнивания по ширине. Длинный текст для демонстрации выравнивания по ширине.</p>
+            </div>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Трансформация текста</h3>
+                <p class="text-lowercase mb-2">ЭТОТ ТЕКСТ БУДЕТ В НИЖНЕМ РЕГИСТРЕ (text-lowercase)</p>
+                <p class="text-uppercase mb-2">этот текст будет в верхнем регистре (text-uppercase)</p>
+                <p class="text-capitalize mb-2">каждое слово с большой буквы (text-capitalize)</p>
+            </div>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Стилизация текста</h3>
+                <p class="text-bold mb-2">Этот текст жирный (text-bold)</p>
+                <p class="text-italic mb-2">Этот текст курсивный (text-italic)</p>
+                <p class="text-underline mb-2">Этот текст подчеркнутый (text-underline)</p>
+                <p class="text-line-through mb-2">Этот текст зачеркнутый (text-line-through)</p>
+            </div>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Цвета текста</h3>
+                <p class="text-primary mb-2">Текст основного цвета (text-primary)</p>
+                <p class="text-secondary mb-2">Текст вторичного цвета (text-secondary)</p>
+                <p class="text-accent mb-2">Текст акцентного цвета (text-accent)</p>
+                <p class="text-success mb-2">Текст цвета успеха (text-success)</p>
+                <p class="text-error mb-2">Текст цвета ошибки (text-error)</p>
+                <p class="text-warning mb-2">Текст цвета предупреждения (text-warning)</p>
+                <p class="text-info mb-2">Текст информационного цвета (text-info)</p>
+            </div>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Размеры текста</h3>
+                <p class="text-xs mb-2">Очень маленький текст (text-xs)</p>
+                <p class="text-sm mb-2">Маленький текст (text-sm)</p>
+                <p class="text-base mb-2">Базовый размер текста (text-base)</p>
+                <p class="text-lg mb-2">Большой текст (text-lg)</p>
+                <p class="text-xl mb-2">Очень большой текст (text-xl)</p>
+                <p class="text-2xl mb-2">Текст размера 2xl (text-2xl)</p>
+                <p class="text-3xl mb-2">Текст размера 3xl (text-3xl)</p>
+                <p class="text-4xl mb-2">Текст размера 4xl (text-4xl)</p>
+                <p class="text-5xl mb-2">Текст размера 5xl (text-5xl)</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Тест Grid утилит</h2>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Базовая сетка</h3>
+                <div class="grid grid-cols-3 gap-4 mb-5">
+                    <div class="bg-primary p-4 text-white text-center">1</div>
+                    <div class="bg-primary p-4 text-white text-center">2</div>
+                    <div class="bg-primary p-4 text-white text-center">3</div>
+                    <div class="bg-primary p-4 text-white text-center">4</div>
+                    <div class="bg-primary p-4 text-white text-center">5</div>
+                    <div class="bg-primary p-4 text-white text-center">6</div>
+                </div>
+                
+                <h3 class="mb-4">Охват колонок</h3>
+                <div class="grid grid-cols-3 gap-4 mb-5">
+                    <div class="bg-accent p-4 text-center col-span-2">Охват 2 колонок</div>
+                    <div class="bg-accent p-4 text-center">1 колонка</div>
+                    <div class="bg-accent p-4 text-center">1 колонка</div>
+                    <div class="bg-accent p-4 text-center col-span-2">Охват 2 колонок</div>
+                </div>
+                
+                <h3 class="mb-4">Адаптивная сетка</h3>
+                <div class="grid grid-cols-1 grid-cols-md-2 grid-cols-lg-4 gap-4">
+                    <div class="bg-secondary p-4 text-white text-center">1</div>
+                    <div class="bg-secondary p-4 text-white text-center">2</div>
+                    <div class="bg-secondary p-4 text-white text-center">3</div>
+                    <div class="bg-secondary p-4 text-white text-center">4</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Тест Flexbox утилит</h2>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Выравнивание по основной оси</h3>
+                <div class="flex justify-start mb-4 bg-light p-3">
+                    <div class="bg-primary p-2 text-white m-1">1</div>
+                    <div class="bg-primary p-2 text-white m-1">2</div>
+                    <div class="bg-primary p-2 text-white m-1">3</div>
+                </div>
+                
+                <div class="flex justify-center mb-4 bg-light p-3">
+                    <div class="bg-accent p-2 m-1">1</div>
+                    <div class="bg-accent p-2 m-1">2</div>
+                    <div class="bg-accent p-2 m-1">3</div>
+                </div>
+                
+                <div class="flex justify-end mb-4 bg-light p-3">
+                    <div class="bg-secondary p-2 text-white m-1">1</div>
+                    <div class="bg-secondary p-2 text-white m-1">2</div>
+                    <div class="bg-secondary p-2 text-white m-1">3</div>
+                </div>
+                
+                <div class="flex justify-between mb-4 bg-light p-3">
+                    <div class="bg-success p-2 text-white m-1">1</div>
+                    <div class="bg-success p-2 text-white m-1">2</div>
+                    <div class="bg-success p-2 text-white m-1">3</div>
+                </div>
+                
+                <div class="flex justify-around mb-4 bg-light p-3">
+                    <div class="bg-error p-2 text-white m-1">1</div>
+                    <div class="bg-error p-2 text-white m-1">2</div>
+                    <div class="bg-error p-2 text-white m-1">3</div>
+                </div>
+            </div>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Выравнивание по поперечной оси</h3>
+                <div class="flex items-start mb-4 bg-light p-3" style="height: 100px;">
+                    <div class="bg-primary p-2 text-white m-1">Начало</div>
+                    <div class="bg-primary p-2 text-white m-1">Начало</div>
+                    <div class="bg-primary p-2 text-white m-1">Начало</div>
+                </div>
+                
+                <div class="flex items-center mb-4 bg-light p-3" style="height: 100px;">
+                    <div class="bg-accent p-2 m-1">Центр</div>
+                    <div class="bg-accent p-2 m-1">Центр</div>
+                    <div class="bg-accent p-2 m-1">Центр</div>
+                </div>
+                
+                <div class="flex items-end mb-4 bg-light p-3" style="height: 100px;">
+                    <div class="bg-secondary p-2 text-white m-1">Конец</div>
+                    <div class="bg-secondary p-2 text-white m-1">Конец</div>
+                    <div class="bg-secondary p-2 text-white m-1">Конец</div>
+                </div>
+            </div>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Направление Flex</h3>
+                <div class="flex flex-row mb-4 bg-light p-3">
+                    <div class="bg-primary p-2 text-white m-1">1</div>
+                    <div class="bg-primary p-2 text-white m-1">2</div>
+                    <div class="bg-primary p-2 text-white m-1">3</div>
+                </div>
+                
+                <div class="flex flex-row-reverse mb-4 bg-light p-3">
+                    <div class="bg-accent p-2 m-1">1</div>
+                    <div class="bg-accent p-2 m-1">2</div>
+                    <div class="bg-accent p-2 m-1">3</div>
+                </div>
+                
+                <div class="flex flex-col mb-4 bg-light p-3">
+                    <div class="bg-secondary p-2 text-white m-1">1</div>
+                    <div class="bg-secondary p-2 text-white m-1">2</div>
+                    <div class="bg-secondary p-2 text-white m-1">3</div>
+                </div>
+                
+                <div class="flex flex-col-reverse mb-4 bg-light p-3">
+                    <div class="bg-success p-2 text-white m-1">1</div>
+                    <div class="bg-success p-2 text-white m-1">2</div>
+                    <div class="bg-success p-2 text-white m-1">3</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Тест Display утилит</h2>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Базовые display свойства</h3>
+                <div class="mb-4">
+                    <span class="block bg-primary p-2 text-white mb-2">Блочный элемент (block)</span>
+                    <span class="inline-block bg-accent p-2 mr-2">Строчно-блочный элемент (inline-block)</span>
+                    <span class="inline-block bg-accent p-2">Строчно-блочный элемент (inline-block)</span>
+                </div>
+                
+                <div class="mb-4">
+                    <span class="inline bg-secondary p-2 text-white">Строчный элемент (inline)</span>
+                    <span class="inline bg-secondary p-2 text-white">Строчный элемент (inline)</span>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="hidden bg-error p-2 text-white">Этот элемент скрыт (hidden)</div>
+                    <div class="visible bg-success p-2 text-white">Этот элемент видим (visible)</div>
+                </div>
+            </div>
+            
+            <div class="card p-5 mb-5">
+                <h3 class="mb-4">Позиционирование</h3>
+                <div class="relative bg-light p-4 mb-4" style="height: 150px;">
+                    <div class="absolute top-0 left-0 bg-primary p-2 text-white">Верхний левый (absolute)</div>
+                    <div class="absolute top-0 right-0 bg-accent p-2">Верхний правый (absolute)</div>
+                    <div class="absolute bottom-0 left-0 bg-secondary p-2 text-white">Нижний левый (absolute)</div>
+                    <div class="absolute bottom-0 right-0 bg-success p-2 text-white">Нижний правый (absolute)</div>
+                </div>
+                
+                <div class="relative bg-light p-4" style="height: 100px;">
+                    <div class="static bg-primary p-2 text-white mb-2">Статичный элемент (static)</div>
+                    <div class="relative bg-accent p-2 mb-2" style="left: 20px;">Относительно позиционированный (relative)</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer bg-dark text-white p-5 mt-5">
+        <div class="container">
+            <p class="text-center">&copy; 2023 Лесной дворик. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,204 @@
+/**
+ * Критический CSS для сайта "Лесной дворик"
+ * Стили для первого экрана, которые будут загружены инлайн
+ */
+
+/* Основные переменные */
+:root {
+  /* Основные цвета */
+  --primary-color: #217148;
+  --primary-dark: #185a39;
+  --primary-light: #C8E6C9;
+  
+  /* Акцентный цвет */
+  --accent-color: #FF9800;
+  
+  /* Нейтральные цвета */
+  --text-color: #333333;
+  --background-color: #FFFFFF;
+  
+  /* Тени */
+  --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  /* Типографика */
+  --font-primary: 'Roboto', Arial, sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+}
+
+/* Базовые стили */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+/* Стили шапки */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: var(--shadow-light);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80px;
+}
+
+.logo img {
+  max-height: 60px;
+}
+
+/* Стили главной навигации (только базовые для первого экрана) */
+.main-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* Стили кнопки бронирования */
+.booking-button .btn {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.booking-button .btn:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Стили hero секции */
+.hero {
+  height: calc(100vh - 80px);
+  min-height: 500px;
+  background-image: url('../assets/images/hotel-exterior.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-family: var(--font-secondary);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+  .header-container {
+    height: 60px;
+  }
+  
+  .main-menu {
+    display: none; /* Меню будет открываться по клику в мобильной версии */
+  }
+  
+  .logo img {
+    max-height: 40px;
+  }
+}
+
+/* Контейнеры */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Базовые анимации для первого экрана */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero h1, .hero p, .hero .btn {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.hero h1 { animation-delay: 0.2s; }
+.hero p { animation-delay: 0.4s; }
+.hero .btn { animation-delay: 0.6s; }
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f5f5f5;
+    --background-color: #121212;
+  }
+  
+  header {
+    background-color: #1c1c1c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .main-menu a {
+    color: #e0e0e0;
+  }
+} 

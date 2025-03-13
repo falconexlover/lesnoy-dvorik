@@ -1,168 +1,190 @@
 /**
- * Service Worker для сайта гостиницы "Лесной дворик"
- * Обеспечивает работу PWA и оффлайн-функциональность
+ * Service Worker для гостиницы "Лесной дворик"
+ * Обеспечивает кэширование и работу в режиме оффлайн
  */
 
-// Версия кэша, обновляется при изменении контента
-const CACHE_VERSION = 'v1.0.0';
+// Имя и версия кэша
+const CACHE_NAME = 'lesnoy-dvorik-cache-v1.1';
 
-// Имя кэша
-const CACHE_NAME = `lesnoy-dvorik-cache-${CACHE_VERSION}`;
-
-// Ресурсы для предварительного кэширования
-const PRECACHE_URLS = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/css/components.css',
-  '/css/forms.css',
-  '/css/header-fix.css',
-  '/js/main.js',
-  '/js/lazy-loading.js',
-  '/js/booking.js',
-  '/js/header-autoload.js',
-  '/manifest.json',
-  '/assets/images/logo.png',
-  '/assets/images/favicon.ico',
-  '/assets/images/hotel-exterior.jpg',
-  '/offline.html'
+// Файлы для предварительного кэширования
+const CACHE_ASSETS = [
+    '/',
+    '/index.html',
+    '/offline.html',
+    '/css/style.css',
+    '/css/components.css',
+    '/css/form-enhancements.css',
+    '/css/animations.css',
+    '/js/main.js',
+    '/js/booking.js',
+    '/js/gallery.js',
+    '/js/lazy-loading.js',
+    '/js/room-gallery.js',
+    '/assets/images/logo.svg',
+    '/assets/images/hero.jpg',
+    '/assets/images/footer-bg.jpg',
+    '/assets/images/icons/icon-192x192.png',
+    '/assets/images/icons/icon-512x512.png',
+    '/assets/images/rooms/room-preview-1.jpg',
+    '/assets/images/rooms/room-preview-2.jpg',
+    '/assets/images/rooms/room-preview-3.jpg',
+    '/manifest.json'
 ];
 
-// Установка Service Worker
-self.addEventListener('install', event => {
-  console.log('[Service Worker] Установка');
-  
-  // Предварительное кэширование ресурсов
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('[Service Worker] Предварительное кэширование');
-        return cache.addAll(PRECACHE_URLS);
-      })
-      .then(() => {
-        console.log('[Service Worker] Предварительное кэширование завершено');
-        return self.skipWaiting();
-      })
-  );
-});
-
-// Активация Service Worker
-self.addEventListener('activate', event => {
-  console.log('[Service Worker] Активация');
-  
-  // Удаление старых версий кэша
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.filter(cacheName => {
-          return cacheName.startsWith('lesnoy-dvorik-cache-') && cacheName !== CACHE_NAME;
-        }).map(cacheName => {
-          console.log(`[Service Worker] Удаление старого кэша: ${cacheName}`);
-          return caches.delete(cacheName);
-        })
-      );
-    }).then(() => {
-      console.log('[Service Worker] Активация завершена');
-      return self.clients.claim();
-    })
-  );
-});
-
-// Стратегия кэширования: сначала кэш, затем сеть с обновлением кэша
-self.addEventListener('fetch', event => {
-  // Пропускаем запросы к API
-  if (event.request.url.includes('/api/')) {
-    return;
-  }
-  
-  // Обработка запросов к статическим ресурсам
-  if (event.request.method === 'GET') {
-    event.respondWith(
-      caches.match(event.request)
-        .then(cachedResponse => {
-          // Возвращаем кэшированный ответ, если он есть
-          if (cachedResponse) {
-            // Обновляем кэш в фоне
-            fetch(event.request)
-              .then(response => {
-                if (response && response.status === 200) {
-                  caches.open(CACHE_NAME)
-                    .then(cache => cache.put(event.request, response));
-                }
-              })
-              .catch(error => console.log('[Service Worker] Ошибка обновления кэша:', error));
-            
-            return cachedResponse;
-          }
-          
-          // Если ресурса нет в кэше, пытаемся получить его из сети
-          return fetch(event.request)
-            .then(response => {
-              // Проверяем, что ответ валидный
-              if (!response || response.status !== 200) {
-                return response;
-              }
-              
-              // Клонируем ответ, так как он может быть использован только один раз
-              const responseToCache = response.clone();
-              
-              // Добавляем ответ в кэш
-              caches.open(CACHE_NAME)
-                .then(cache => {
-                  cache.put(event.request, responseToCache);
-                });
-              
-              return response;
+// Установка service worker'а
+self.addEventListener('install', (event) => {
+    console.log('[Service Worker] Установка');
+    
+    // Предварительное кэширование файлов
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then((cache) => {
+                console.log('[Service Worker] Предварительное кэширование файлов');
+                return cache.addAll(CACHE_ASSETS);
             })
-            .catch(error => {
-              console.log('[Service Worker] Ошибка получения из сети:', error);
-              
-              // Если запрос к HTML-странице, возвращаем оффлайн-страницу
-              if (event.request.headers.get('accept').includes('text/html')) {
-                return caches.match('/offline.html');
-              }
-              
-              // Для других типов ресурсов возвращаем ошибку
-              return new Response('Нет подключения к интернету', {
-                status: 503,
-                statusText: 'Сервис недоступен'
-              });
-            });
-        })
+            .then(() => {
+                console.log('[Service Worker] Переход к активации без ожидания');
+                return self.skipWaiting();
+            })
     );
-  }
+});
+
+// Активация service worker'а и очистка устаревших кэшей
+self.addEventListener('activate', (event) => {
+    console.log('[Service Worker] Активация');
+    
+    // Удаление старых версий кэша
+    event.waitUntil(
+        caches.keys()
+            .then((cacheNames) => {
+                return Promise.all(
+                    cacheNames.map((cacheName) => {
+                        if (cacheName !== CACHE_NAME) {
+                            console.log('[Service Worker] Удаление старого кэша:', cacheName);
+                            return caches.delete(cacheName);
+                        }
+                    })
+                );
+            })
+            .then(() => {
+                console.log('[Service Worker] Захват клиентов');
+                return self.clients.claim();
+            })
+    );
+});
+
+// Стратегия кэширования: Network First с переходом на Cache, затем на Offline
+self.addEventListener('fetch', (event) => {
+    // Пропускаем запросы к API или административной панели
+    if (event.request.url.includes('/api/') || 
+        event.request.url.includes('/admin/') || 
+        event.request.url.includes('/php/')) {
+        return;
+    }
+    
+    event.respondWith(
+        // Сначала пытаемся получить данные из сети
+        fetch(event.request)
+            .then((response) => {
+                // Если ответ получен успешно, клонируем его для кэширования
+                if (response && response.status === 200) {
+                    const responseClone = response.clone();
+                    
+                    caches.open(CACHE_NAME)
+                        .then((cache) => {
+                            // Кэшируем только HTML, CSS, JS, изображения и шрифты
+                            const url = event.request.url;
+                            if (url.endsWith('.html') || 
+                                url.endsWith('.css') || 
+                                url.endsWith('.js') || 
+                                url.includes('/images/') || 
+                                url.includes('/fonts/') ||
+                                url.includes('/assets/')) {
+                                cache.put(event.request, responseClone);
+                            }
+                        });
+                }
+                
+                return response;
+            })
+            .catch(() => {
+                // Если сеть недоступна, пытаемся получить данные из кэша
+                return caches.match(event.request)
+                    .then((cachedResponse) => {
+                        // Если ресурс найден в кэше, возвращаем его
+                        if (cachedResponse) {
+                            return cachedResponse;
+                        }
+                        
+                        // Проверяем, запрашивается ли HTML-файл
+                        const url = new URL(event.request.url);
+                        if (url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname === '') {
+                            // Для HTML-файлов возвращаем offline.html
+                            return caches.match('/offline.html');
+                        }
+                        
+                        // Для других типов файлов просто возвращаем ничего
+                        return null;
+                    });
+            })
+    );
 });
 
 // Обработка push-уведомлений
-self.addEventListener('push', event => {
-  console.log('[Service Worker] Получено push-уведомление');
-  
-  const data = event.data.json();
-  const options = {
-    body: data.body || 'Новое уведомление от гостиницы "Лесной дворик"',
-    icon: data.icon || '/assets/images/icons/icon-192x192.png',
-    badge: '/assets/images/icons/badge-72x72.png',
-    vibrate: [100, 50, 100],
-    data: {
-      url: data.url || '/'
-    }
-  };
-  
-  event.waitUntil(
-    self.registration.showNotification(
-      data.title || 'Лесной дворик',
-      options
-    )
-  );
+self.addEventListener('push', (event) => {
+    console.log('[Service Worker] Получено push-уведомление');
+    
+    const data = event.data.json();
+    
+    const options = {
+        body: data.body || 'Новое уведомление от "Лесной дворик"',
+        icon: '/assets/images/icons/icon-192x192.png',
+        badge: '/assets/images/icons/badge-72x72.png',
+        vibrate: [100, 50, 100, 50, 100],
+        data: {
+            url: data.url || '/'
+        }
+    };
+    
+    event.waitUntil(
+        self.registration.showNotification(
+            data.title || 'Гостиница "Лесной дворик"',
+            options
+        )
+    );
 });
 
 // Обработка клика по уведомлению
-self.addEventListener('notificationclick', event => {
-  console.log('[Service Worker] Клик по уведомлению');
-  
-  event.notification.close();
-  
-  event.waitUntil(
-    clients.openWindow(event.notification.data.url)
-  );
+self.addEventListener('notificationclick', (event) => {
+    console.log('[Service Worker] Клик по уведомлению');
+    
+    event.notification.close();
+    
+    // Открытие указанного URL при клике на уведомление
+    event.waitUntil(
+        clients.openWindow(event.notification.data.url || '/')
+    );
+});
+
+// Периодическая синхронизация для обновления данных
+self.addEventListener('periodicsync', (event) => {
+    if (event.tag === 'update-content') {
+        console.log('[Service Worker] Выполнение периодической синхронизации');
+        
+        event.waitUntil(
+            // Обновление кэша для ключевых страниц
+            fetch('/')
+                .then((response) => {
+                    const responseClone = response.clone();
+                    
+                    return caches.open(CACHE_NAME)
+                        .then((cache) => {
+                            return cache.put('/', responseClone);
+                        });
+                })
+                .catch((error) => {
+                    console.error('[Service Worker] Ошибка при обновлении кэша:', error);
+                })
+        );
+    }
 }); 

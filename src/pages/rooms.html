@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>Номера и апартаменты - Гостиница "Лесной дворик"</title>
+    <meta name="description" content="Комфортабельные номера гостиницы 'Лесной дворик'. Различные категории номеров для отдыха и проживания: стандарт, комфорт, люкс и семейные апартаменты.">
+    
+    <!-- Предзагрузка критических ресурсов -->
+    <link rel="preload" href="../fonts/montserrat-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/playfair-display-v21-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/images/rooms/room-standard.jpg" as="image">
+    
+    <!-- PWA поддержка -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#2a6e4a">
+    
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/ui-components.css">
+    <link rel="stylesheet" href="../css/visual-enhancements.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/modern-components.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/optimization.css">
+    <link rel="stylesheet" href="../css/room-components.css">
+    <link rel="stylesheet" href="../css/navigation-improvements.css">
+    
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Структурированные данные для поисковых систем -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Гостиница Лесной дворик",
+      "image": "../assets/images/hotel-exterior.jpg",
+      "url": "https://lesnoy-dvorik.ru",
+      "description": "Гостиница 'Лесной дворик' - идеальное место для отдыха в окружении природы. Комфортабельные номера, сауна, банкетный зал и отличный сервис.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Лесная, 15",
+        "addressLocality": "Москва",
+        "postalCode": "123456",
+        "addressCountry": "RU"
+      },
+      "telephone": "+7 (123) 456-78-90"
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Хедер будет заменен скриптом -->
+    </header>
+
+    <!-- Шапка страницы -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <img src="../assets/images/hero-rooms.jpg" alt="Номера гостиницы Лесной дворик" loading="lazy">
+        </div>
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title fade-in-up">Номера и апартаменты</h1>
+                <p class="page-hero-subtitle fade-in-up">Уютные и комфортабельные номера для вашего отдыха</p>
+                <div class="breadcrumbs">
+                    <a href="../index.html">Главная</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current">Номера</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с номерами -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Выберите идеальный номер</h2>
+                <p>У нас есть различные варианты размещения для любого бюджета и предпочтений</p>
+            </div>
+            
+            <!-- Фильтры номеров -->
+            <div class="room-filters">
+                <button class="filter-button active" data-filter="all">Все номера</button>
+                <button class="filter-button" data-filter="standard">Стандарт</button>
+                <button class="filter-button" data-filter="comfort">Комфорт</button>
+                <button class="filter-button" data-filter="family">Семейный</button>
+                <button class="filter-button" data-filter="lux">Люкс</button>
+            </div>
+            
+            <!-- Сетка номеров -->
+            <div class="rooms-grid">
+                <!-- Номер Стандарт -->
+                <div class="room-card" data-category="standard">
+                    <div class="room-image-container">
+                        <img src="../assets/images/rooms/room-standard.jpg" alt="Стандартный номер" class="room-image">
+                        <div class="room-status status-available">Доступен</div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-title">Стандартный номер</h3>
+                        <p class="room-description">Уютный номер площадью 18 м² с необходимыми удобствами для комфортного проживания. Идеально подходит для командировок и коротких поездок.</p>
+                        <div class="room-features">
+                            <div class="room-feature">
+                                <i class="fas fa-user"></i>
+                                <span>1-2 гостя</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-expand"></i>
+                                <span>18 м²</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1 двуспальная кровать</span>
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">3 500 ₽<span>/ночь</span></div>
+                            <a href="#booking" class="book-button">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Номер Комфорт -->
+                <div class="room-card" data-category="comfort">
+                    <div class="room-image-container">
+                        <img src="../assets/images/rooms/room-comfort.jpg" alt="Номер Комфорт" class="room-image">
+                        <div class="room-status status-available">Доступен</div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-title">Номер Комфорт</h3>
+                        <p class="room-description">Просторный номер площадью 25 м² с современной мебелью, мини-баром и рабочей зоной. Прекрасный выбор для деловых поездок и отдыха.</p>
+                        <div class="room-features">
+                            <div class="room-feature">
+                                <i class="fas fa-user"></i>
+                                <span>2 гостя</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-expand"></i>
+                                <span>25 м²</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1 двуспальная кровать</span>
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">4 500 ₽<span>/ночь</span></div>
+                            <a href="#booking" class="book-button">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Семейный номер -->
+                <div class="room-card" data-category="family">
+                    <div class="room-image-container">
+                        <img src="../assets/images/rooms/room-family.jpg" alt="Семейный номер" class="room-image">
+                        <div class="room-status status-limited">Осталось мало</div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-title">Семейный номер</h3>
+                        <p class="room-description">Просторный номер площадью 35 м² с двумя отдельными зонами для сна, детской кроваткой по запросу и дополнительными удобствами для семей.</p>
+                        <div class="room-features">
+                            <div class="room-feature">
+                                <i class="fas fa-user"></i>
+                                <span>2-4 гостя</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-expand"></i>
+                                <span>35 м²</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1 двуспальная + 2 односпальные</span>
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">6 000 ₽<span>/ночь</span></div>
+                            <a href="#booking" class="book-button">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Люкс -->
+                <div class="room-card" data-category="lux">
+                    <div class="room-image-container">
+                        <img src="../assets/images/rooms/room-lux.jpg" alt="Люкс" class="room-image">
+                        <div class="room-status status-limited">Осталось мало</div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-title">Люкс</h3>
+                        <p class="room-description">Элегантный номер площадью 40 м² с отдельной гостиной, мини-кухней и панорамными окнами. Для тех, кто ценит комфорт и пространство.</p>
+                        <div class="room-features">
+                            <div class="room-feature">
+                                <i class="fas fa-user"></i>
+                                <span>2-3 гостя</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-expand"></i>
+                                <span>40 м²</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1 двуспальная кровать King-size</span>
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">8 000 ₽<span>/ночь</span></div>
+                            <a href="#booking" class="book-button">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Стандарт Twin -->
+                <div class="room-card" data-category="standard">
+                    <div class="room-image-container">
+                        <img src="../assets/images/rooms/room-standard-twin.jpg" alt="Стандарт Twin" class="room-image">
+                        <div class="room-status status-available">Доступен</div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-title">Стандарт Twin</h3>
+                        <p class="room-description">Уютный номер площадью 20 м² с двумя отдельными кроватями. Идеальный вариант для размещения коллег, друзей или родственников.</p>
+                        <div class="room-features">
+                            <div class="room-feature">
+                                <i class="fas fa-user"></i>
+                                <span>2 гостя</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-expand"></i>
+                                <span>20 м²</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2 односпальные кровати</span>
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">4 000 ₽<span>/ночь</span></div>
+                            <a href="#booking" class="book-button">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Студия -->
+                <div class="room-card" data-category="comfort">
+                    <div class="room-image-container">
+                        <img src="../assets/images/rooms/room-studio.jpg" alt="Студия" class="room-image">
+                        <div class="room-status status-available">Доступен</div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-title">Студия</h3>
+                        <p class="room-description">Современный номер-студия площадью 30 м² с мини-кухней и обеденной зоной. Идеально подходит для длительного проживания.</p>
+                        <div class="room-features">
+                            <div class="room-feature">
+                                <i class="fas fa-user"></i>
+                                <span>2 гостя</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-expand"></i>
+                                <span>30 м²</span>
+                            </div>
+                            <div class="room-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1 двуспальная кровать</span>
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">5 500 ₽<span>/ночь</span></div>
+                            <a href="#booking" class="book-button">Забронировать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Детальное описание одного из номеров -->
+    <section class="section-padding bg-light" id="room-details">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши лучшие номера</h2>
+                <p>Подробная информация о наиболее популярном номере</p>
+            </div>
+
+            <div class="room-details">
+                <div class="room-details-header">
+                    <h3 class="room-details-title">Номер Люкс</h3>
+                    <div class="room-details-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>5.0</span>
+                    </div>
+                </div>
+
+                <div class="main-gallery">
+                    <img src="../assets/images/rooms/room-lux-large.jpg" alt="Номер Люкс" class="main-gallery-image">
+                    <div class="gallery-controls">
+                        <div class="gallery-control prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="gallery-control next">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-gallery">
+                    <div class="gallery-item">
+                        <img src="../assets/images/rooms/room-lux-1.jpg" alt="Спальня Люкс" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../assets/images/rooms/room-lux-2.jpg" alt="Гостиная Люкс" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../assets/images/rooms/room-lux-3.jpg" alt="Ванная Люкс" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="room-tabs">
+                    <div class="room-tab active" data-tab="description">Описание</div>
+                    <div class="room-tab" data-tab="amenities">Удобства</div>
+                    <div class="room-tab" data-tab="rules">Правила</div>
+                </div>
+
+                <div class="tab-content active" id="description">
+                    <p>Элегантный номер Люкс — это 40 м² комфорта и стиля. Номер состоит из просторной спальни, отдельной гостиной и современной ванной комнаты. Большие панорамные окна наполняют помещение естественным светом и открывают прекрасный вид на лесопарковую зону.</p>
+                    <p>Спальня оборудована роскошной двуспальной кроватью King-size с ортопедическим матрасом, обеспечивающим максимальный комфорт во время сна. В гостиной зоне расположены удобный диван, кресла и телевизор с плоским экраном.</p>
+                    <p>Мини-кухня оснащена всем необходимым для приготовления лёгких блюд и напитков: микроволновой печью, электрическим чайником, кофемашиной и мини-холодильником.</p>
+                    <p>В ванной комнате установлена просторная душевая кабина, размещены фен, халаты, тапочки и набор туалетных принадлежностей.</p>
+                </div>
+
+                <div class="tab-content" id="amenities">
+                    <h4>Удобства и оснащение номера</h4>
+                    <div class="amenities-list">
+                        <div class="amenity-item">
+                            <i class="fas fa-wifi"></i>
+                            <span>Бесплатный Wi-Fi</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-tv"></i>
+                            <span>Телевизор Smart TV</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-snowflake"></i>
+                            <span>Кондиционер</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-mug-hot"></i>
+                            <span>Кофемашина</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-utensils"></i>
+                            <span>Мини-кухня</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-wine-glass-alt"></i>
+                            <span>Мини-бар</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-shower"></i>
+                            <span>Душевая кабина</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-toilet"></i>
+                            <span>Туалетные принадлежности</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Халаты и тапочки</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-laptop"></i>
+                            <span>Рабочая зона</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Электронный сейф</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Телефон</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="rules">
+                    <h4>Правила проживания</h4>
+                    <ul class="rules-list">
+                        <li>Заезд с 14:00, выезд до 12:00</li>
+                        <li>Возможен ранний заезд и поздний выезд (за дополнительную плату)</li>
+                        <li>Завтрак включен в стоимость проживания</li>
+                        <li>Бесплатная отмена бронирования за 24 часа до заезда</li>
+                        <li>Проживание с домашними животными не допускается</li>
+                        <li>Курение в номере запрещено (штраф 5000 руб.)</li>
+                        <li>Для детей до 6 лет предоставляется детская кроватка бесплатно (по запросу)</li>
+                        <li>Для размещения дополнительного гостя предоставляется раскладной диван (за дополнительную плату)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма бронирования -->
+    <section id="booking" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Забронировать номер</h2>
+                <p>Заполните форму, и наш менеджер свяжется с вами в ближайшее время</p>
+            </div>
+
+            <form class="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="full-name">Имя и фамилия *</label>
+                        <input type="text" id="full-name" name="full_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-type">Тип номера *</label>
+                        <select id="room-type" name="room_type" required>
+                            <option value="">Выберите тип номера</option>
+                            <option value="standard">Стандарт</option>
+                            <option value="standard-twin">Стандарт Twin</option>
+                            <option value="comfort">Комфорт</option>
+                            <option value="studio">Студия</option>
+                            <option value="family">Семейный</option>
+                            <option value="lux">Люкс</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="check-in">Дата заезда *</label>
+                        <input type="date" id="check-in" name="check_in" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Дата выезда *</label>
+                        <input type="date" id="check-out" name="check_out" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adults">Взрослых *</label>
+                        <select id="adults" name="adults" required>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="children">Детей</label>
+                        <select id="children" name="children">
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="special-requests">Особые пожелания</label>
+                        <textarea id="special-requests" name="special_requests" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="btn btn-primary">Забронировать</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Преимущества проживания -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Преимущества проживания</h2>
+                <p>Почему гости выбирают наши номера</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Экологичность</h3>
+                    <p>Гостиница расположена в живописной лесопарковой зоне с чистым воздухом и природой вокруг.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3>Завтрак включен</h3>
+                    <p>В стоимость каждого номера включен вкусный завтрак из свежих и качественных продуктов.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Бесплатный Wi-Fi</h3>
+                    <p>Во всех номерах и общественных зонах доступен высокоскоростной беспроводной интернет.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h3>Бесплатная парковка</h3>
+                    <p>Гости могут воспользоваться бесплатной охраняемой парковкой на территории гостиницы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Футер будет заменен скриптом -->
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="../js/header-autoload.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/lazy-loading.js"></script>
+    <script src="../js/scroll-animations.js"></script>
+    <script>
+        // Функционал для вкладок
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.room-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Убираем активный класс со всех вкладок
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Добавляем активный класс выбранной вкладке
+                    this.classList.add('active');
+                    
+                    // Скрываем все контенты вкладок
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Показываем выбранный контент
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Функционал для фильтров номеров
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const roomCards = document.querySelectorAll('.room-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Убираем активный класс со всех кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Добавляем активный класс выбранной кнопке
+                    this.classList.add('active');
+                    
+                    // Получаем значение фильтра
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Фильтруем номера
+                    roomCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Галерея изображений
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const mainGalleryImage = document.querySelector('.main-gallery-image');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').getAttribute('src');
+                    mainGalleryImage.setAttribute('src', imgSrc);
+                    mainGalleryImage.classList.add('fade-in');
+                    
+                    setTimeout(() => {
+                        mainGalleryImage.classList.remove('fade-in');
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

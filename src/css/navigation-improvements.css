@@ -1,0 +1,249 @@
+/**
+ * Улучшенные стили для навигации сайта "Лесной дворик"
+ */
+
+/* Основное меню */
+.main-menu {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Контейнер списка меню */
+.menu-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+/* Пункты меню */
+.menu-item {
+    position: relative;
+}
+
+/* Ссылки меню */
+.menu-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.menu-link:hover {
+    color: #6e9c5e;
+}
+
+/* Активная страница */
+.menu-link.active {
+    color: #6e9c5e;
+    position: relative;
+}
+
+.menu-link.active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #6e9c5e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.menu-link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #6e9c5e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
+}
+
+.menu-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Стрелка для выпадающего меню */
+.menu-link .dropdown-arrow {
+    display: inline-block;
+    margin-left: 0.5rem;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    position: relative;
+    top: -2px;
+}
+
+.dropdown.active .dropdown-arrow {
+    transform: rotate(-135deg);
+}
+
+/* Выпадающее меню */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 200;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(110, 156, 94, 0.1);
+    color: #6e9c5e;
+}
+
+/* Мобильное меню */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 300;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Оверлей для мобильного меню */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Состояние body при открытом мобильном меню */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Адаптив */
+@media (max-width: 991px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .menu-list {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: white;
+        padding: 100px 2rem 2rem;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        z-index: 200;
+        gap: 1rem;
+    }
+    
+    .menu-list.active {
+        right: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-item {
+        width: 100%;
+    }
+    
+    .menu-link {
+        padding: 0.75rem 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin-left: 1rem;
+        transition: max-height 0.3s ease;
+    }
+    
+    .dropdown.active .dropdown-content {
+        max-height: 300px; /* Примерная высота, которая будет анимирована */
+        padding: 0.5rem 0;
+    }
+} 

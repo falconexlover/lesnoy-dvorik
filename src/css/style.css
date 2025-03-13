@@ -1,58 +1,325 @@
 /* Основные стили для сайта гостиницы "Лесной дворик" */
 
 :root {
-    /* Основные цвета */
-    --primary-color: #217148; /* Основной зеленый цвет */
-    --primary-dark: #185a39; /* Темно-зеленый для ховера */
-    --primary-light: #C8E6C9; /* Светло-зеленый для фона */
+    /* Основные цвета - более природные и гармоничные */
+    --primary-color: #2a6e4a;
+    --primary-color-rgb: 42, 110, 74;
+    --primary-light: #3c8c63;
+    --primary-light-rgb: 60, 140, 99;
+    --primary-dark: #1e5035;
+    --primary-dark-rgb: 30, 80, 53;
+    --accent-color: #d19420; /* Более глубокий золотисто-коричневый */
+    --accent-color-rgb: 209, 148, 32;
+    --accent-light: #e6a82e; /* Перемещаем старый основной акцент сюда */
+    --accent-light-rgb: 230, 168, 46;
+    --accent-dark: #b37818; /* Более темный коричневый */
+    --accent-dark-rgb: 179, 120, 24;
     
-    /* Акцентный цвет */
-    --accent-color: #FF9800; /* Оранжевый */
-    --accent-dark: #F57C00; /* Темно-оранжевый для ховера */
-    --accent-light: #FFE0B2; /* Светло-оранжевый для фона */
+    /* Дополнительные акцентные цвета для декоративных элементов */
+    --terracotta: #c75f3e; /* Терракотовый для дополнительных акцентов */
+    --terracotta-rgb: 199, 95, 62;
+    --sage-green: #aebea3; /* Шалфейный зеленый для светлых элементов */
+    --sage-green-rgb: 174, 190, 163;
     
-    /* Нейтральные цвета */
-    --text-color: #333333;
-    --text-light: #666666;
-    --background-color: #FFFFFF;
-    --background-light: #F5F5F5;
-    --border-color: #E0E0E0;
+    /* Текстовые цвета - более мягкие и природные */
+    --text-dark: #2c2c2c;
+    --text-medium: #4d4d4d; /* Более темный для лучшей читаемости */
+    --text-light: #767676; /* Более темный для доступности */
     
-    /* Служебные цвета */
-    --success-color: #4CAF50;
-    --error-color: #F44336;
-    --warning-color: #FFC107;
-    --info-color: #2196F3;
+    /* Цвета фона - более теплые природные оттенки */
+    --bg-light: #f9f7f4; /* Кремовый оттенок белого */
+    --bg-medium: #f0ece6; /* Светло-бежевый */
+    --bg-dark: #e5e1d8;   /* Бежево-серый */
     
-    /* Тени */
-    --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
-    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
-    --shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* Состояния и обратная связь */
+    --success-color: #3d9c50;
+    --warning-color: #f0a030;
+    --error-color: #c75f3e; /* Терракотовый вместо красного */
+    --info-color: #5284b0; /* Приглушенный синий */
+    
+    /* Тени - более мягкие для природного вида */
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
     
     /* Анимации */
-    --transition-fast: 0.3s ease;
-    --transition-medium: 0.5s ease;
-    --transition-slow: 0.8s ease;
-    
-    /* Переменные для адаптивности */
-    --container-width: 1200px;
-    --container-padding: 20px;
-    --grid-gap: 20px;
-    --header-height: 80px;
-    --header-height-mobile: 60px;
-    --section-padding: 60px;
-    --section-padding-mobile: 40px;
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Типографика */
-    --font-primary: 'Roboto', Arial, sans-serif;
-    --font-secondary: 'Playfair Display', serif;
-    --font-size-base: 16px;
-    --font-size-small: 14px;
-    --font-size-large: 18px;
-    --font-size-xlarge: 20px;
-    --font-size-title: 24px;
-    --font-size-heading: 36px;
-    --font-size-hero: 48px;
+    --font-family-base: 'Montserrat', sans-serif;
+    --font-family-heading: 'Playfair Display', serif;
+    --font-size-xs: 0.75rem;    /* 12px */
+    --font-size-sm: 0.875rem;   /* 14px */
+    --font-size-md: 1rem;       /* 16px */
+    --font-size-lg: 1.125rem;   /* 18px */
+    --font-size-xl: 1.25rem;    /* 20px */
+    --font-size-2xl: 1.5rem;    /* 24px */
+    --font-size-3xl: 1.875rem;  /* 30px */
+    --font-size-4xl: 2.25rem;   /* 36px */
+    --font-size-5xl: 3rem;      /* 48px */
+    
+    /* Радиусы */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1.25rem;
+    --radius-full: 9999px;
+    
+    /* Сетка и отступы */
+    --container-padding: 1.5rem;
+    --section-spacing: 6rem;
+    --grid-gap: 2rem;
+    
+    /* Z-индексы */
+    --z-below: -1;
+    --z-normal: 1;
+    --z-above: 10;
+    --z-modal: 100;
+    --z-tooltip: 200;
+    --z-max: 999;
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Темные текстовые цвета */
+        --text-dark: #f0f0f0;
+        --text-medium: #c0c0c0;
+        --text-light: #909090;
+        
+        /* Темные цвета фона */
+        --bg-light: #2a2a2a;
+        --bg-medium: #222222;
+        --bg-dark: #181818;
+        --dark-bg: #121212;
+        
+        /* Акцентные цвета в темной теме */
+        --primary-color: #3c8c63;
+        --primary-light: #4ea87a;
+        --primary-dark: #2a6e4a;
+        --accent-color: #f0bc5c;
+        --accent-light: #f5ca7a;
+        --accent-dark: #d19420;
+    }
+}
+
+/* Импорт шрифтов и базовых сбросов */
+@import 'base/reset.css';
+@import 'base/typography.css';
+@import 'base/animations.css';
+
+/* Импорт компонентов */
+@import 'components/buttons.css';
+@import 'components/forms.css';
+@import 'components/cards.css';
+@import 'components/navigation.css';
+@import 'components/modal.css';
+@import 'components/bento-grid.css';
+@import 'components/icons.css';
+
+/* Импорт разделов */
+@import 'sections/header.css';
+@import 'sections/hero.css';
+@import 'sections/footer.css';
+@import 'sections/about.css';
+@import 'sections/rooms.css';
+@import 'sections/services.css';
+@import 'sections/testimonials.css';
+@import 'sections/contact.css';
+@import 'sections/booking.css';
+
+/* Импорт утилит */
+@import 'utils/spacing.css';
+@import 'utils/display.css';
+@import 'utils/flexbox.css';
+@import 'utils/grid.css';
+@import 'utils/text.css';
+
+/* Базовые стили */
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-md);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--dark-bg);
+    }
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.section {
+    padding: var(--section-spacing) 0;
+}
+
+.section-sm {
+    padding: calc(var(--section-spacing) / 2) 0;
+}
+
+.section-lg {
+    padding: calc(var(--section-spacing) * 1.5) 0;
+}
+
+/* Отзывчивая компоновка */
+@media (max-width: 1200px) {
+    :root {
+        --container-padding: 1.25rem;
+        --section-spacing: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --section-spacing: 3.5rem;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --container-padding: 1rem;
+        --section-spacing: 3rem;
+        --grid-gap: 1.5rem;
+        
+        --font-size-4xl: 2rem;
+        --font-size-3xl: 1.75rem;
+        --font-size-2xl: 1.375rem;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --section-spacing: 2.5rem;
+        --grid-gap: 1rem;
+    }
+}
+
+/* Доступность */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: var(--z-max);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Изображения с lazy loading */
+.lazy-img {
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.lazy-img.loaded {
+    opacity: 1;
+}
+
+/* Установка печати */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* Современный лейаут с bento grid для главных секций */
+.modern-layout {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--grid-gap);
+    margin: 3rem 0;
+}
+
+.hero-wrapper {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('../assets/images/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+}
+
+.hero-content {
+    position: relative;
+    z-index: var(--z-above);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    .glass-card {
+        background: rgba(18, 18, 18, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 }
 
 /* Сброс стилей */
@@ -63,41 +330,26 @@
 }
 
 body {
-    font-family: var(--font-primary);
-    color: var(--text-color);
+    font-family: var(--font-family-base);
+    color: var(--text-dark);
     line-height: 1.6;
-    background-color: var(--background-color);
-    font-size: var(--font-size-base);
-}
-
-a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: color var(--transition-fast);
-}
-
-a:hover {
-    color: var(--primary-dark);
+    background-color: var(--bg-light);
+    font-size: var(--font-size-md);
 }
 
 ul {
     list-style: none;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+/* Стили для выпадающих списков */
+select {
+    color: var(--text-dark);
+    background-color: var(--bg-light);
 }
 
-/* Ленивая загрузка изображений */
-.lazy-image {
-    opacity: 0;
-    transition: opacity var(--transition-medium);
-    background-color: var(--background-light);
-}
-
-.lazy-image.loaded {
-    opacity: 1;
+select option {
+    color: var(--text-dark);
+    background-color: var(--bg-light);
 }
 
 /* Лайтбокс */
@@ -132,7 +384,7 @@ img {
     max-width: 100%;
     max-height: 90vh;
     border-radius: 4px;
-    box-shadow: var(--shadow-dark);
+    box-shadow: var(--shadow-lg);
     opacity: 1;
     transition: opacity var(--transition-fast);
 }
@@ -201,7 +453,7 @@ img {
 
 .section-title h2 {
     font-size: 36px;
-    color: var(--text-color);
+    color: var(--text-dark);
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
@@ -219,32 +471,40 @@ img {
 }
 
 .section-title p {
-    color: var(--text-light);
+    color: var(--text-medium);
     max-width: 700px;
     margin: 0 auto;
 }
 
 /* Кнопки */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    line-height: 1.5;
     text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-normal);
     border: none;
     outline: none;
+    white-space: nowrap;
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: white;
+    box-shadow: 0 4px 10px rgba(var(--primary-color-rgb), 0.2);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(var(--primary-color-rgb), 0.3);
 }
 
 .btn-secondary {
@@ -253,8 +513,8 @@ img {
 }
 
 .btn-secondary:hover {
-    background-color: #F57C00;
-    box-shadow: var(--shadow-medium);
+    background-color: var(--accent-dark);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
@@ -272,7 +532,7 @@ img {
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity var(--transition-medium), transform var(--transition-medium);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
 }
 
 .animate-on-scroll.animated {
@@ -282,7 +542,7 @@ img {
 
 .fade-in {
     opacity: 0;
-    transition: opacity var(--transition-medium);
+    transition: opacity var(--transition-normal);
 }
 
 .fade-in.visible {
@@ -297,12 +557,12 @@ header {
     width: 100%;
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-sm);
     transition: all var(--transition-fast);
 }
 
 header.scrolled {
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-md);
 }
 
 .header-container {
@@ -331,7 +591,7 @@ header.scrolled {
 }
 
 .main-menu a {
-    color: var(--text-color);
+    color: var(--text-dark);
     font-weight: 500;
     padding: 10px 0;
     display: inline-flex;
@@ -344,28 +604,45 @@ header.scrolled {
     color: var(--primary-color);
 }
 
+/* Улучшенные стили для выпадающего меню */
+.dropdown {
+    position: relative;
+}
+
+.dropdown > a {
+    position: relative;
+    padding-right: 20px !important;
+}
+
+.dropdown > a::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.dropdown.active > a::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
 .dropdown-content {
     position: absolute;
     top: 100%;
     left: 0;
+    min-width: 220px;
     background-color: white;
-    min-width: 200px;
-    box-shadow: var(--shadow-medium);
-    border-radius: 4px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: all var(--transition-fast);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    padding: 12px 15px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dropdown-content a:hover {
-    background-color: var(--background-light);
+    transition: all 0.3s ease;
+    z-index: 10;
+    overflow: hidden;
 }
 
 .dropdown:hover .dropdown-content {
@@ -374,26 +651,71 @@ header.scrolled {
     transform: translateY(0);
 }
 
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10;
+.dropdown-content a {
+    padding: 12px 15px;
+    display: block;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--bg-dark);
+    position: relative;
+    padding-left: 15px;
 }
 
-.mobile-menu-toggle span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: var(--text-color);
-    border-radius: 3px;
-    transition: all var(--transition-fast);
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(58, 140, 95, 0.08);
+    padding-left: 20px;
+}
+
+.dropdown-content a:hover::before {
+    transform: scaleY(1);
+}
+
+/* Адаптивность для выпадающего меню */
+@media (max-width: 992px) {
+    .dropdown-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background-color: var(--bg-light);
+        border-radius: 0;
+        margin-left: 15px;
+        min-width: auto;
+    }
+    
+    .dropdown.active .dropdown-content {
+        max-height: 500px;
+    }
+    
+    .dropdown-content a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .dropdown-content a:hover {
+        padding-left: 20px;
+    }
 }
 
 /* Баннер страницы */
@@ -443,7 +765,7 @@ header.scrolled {
 .hero {
     height: 100vh;
     min-height: 600px;
-    background-image: url('../assets/images/hero-bg.jpg');
+    background-image: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
     background-size: cover;
     background-position: center;
     display: flex;
@@ -458,27 +780,42 @@ header.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.hero-content {
+.hero .container {
     position: relative;
     z-index: 1;
     color: white;
     max-width: 800px;
     padding: 0 20px;
+    text-align: center;
 }
 
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: white;
 }
 
 .hero p {
     font-size: 20px;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.hero .btn {
+    margin: 0 10px 10px 0;
+    min-width: 200px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 /* О нас */
@@ -526,13 +863,13 @@ header.scrolled {
 
 .about-image img {
     border-radius: 8px;
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-md);
 }
 
 /* Услуги */
 .services-section {
     padding: 80px 0;
-    background-color: var(--background-light);
+    background-color: var(--bg-light);
 }
 
 .services-grid {
@@ -545,13 +882,13 @@ header.scrolled {
     background-color: white;
     border-radius: 8px;
     padding: 30px;
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-sm);
     transition: all var(--transition-fast);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-md);
 }
 
 .service-icon {
@@ -563,11 +900,11 @@ header.scrolled {
 .service-card h3 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: var(--text-color);
+    color: var(--text-dark);
 }
 
 .service-card p {
-    color: var(--text-light);
+    color: var(--text-medium);
     margin-bottom: 15px;
 }
 
@@ -593,7 +930,7 @@ header.scrolled {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    transition: transform var(--transition-medium);
+    transition: transform var(--transition-normal);
 }
 
 .gallery-item:hover img {
@@ -603,14 +940,14 @@ header.scrolled {
 /* Бронирование */
 .booking-section {
     padding: 80px 0;
-    background-color: var(--background-light);
+    background-color: var(--bg-light);
 }
 
 .booking-form {
     background-color: white;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-md);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -630,14 +967,14 @@ header.scrolled {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--text-dark);
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--bg-dark);
     border-radius: 4px;
     font-size: 16px;
     transition: border-color var(--transition-fast);
@@ -653,7 +990,7 @@ header.scrolled {
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--bg-dark);
     border-radius: 4px;
     height: 120px;
     resize: vertical;
@@ -701,11 +1038,11 @@ header.scrolled {
 .contact-text h3 {
     font-size: 20px;
     margin-bottom: 5px;
-    color: var(--text-color);
+    color: var(--text-dark);
 }
 
 .contact-text p {
-    color: var(--text-light);
+    color: var(--text-medium);
 }
 
 .social-links {
@@ -839,7 +1176,7 @@ footer {
 /* Медиа-запросы */
 @media (max-width: 992px) {
     :root {
-        --section-padding: 50px;
+        --section-spacing: 3.5rem;
     }
     
     .about-content {
@@ -868,8 +1205,8 @@ footer {
 
 @media (max-width: 768px) {
     :root {
-        --section-padding: 40px;
-        --container-padding: 15px;
+        --section-spacing: 3rem;
+        --container-padding: 1rem;
     }
     
     .header-container {
@@ -882,13 +1219,13 @@ footer {
         left: 0;
         width: 100%;
         height: calc(100vh - var(--header-height-mobile));
-        background-color: var(--background-color);
+        background-color: var(--bg-light);
         padding: 20px;
         transform: translateX(-100%);
-        transition: transform var(--transition-medium);
+        transition: transform var(--transition-normal);
         overflow-y: auto;
         z-index: 100;
-        box-shadow: var(--shadow-medium);
+        box-shadow: var(--shadow-md);
         display: block;
     }
     
@@ -908,7 +1245,7 @@ footer {
     .main-menu a {
         padding: 15px 0;
         font-size: 18px;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--bg-dark);
         display: block;
     }
     
@@ -918,7 +1255,7 @@ footer {
         padding-left: 20px;
         max-height: 0;
         overflow: hidden;
-        transition: max-height var(--transition-medium);
+        transition: max-height var(--transition-normal);
         opacity: 1;
         visibility: visible;
         transform: none;
@@ -936,12 +1273,26 @@ footer {
         display: none;
     }
     
+    .hero {
+        min-height: 500px;
+        padding: 60px 0;
+    }
+    
     .hero h1 {
         font-size: 28px;
     }
     
     .hero p {
         font-size: 16px;
+    }
+    
+    .hero .btn {
+        min-width: auto;
+        margin: 0;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
     }
     
     .form-row {
@@ -1006,7 +1357,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: var(--shadow-dark);
+        box-shadow: var(--shadow-lg);
         transition: all var(--transition-fast);
     }
     
@@ -1051,11 +1402,17 @@ footer {
     }
     
     .hero {
-        padding: 60px 0;
+        min-height: 400px;
+        padding: 40px 0;
     }
     
     .hero h1 {
         font-size: 24px;
+    }
+    
+    .hero p {
+        font-size: 14px;
+        margin-bottom: 20px;
     }
     
     .about-section h2,
@@ -1104,14 +1461,35 @@ footer {
 /* Поддержка темного режима системы */
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-color: #f5f5f5;
-        --text-light: #bcbcbc;
+        /* Инвертируем переменные светлости для темного режима */
+        --l-0: 100%;
+        --l-10: 90%;
+        --l-20: 80%;
+        --l-30: 70%;
+        --l-40: 60%;
+        --l-50: 50%;
+        --l-60: 40%;
+        --l-70: 30%;
+        --l-80: 20%;
+        --l-90: 10%;
+        --l-95: 5%;
+        --l-100: 0%;
+        
+        /* Обновляем основные цвета для темного режима */
+        --text-color: #ffffff;
+        --text-light: #cccccc;
         --background-color: #121212;
         --background-light: #1e1e1e;
         --border-color: #333333;
-        --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.2);
-        --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.3);
-        --shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.4);
+        
+        /* Улучшенные тени для темного режима */
+        --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.5);
+        --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.6);
+        --shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.7);
+        
+        /* Более светлые оттенки для лучшей видимости */
+        --primary-light: #8fcea0;
+        --accent-light: #ffd180;
     }
     
     body {
@@ -1125,6 +1503,25 @@ footer {
     .modal-content,
     .dropdown-content {
         background-color: var(--background-light);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Улучшения для выпадающего меню в темном режиме */
+    .dropdown-content {
+        border: 1px solid var(--border-color);
+    }
+    
+    .dropdown-content a {
+        color: var(--text-color);
+        border-bottom-color: var(--border-color);
+    }
+    
+    .dropdown-content a:hover {
+        background-color: rgba(33, 113, 72, 0.15);
+    }
+    
+    .dropdown > a::after {
+        color: var(--text-light);
     }
     
     /* Инвертирование цветов для иконок */
@@ -1144,8 +1541,48 @@ footer {
         border-color: var(--border-color);
     }
     
+    /* Исправление для выпадающих списков в темном режиме */
+    select option {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
     input:focus, textarea:focus, select:focus {
         border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(33, 113, 72, 0.3);
+    }
+    
+    /* Улучшение контрастности ссылок */
+    a {
+        color: var(--primary-light);
+    }
+    
+    a:hover {
+        color: var(--accent-light);
+    }
+    
+    /* Улучшение контрастности кнопок */
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .btn-secondary {
+        background-color: var(--accent-color);
+        color: black;
+    }
+    
+    /* Улучшение секции hero для темного режима */
+    .hero {
+        background-image: linear-gradient(135deg, #0a2a1e, #164430);
+    }
+    
+    .hero::before {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .hero h1, .hero p {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     }
 }
 
